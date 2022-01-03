@@ -1,6 +1,5 @@
 import "../css/main.css"
 
-import printMe, { changeText } from "./print"
+import printMe from "./print"
 
 printMe()
-changeText()

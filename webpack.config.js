@@ -3,13 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 
+
+
 module.exports = {
     entry: "./src/assets/js/index.js",
     mode: "development",
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, "dist"),
-        clean: true,
+        clean: {
+            keep: /images\//, // Keep these assets under 'ignored/dir'.
+        },
     },
     devtool: 'inline-source-map',
     module: {
@@ -53,9 +57,6 @@ module.exports = {
                 ], 
             },
         ],
-    },
-    resolve: {
-        roots: [path.resolve(__dirname, "fixtures")],
     },
     plugins: [
         new HtmlWebpackPlugin({

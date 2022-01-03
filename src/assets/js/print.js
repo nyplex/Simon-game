@@ -3,5 +3,5 @@ export default function printMe() {
 }
 
 export let changeText = () => {
-  $("#myText").text("Je suis")
+  $("#myText").text("Hello world")
 }

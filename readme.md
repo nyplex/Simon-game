@@ -1,0 +1,1 @@
+<img src="<%= require("./assets/media/images/logo.svg") %>" alt="">

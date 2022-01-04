@@ -10,3 +10,7 @@
         @apply text-green-600 font-bold text-2xl;
     }
 }
+
+body {
+    background-image: url("../src/assets/media/images/background.svg");
+}

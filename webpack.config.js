@@ -24,12 +24,12 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                          publicPath: path.resolve(__dirname, '../dist/css/')
+                          publicPath: "./"
                         }
                     },
                       {
                         loader: 'css-loader',
-                        options: {importLoaders: 1},
+                        options: {importLoaders: 2, url: false},
                     },
                       {
                         loader: 'postcss-loader',

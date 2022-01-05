@@ -3,9 +3,32 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Mont: ["Montserrat", "sans-serif"],
+        IBM: ["IBM Plex Sans", "sans-serif"],
+        OPS: ["Black Ops One", "cursive"]
       },
+      colors: {
+        transparent: "transparent",
+        errors: "#E63946",
+        light: "#F1FAEE",
+        secondary: "#A8DADC",
+        primary: "#1D3557",
+        text: "#323232",
+        secondaryVariant: "#457B9D",
+        simonRed: "#C30000",
+        simonBlue: "#0097AC",
+        SimonYellow: "#FFD600",
+        SimonOrange: "#FF8A00",
+        SImonPink: "#D8008E"
+      }
     },
+    screens: {
+      "mobile": "445px",
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px",
+    }
   },
   plugins: [],
 }

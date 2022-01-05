@@ -1,26 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Simon 2.0</title>
-<script defer src="main.aca93f160cbb19d8bf6e.js"></script><link href="main.3bddcb7a92adb175f1ae.css" rel="stylesheet"></head>
+<script defer src="main.aca93f160cbb19d8bf6e.js"></script><link href="main.33529c986a090137d09c.css" rel="stylesheet"></head>
+
 <body class="max-h-[100vh]">
     <!-- Setup Game Modal -->
-    <div class="w-[100vw] h-[100vh] bg-black opacity-80 absolute z-10 top-0 "></div>
-    <div class="z-50 bg-[transparent] w-[100vw] h-[100vh] absolute">
-        <div class="absolute-align w-[90%] max-w-screen-sm bg-red-400 rounded-lg shadow-md shadow-purple-400 p-4">
-            <div class="flex items-center justify-between">
-                <h1 class="font-bold text-6xl text-white font-Mont text-center">Simon</h1>
-                <div class="flex text-white text-2xl font-bold font-Mont text-center">
-                    <h6 class="mr-2 p-2 border-solid border-2 border-white rounded-full">EN</h6>
-                    <h6 class="ml-2 p-2 border-solid border-2 border-white rounded-full">FR</h6>
+    <div class="w-[100vw] h-[100vh]  absolute z-10 top-0 modal-bg"></div>
+    <div class="absolute-align w-full mobile:w-[90%] mobile:max-w-screen-sm p-4 mobile:p-8 bg-white mobile:rounded-lg  mobile:shadow-sm mobile:shadow-white z-10 h-[100%] mobile:h-auto overflow-scroll mobile:overflow-auto">
+        <img class="w-[30%] absolute top-0 left-0" src="images/34ffbc3e550ab2332b1c7dbc146c845c.svg" alt="">
+        <div class="flex justify-between items-center">
+            <h1 class="font-OPS text-primary text-4xl">SIMON</h1>
+            <div class="flex justify-end">
+                <img class="w-[30px] hover:cursor-pointer brightness-75 hover:brightness-100"
+                    src="images/ad798a9fa458d62f8d4077df3fb373d6.svg" alt="">
+                <img class="w-[30px] ml-2 hover:cursor-pointer brightness-75 hover:brightness-100"
+                    src="images/fed6e96e4cba7bcca722bd974d91c540.svg" alt="">
+            </div>
+        </div>
+        <div class="mx-auto mt-8 font-IBM text-text">
+            <h1 class="text-4xl font-extrabold text-center  mb-4">Welcome,</h1>
+            <p class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto">
+                First time player ? Don’t remeber how to play? Take few minutes to read the rules.
+            </p>
+            <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
+                <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Theme:</h2>
+                <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
+                    <button class="active-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-volume-down mr-2"></i>FX1</button>
+                    <button class="primary-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-volume-down mr-2"></i>FX2</button>
+                    <button class="primary-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-volume-down mr-2"></i>FX3</button>
                 </div>
             </div>
+            <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
+                <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Mode:</h2>
+                <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
+                    <button class="active-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-user mr-2"></i>Single Player</button>
+                    <button class="primary-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-users mr-2"></i>Multiplayers</button>
+                </div>
+            </div>
+            <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
+                <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Level:</h2>
+                <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
+                    <button class="font-IBM p-1 text-light rounded-full hover:bg-[#35619f] w-[45px] h-[45px] hover:text-text bg-primary font-bold text-sm m-auto">AUTO</button>
+                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-green-600 text-lg font-bold">1</button>
+                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-yellow-600 text-lg font-bold">2</button>
+                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-orange-600 text-lg font-bold">3</button>
+                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-red-600 text-lg font-bold">4</button>
+                </div>
+            </div>
+            <button class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700">PLAY SIMON</button>
         </div>
     </div>
     <!-- End Setup Game Modal -->
 </body>
-</html>
 
+</html>

@@ -1,5 +1,5 @@
 import "../css/main.css"
 
-import printMe from "./print"
-
-printMe()
+$("#pie").on("click", (e) => {
+    console.log(e.target.id);
+})

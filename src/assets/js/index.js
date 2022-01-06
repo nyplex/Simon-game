@@ -1,5 +1,6 @@
 import "../css/main.css"
+import { displayMenu } from "./display"
+import { translate } from "./translate"
 
-$("#pie").on("click", (e) => {
-    console.log(e.target.id);
-})
+displayMenu()
+translate()

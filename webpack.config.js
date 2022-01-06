@@ -1,7 +1,12 @@
 const path = require("path")
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
+
+const files = {
+    setup: fs.readFileSync('./src/comp/setup.html', { encoding: 'utf-8' }),
+  };
 
 
 
@@ -61,7 +66,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
           title: 'Caching',
-          template: "./src/template.html"
+          template: "./src/template.html",
+          templateParameters: {
+            files
+          }
         }),
         new MiniCssExtractPlugin({
             filename: "[name].[contenthash].css",

@@ -25,10 +25,12 @@
             </div>
         </div>
         <div class="mx-auto mt-8 font-IBM text-text">
-            <h1 class="text-4xl font-extrabold text-center  mb-4">Welcome,</h1>
+            <h1 class="text-4xl font-extrabold text-center  mb-4">Welcome</h1>
             <p class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto">
-                First time player ? Don’t remeber how to play? Take few minutes to read the rules.
+                First-time player ? Don’t remember how to play? Take a few minutes to read the rules.
             </p>
+            <button class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i>RULES</button>
+            <hr class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full">
             <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
                 <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Theme:</h2>
                 <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
@@ -47,14 +49,16 @@
             <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
                 <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Level:</h2>
                 <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
-                    <button class="font-IBM p-1 text-light rounded-full hover:bg-[#35619f] w-[45px] h-[45px] hover:text-text bg-primary font-bold text-sm m-auto">AUTO</button>
-                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-green-600 text-lg font-bold">1</button>
-                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-yellow-600 text-lg font-bold">2</button>
-                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-orange-600 text-lg font-bold">3</button>
-                    <button class="font-IBM p-1 text-light m-auto w-[45px] h-[45px] rounded-full hover:bg-green-500 hover:text-text bg-red-600 text-lg font-bold">4</button>
+
+
+                    <button class="bg-secondaryVariant hover:bg-secondary hover:text-text mobile:p-1 mobile:text-sm text-lg level-button">AUTO</button>
+                    <button class="bg-primary level-button">1</button>
+                    <button class="hover:bg-yellow-500 hover:text-text bg-yellow-600 level-button">2</button>
+                    <button class="hover:bg-orange-500 hover:text-text bg-orange-600 level-button">3</button>
+                    <button class="hover:bg-red-500 hover:text-text bg-red-600 level-button">4</button>
                 </div>
             </div>
-            <button class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700">PLAY SIMON</button>
+            <button class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">PLAY SIMON</h1></button>
         </div>
     </div>
     <!-- End Setup Game Modal -->

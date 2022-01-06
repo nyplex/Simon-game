@@ -18,14 +18,18 @@
 
 @layer components {
     .primary-button {
-        @apply bg-secondaryVariant font-IBM px-2 py-1 text-light font-bold rounded-lg hover:bg-secondary hover:text-text;
+        @apply bg-secondaryVariant font-IBM p-2 text-light font-bold rounded-lg hover:bg-secondary hover:text-text;
     }
     .active-button {
-        @apply bg-primary font-IBM px-2 py-1 text-light font-bold rounded-lg;
+        @apply bg-primary font-IBM p-2 text-light font-bold rounded-lg;
     }
 
     .flag-icon {
         @apply w-[30px] hover:cursor-pointer brightness-75 hover:brightness-100;
+    }
+
+    .level-button {
+        @apply font-IBM p-2 text-light m-auto mobile:rounded-full rounded-lg mobile:w-[45px] w-[70%] h-[auto] mobile:h-[45px] text-lg font-bold;
     }
 }
 

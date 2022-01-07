@@ -32,7 +32,7 @@
             <button id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
             <hr class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full bg-text">
             <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
-                <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Theme:</h2>
+                <h2 id="themeText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Theme:</h2>
                 <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
                     <button class="active-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-volume-down mr-2"></i>FX1</button>
                     <button class="primary-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-volume-down mr-2"></i>FX2</button>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
-                <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Players:</h2>
+                <h2 id="playersText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-4">Select Players:</h2>
                 <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
                     <button class="active-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-user mr-2"></i>1 Player</button>
                     <button class="primary-button mobile:w-auto w-[70%] m-auto"><i class="fas fa-users mr-2"></i>2 Players</button>
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
-                <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Mode:</h2>
+                <h2 id="modeText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Mode:</h2>
                 <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
                     <button class="active-button mobile:w-auto w-[70%] m-auto">Mode 1</button>
                     <button class="primary-button mobile:w-auto w-[70%] m-auto">Mode 2</button>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="flex items-center mt-8 justify-between flex-col mobile:flex-row">
-                <h2 class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Level:</h2>
+                <h2 id="levelText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Level:</h2>
                 <div class="flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%]">
                     <button class="bg-secondaryVariant hover:bg-secondary hover:text-text mobile:p-1 mobile:text-sm text-lg level-button">AUTO</button>
                     <button class="bg-primary level-button">1</button>
@@ -77,22 +77,22 @@
         <div class="flex justify-between items-center">
             <h1 class="font-OPS text-primary text-4xl">SIMON</h1>
             <div class="flex justify-end">
-                <img class="w-[30px] hover:cursor-pointer brightness-75 hover:brightness-100"
+                <img data-flag="en" class="w-[30px] hover:cursor-pointer brightness-75 hover:brightness-100"
                     src="<%= require("./assets/media/images/englishFlag.svg") %>" alt="">
-                <img class="w-[30px] ml-2 hover:cursor-pointer brightness-75 hover:brightness-100"
+                <img data-flag="fr" class="w-[30px] ml-2 hover:cursor-pointer brightness-75 hover:brightness-100"
                     src="<%= require("./assets/media/images/frenchFlag.svg") %>" alt="">
             </div>
         </div>
         <div class="mx-auto mt-8 font-IBM text-text">
             <h1 class="text-4xl font-medium text-center  mb-8 font-OPS">THE RULES</h1>
-            <h3 class="font-IBM text-2xl font-bold text-white text-center mb-4 w-[90%] mobile:w-[70%] bg-secondaryVariant p-4 mx-auto rounded-lg">Mode 1 <span class="font-medium">(1 or more players)</span></h3>
-            <h6 class="font-IBM text-lg text-text font-bold mb-4">Single Players</h6>
-            <ul class="list-disc w-[90%] mx-auto mb-4 font-medium">
+            <h3 id="mode1Text" class="font-IBM text-2xl font-bold text-white text-center mb-4 w-[90%] mobile:w-[70%] bg-secondaryVariant p-4 mx-auto rounded-lg">Mode 1 <span class="font-medium">(1 or more players)</span></h3>
+            <h6 data-rulesPlayers="1" class="font-IBM text-lg text-text font-bold mb-4">Single Players</h6>
+            <ul id="mode1SingleRules" class="list-disc w-[90%] mx-auto mb-4 font-medium">
                 <li>
                     When the game starts, Simon will give you the first signal. Repeat the signal by pressing the same color.
                 </li>
                 <li>
-                    When the game starts, Simon will give you the first signal. Repeat the signal by pressing the same color.
+                    Simon will duplicate the first signal and add one. Repeat these two signals by pressing the same color lenses, in order.
                 </li>
                 <li>
                     Simon will duplicate these first two signals and add one.
@@ -105,8 +105,8 @@
                 </li>
             </ul>
             </p>
-            <h6 class="font-IBM text-lg text-text font-bold mb-4">2 or more Players</h6>
-            <ul class="list-disc w-[90%] mx-auto mb-4">
+            <h6 data-rulesPlayers="2+" class="font-IBM text-lg text-text font-bold mb-4">2 or more Players</h6>
+            <ul id="mode1MultiRules" class="list-disc w-[90%] mx-auto mb-4">
                 <li>
                     Decide who goes first
                 </li>
@@ -114,8 +114,8 @@
                     Play as described above excpet players take turns repeating Simon's signal
                 </li>
             </ul>
-            <h3 class="font-IBM text-2xl font-bold text-white text-center mb-4 w-[90%] mobile:w-[70%] bg-secondaryVariant p-4 mx-auto rounded-lg">Mode 2 <span class="font-medium">(1 or more players)</span></h3>
-            <h6 class="font-IBM text-lg text-text font-bold mb-4">Single Players</h6>
+            <h3 id="Mode2Text" class="font-IBM text-2xl font-bold text-white text-center mb-4 w-[90%] mobile:w-[70%] bg-secondaryVariant p-4 mx-auto rounded-lg">Mode 2 <span class="font-medium">(1 or more players)</span></h3>
+            <h6 data-rulesPlayers="1" class="font-IBM text-lg text-text font-bold mb-4">Single Players</h6>
             <ul class="list-disc w-[90%] mx-auto mb-4 font-medium">
                 <li>
                     When the game starts, Simon will give only the first signal.
@@ -133,7 +133,7 @@
                     If you make an error or take more than 5 seconds (10 seconds from level 4) to play a signal you will hear the "BUZZZZ" sound. This means the game is over.
                 </li>
             </ul>
-            <h6 class="font-IBM text-lg text-text font-bold mb-4">2 or more players</h6>
+            <h6 data-rulesPlayers="2+" class="font-IBM text-lg text-text font-bold mb-4">2 or more players</h6>
             <ul class="list-disc w-[90%] mx-auto mb-4 font-medium">
                 <li>
                     Follow step 1 above.
@@ -154,8 +154,8 @@
                     The last player left in the game wins!
                 </li>
             </ul>
-            <h3 class="font-IBM text-2xl font-bold text-white text-center mb-4 w-[90%] mobile:w-[70%] bg-secondaryVariant p-4 mx-auto rounded-lg">Mode 3 <span class="font-medium">(2 or more players)</span></h3>
-            <h6 class="font-IBM text-lg text-text font-bold mb-4">4 Players</h6>
+            <h3 id="mode3Text" class="font-IBM text-2xl font-bold text-white text-center mb-4 w-[90%] mobile:w-[70%] bg-secondaryVariant p-4 mx-auto rounded-lg">Mode 3 <span class="font-medium">(2 or more players)</span></h3>
+            <h6 data-rulesPlayers="4" class="font-IBM text-lg text-text font-bold mb-4">4 Players</h6>
             <ul class="list-disc w-[90%] mx-auto mb-4 font-medium">
                 <li>
                     Each players choose one color and will only press that color in the game.
@@ -179,7 +179,7 @@
                     The last player in the game is the Winner!
                 </li>
             </ul>
-            <h6 class="font-IBM text-lg text-text font-bold mb-4">3 Players</h6>
+            <h6 data-rulesPlayers="3" class="font-IBM text-lg text-text font-bold mb-4">3 Players</h6>
             <ul class="list-disc w-[90%] mx-auto mb-4 font-medium">
                 <li>
                     When the game starts, Simon will give the first signal, do not repeat it! That color will then be eliminated.
@@ -191,7 +191,7 @@
                     Simon will then give the first signal, which the player with that color repeats. Play continues as for 4 players.
                 </li>
             </ul>
-            <h6 class="font-IBM text-lg text-text font-bold mb-4">2 Players</h6>
+            <h6 data-rulesPlayers="2" class="font-IBM text-lg text-text font-bold mb-4">2 Players</h6>
             <ul class="list-disc w-[90%] mx-auto mb-4 font-medium">
                 <li>
                     Play as described in the 4-players game, except that each player chooses two colors. If one of your colors is eliminated, continue playing with the remaining color. 

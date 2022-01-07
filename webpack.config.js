@@ -6,6 +6,7 @@ const webpack = require("webpack");
 
 const files = {
     setup: fs.readFileSync('./src/comp/setup.html', { encoding: 'utf-8' }),
+    rules: fs.readFileSync('./src/comp/rules.html', { encoding: 'utf-8' })
   };
 
 
@@ -46,7 +47,6 @@ module.exports = {
                     },
                 ],
             }, 
-
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
@@ -65,7 +65,6 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          title: 'Caching',
           template: "./src/template.html",
           templateParameters: {
             files

@@ -17,11 +17,14 @@
 }
 
 @layer components {
+    .setup-modal {
+        @apply absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-4 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] max-h-[97%] sm:h-auto overflow-auto;
+    }
     .primary-button {
-        @apply bg-secondaryVariant font-IBM p-2 text-light font-bold rounded-lg hover:bg-secondary hover:text-text;
+        @apply bg-secondaryVariant font-IBM p-2 text-light font-bold rounded-lg hover:bg-secondary hover:text-text mobile:w-auto w-[70%] m-auto;
     }
     .active-button {
-        @apply bg-primary font-IBM p-2 text-light font-bold rounded-lg;
+        @apply bg-primary font-IBM p-2 text-light font-bold rounded-lg mobile:w-auto w-[70%] m-auto;
     }
 
     .flag-icon {
@@ -30,6 +33,26 @@
 
     .level-button {
         @apply font-IBM p-2 text-light m-auto mobile:rounded-full rounded-lg mobile:w-[45px] w-[70%] h-[auto] mobile:h-[45px] text-lg font-bold;
+    }
+
+    .btn-container {
+        @apply flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%];
+    }
+
+    .setup-section-container {
+        @apply flex items-center mt-8 justify-between flex-col mobile:flex-row;
+    }
+
+    .rules-mode {
+        @apply font-IBM text-2xl font-bold text-white text-center mb-4 w-[90%] mobile:w-[70%] bg-secondaryVariant p-4 mx-auto rounded-lg;
+    }
+
+    .rules-players {
+        @apply font-IBM text-lg text-text font-bold mb-4;
+    }
+
+    .rules-ul {
+        @apply list-disc w-[90%] mx-auto mb-4 font-medium;
     }
 }
 

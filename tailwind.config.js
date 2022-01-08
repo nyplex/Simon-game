@@ -16,9 +16,9 @@ module.exports = {
         secondaryVariant: "#457B9D",
         simonRed: "#C30000",
         simonBlue: "#0097AC",
-        SimonYellow: "#FFD600",
-        SimonOrange: "#FF8A00",
-        SImonPink: "#D8008E"
+        simonYellow: "#FFD600",
+        simonOrange: "#FF8A00",
+        simonPink: "#D8008E"
       }
     },
     screens: {

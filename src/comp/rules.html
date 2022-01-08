@@ -1,139 +1,203 @@
-<div id="rules-modal" class="hidden setup-modal">
-    <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="">
-        <div class="flex justify-between items-center">
-            <h1 class="font-OPS text-primary text-4xl">SIMON</h1>
-            <div class="flex justify-end">
-                <img data-flag="en" class="w-[30px] hover:cursor-pointer brightness-75 hover:brightness-100"
-                    src="../src/assets/media/images/englishFlag.svg" alt="">
-                <img data-flag="fr" class="w-[30px] ml-2 hover:cursor-pointer brightness-75 hover:brightness-100"
-                    src="../src/assets/media/images/frenchFlag.svg" alt="">
-            </div>
-        </div>
+<div aria-modal="true" id="rules-modal" class="hidden setup-modal">
+
+    <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
+    <div class="flex justify-between items-center">
+        <h1 aria-hidden="true" class="font-OPS text-primary text-4xl">SIMON</h1>
+    </div>
+
+
     <div class="mx-auto mt-8 font-IBM text-text">
 
-        <h1 class="text-4xl font-medium text-center  mb-8 font-OPS">THE RULES</h1>
+        <h1 class="text-4xl font-medium text-center  mb-8 font-OPS" tabindex="0">THE RULES</h1>
 
-        <h3 class="rules-mode">Mode 1 <span class="font-medium">(1 or more players)</span></h3>
+        <h3 class="rules-mode" tabindex="0">LEVELS EXPLAINATIION</h3>
+        <h6 class="rules-players" tabindex="0">Level 1</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
+                You will play with 4 colors.
+            </li>
+            <li role="listitem">
+                Speed of the sequence will increase every 5th, 9th, 13th etc.
+            </li>
+            <li role="listitem">
+                The colors won't change their position.
+            </li>
+        </ul>
 
-        <h6 data-rulesPlayers="1" class="rules-players">Single Players</h6>
-        <ul class="rules-ul">
-            <li>
+        <h6 class="rules-players" tabindex="0">Level 2</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
+                You will play with 4 colors.
+            </li>
+            <li role="listitem">
+                Speed of the game will NOT increase.
+            </li>
+            <li role="listitem">
+                After the 5th, 9th, 13th etc. sequence, the colos will chang their position.
+            </li>
+        </ul>
+
+        <h6 class="rules-players" tabindex="0">Level 3</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
+                You will play with 5 colors.
+            </li>
+            <li role="listitem">
+                Speed of the sequence will increase every 5th, 9th, 13th etc.
+            </li>
+            <li role="listitem">
+                The colors won't change their position.
+            </li>
+        </ul>
+
+        <h6 class="rules-players" tabindex="0">Level 4</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
+                You will play with 5 colors.
+            </li>
+            <li role="listitem">
+                Speed of the game will NOT increase.
+            </li>
+            <li role="listitem">
+                After the 5th, 9th, 13th etc. sequence, the colos will chang their position.
+            </li>
+        </ul>
+
+        <h6 class="rules-players" tabindex="0">Level 5</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
+                You will play with 5 colors.
+            </li>
+            <li role="listitem">
+                Speed of the sequence will increase every 5th, 9th, 13th etc.
+            </li>
+            <li role="listitem">
+                After the 5th, 9th, 13th etc. sequence, the colos will chang their position.
+            </li>
+        </ul>
+        
+
+        <h3 class="rules-mode" tabindex="0">Mode 1 <span class="font-medium">(1 or more players)</span></h3>
+
+        <h6 class="rules-players" tabindex="0">Single Players</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
                 When the game starts, Simon will give you the first signal. Repeat the signal by pressing the same color.
             </li>
-            <li>
+            <li role="listitem">
                 Simon will duplicate the first signal and add one. Repeat these two signals by pressing the same color lenses, in order.
             </li>
-            <li>
+            <li role="listitem">
                 Simon will duplicate these first two signals and add one.
             </li>
-            <li>
+            <li role="listitem">
                 Continue playing as long as you can repeat each sequence of signals correctly. After the 5th, 9th, 13th etc signals in a sequence, Simon will automatically increase the level of difficulty.
             </li>
-            <li>
+            <li role="listitem">
                 If you fail to repeat a sequence exactly, or if you take more than 5 seconds (10 seconds from level 4) to repeat a signal, Simon responds with "BUZZZZ" sound. This means you've lost and the sequence of signal ends.
             </li>
         </ul>
 
-        <h6 data-rulesPlayers="2+" class="rules-players">2 or more Players</h6>
-        <ul class="rules-ul">
-            <li>
+        <h6 class="rules-players" tabindex="0">2 or more Players</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
                 Decide who goes first
             </li>
-            <li>
+            <li role="listitem">
                 Play as described above excpet players take turns repeating Simon's signal
             </li>
         </ul>
 
-        <h3 class="rules-mode">Mode 2 <span class="font-medium">(1 or more players)</span></h3>
+        <h3 class="rules-mode" tabindex="0">Mode 2 <span class="font-medium">(1 or more players)</span></h3>
         
-        <h6 data-rulesPlayers="1" class="rules-players">Single Players</h6>
-        <ul class="rules-ul">
-            <li>
+        <h6 class="rules-players" tabindex="0">Single Players</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
                 When the game starts, Simon will give only the first signal.
             </li>
-            <li>
+            <li role="listitem">
                 Repeat Simon's signal, and immediatly add one. In this mode, don't wait for Simon to repeat signals
             </li>
-            <li>
+            <li role="listitem">
                 Repeat the first two signals and add one more.
             </li>
-            <li>
+            <li role="listitem">
                 Continue repeating the signals of the previous sequence and increasing that sequence by one. Try to reach the longest sequence.
             </li>
-            <li>
+            <li role="listitem">
                 If you make an error or take more than 5 seconds (10 seconds from level 4) to play a signal you will hear the "BUZZZZ" sound. This means the game is over.
             </li>
         </ul>
 
-        <h6 data-rulesPlayers="2+" class="rules-players">2 or more players</h6>
-        <ul class="rules-ul">
-            <li>
+        <h6 class="rules-players" tabindex="0">2 or more players</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
                 Follow step 1 above.
             </li>
-            <li>
+            <li role="listitem">
                 Player 1 repeats the first signal and adds one
             </li>
-            <li>
+            <li role="listitem">
                 Players 2 repeats the first two signals and adds one.
             </li>
-            <li>
+            <li> role="listitem"
                 Play continues with each players repeating the signals of the previous sequence and adding one more.
             </li>
-            <li>
+            <li role="listitem">
                 Any player who make an error or takes more than 5 seconds (10 seconds from level 4) to play a signal is given the "BUZZZ" sound and is out of the game.  Press the SIMON button to begin a new sequence with the remaining players.
             </li>
-            <li>
+            <li role="listitem">
                 The last player left in the game wins!
             </li>
         </ul>
 
-        <h3 class="rules-mode">Mode 3 <span class="font-medium">(2 or more players)</span></h3>
+        <h3 class="rules-mode">Mode 3 <span class="font-medium" tabindex="0">(2 or more players)</span></h3>
         
-        <h6 data-rulesPlayers="4" class="rules-players">4 Players</h6>
-        <ul class="rules-ul">
-            <li>
+        <h6 class="rules-players" tabindex="0">4 Players</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
                 Each players choose one color and will only press that color in the game.
             </li>
-            <li>
+            <li role="listitem">
                 When the game start, Simon will give the first signal.
             </li>
-            <li>
+            <li role="listitem">
                 The player who chose that color repeats the signal.
             </li>
-            <li>
+            <li role="listitem">
                 Play continues as described in MODE 1, except that each player presses only his or her chosen color in the proper sequence.
             </li>
-            <li>
+            <li role="listitem">
                 If you press your color out of the sequence or take more than 5 seconds (10 seconds fron level 4) to press, you'll hear the "BUZZZ" sound and your color is out of the game.
             </li>
-            <li>
+            <li role="listitem">
                 Simon will automatically begin a new game with only the remanning colros.
             </li>
-            <li>
+            <li role="listitem">
                 The last player in the game is the Winner!
             </li>
         </ul>
 
-        <h6 data-rulesPlayers="3" class="rules-players">3 Players</h6>
-        <ul class="rules-ul">
-            <li>
+        <h6 class="rules-players" tabindex="0">3 Players</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
                 When the game starts, Simon will give the first signal, do not repeat it! That color will then be eliminated.
             </li>
-            <li>
+            <li role="listitem">
                 Now each player chooses a color from the remaining three, to press during the game.
             </li>
-            <li>
+            <li role="listitem">
                 Simon will then give the first signal, which the player with that color repeats. Play continues as for 4 players.
             </li>
         </ul>
 
-        <h6 data-rulesPlayers="2" class="rules-players">2 Players</h6>
-        <ul class="rules-ul">
-            <li>
+        <h6 class="rules-players" tabindex="0">2 Players</h6>
+        <ul role="list" class="rules-ul">
+            <li role="listitem">
                 Play as described in the 4-players game, except that each player chooses two colors. If one of your colors is eliminated, continue playing with the remaining color. 
             </li>
         </ul>
 
-        <button id="ready-btn" class="m-auto bg-pink-500 block mt-10 mb-6 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">I'm Ready!</h1></button>
+        <button name="Back to setup" id="ready-btn" class="m-auto bg-pink-500 block mt-10 mb-6 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">I'm Ready!</h1></button>
     </div>
 </div>

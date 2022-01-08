@@ -11,12 +11,57 @@
 </head>
 
 <body class="max-h-[100vh]">
-    <div id="blur-bg" class="w-[100vw] h-[100vh]  absolute z-10 top-0 modal-bg"></div>
+    <div aria-hidden="true" id="blur-bg" class="hidden w-[100vw] h-[100vh]  absolute z-10 top-0 modal-bg"></div>
     <!-- Setup Game Modal -->
     <%= files.setup %>
     <!-- Rules Modal -->
     <%= files.rules %>
 
+    <!-- Main Header -->
+    <header class="py-8 px-4 max-w-screen-lg mx-auto">
+        <div class="flex justify-between items-center">
+            <h1 class="font-OPS text-white text-4xl z-50">SIMON</h1>
+            <div class="text-white sm:flex sm:gap-2 hidden">
+                <button class="button-header">NEW GAME</button>
+                <button class="button-header">RESTART</button>
+                <button class="button-header">RULES</button>
+            </div>
+            <div class="sm:hidden">
+                <i class="fas fa-bars text-white text-4xl cursor-pointer" id="burger-icon"></i>
+            </div>
+            <div class="bg-primary w-[100%] h-[100vh] max-h-[100vh] max-w-[100vw] absolute top-0 left-0 z-0 sm:hidden hidden" id="mobile-menu">
+                <div class="relative w-full h-full">
+                    <div class="text-white flex flex-col gap-8 absolute-center mobile:w-[50%] w-[90%]">
+                        <button class="button-header">NEW GAME</button>
+                        <button class="button-header">RESTART</button>
+                        <button class="button-header">RULES</button>
+                        <button class="button-header" id="resume-game">RESUME</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END Main Header -->
+
+    <main class="bg-red-500 max-w-[100vw] max-h-[90vh] w-[100vw] h-[70vh] p-4 absolute-center hidden">
+        <div class="circle-wrapper aspect-square"> 
+            <div class="circle deg-0">
+              Lor 
+            </div> 
+            <div class="circle deg-45">
+              Lore 
+            </div> 
+            <div class="circle deg-90">
+              Lore 
+            </div> 
+            <div class="circle deg-135">
+              Lorem 
+            </div> 
+            <div class="circle deg-180">
+              Lorem 
+            </div> 
+           </div>  
+    </main>
 </body>
 
 </html>

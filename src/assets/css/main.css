@@ -14,6 +14,10 @@
         background: rgba(255,255,255,0);
         backdrop-filter: blur(6px);
     }
+
+    .absolute-center {
+        @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+    }
 }
 
 @layer components {
@@ -32,15 +36,19 @@
     }
 
     .level-button {
-        @apply font-IBM p-2 text-light m-auto mobile:rounded-full rounded-lg mobile:w-[45px] w-[70%] h-[auto] mobile:h-[45px] text-lg font-bold;
+        @apply font-IBM p-2 text-light m-auto mobile:rounded-full rounded-lg mobile:w-[45px] w-[70%] h-[auto] mobile:h-[45px] text-lg font-bold hover:text-text;
     }
 
     .btn-container {
-        @apply flex gap-[15px] flex-col mobile:flex-row mobile:w-auto w-[100%];
+        @apply flex gap-[10px] flex-col mobile:flex-row mobile:w-auto w-[100%];
     }
 
     .setup-section-container {
         @apply flex items-center mt-8 justify-between flex-col mobile:flex-row;
+    }
+
+    .setup-text {
+        @apply text-xl sm:text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-4;
     }
 
     .rules-mode {
@@ -54,9 +62,81 @@
     .rules-ul {
         @apply list-disc w-[90%] mx-auto mb-4 font-medium;
     }
+
+    .level1 {
+        @apply hover:bg-green-500 bg-green-600 level-button;
+    }
+    .level2 {
+        @apply hover:bg-yellow-500 bg-yellow-600 level-button;
+    }
+    .level3 {
+        @apply hover:bg-orange-500 bg-orange-600 level-button;
+    }
+    .level4 {
+        @apply hover:bg-red-500 bg-red-600 level-button;
+    }
+    .level5 {
+        @apply hover:bg-red-800 bg-red-900 level-button;
+    }
+
+    .button-header {
+        @apply sm:py-2 py-3 px-4 text-text font-IBM font-bold bg-secondary rounded-full hover:bg-secondaryVariant hover:text-white;
+    }
 }
 
 body {
     background: url("../src/assets/media/images/background.svg") no-repeat center center fixed;
     background-size: cover;
 }
+
+.active-level {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(29 53 87 / var(--tw-bg-opacity)) !important;
+    color: #fff;
+}
+
+.active-level:hover {
+    color: #fff;
+}
+
+.circle-wrapper {
+    width: 100%;
+    border-radius:51%;
+    background:Chartreuse;
+    position:relative;
+ }
+ 
+ .circle {
+    display:block;
+    position:absolute;
+    top:51%;
+    left:51%;
+    width:100px;
+    height:100px;
+    margin:-51px;
+    background:red;
+    border-radius:51%;
+    text-align:center;
+    line-height:100px;
+ }
+
+ .deg-0 {
+    transform:translate(100%)
+ }
+ 
+ .deg-45 {
+    transform:rotate(72deg) translate(100%) rotate(-46deg);
+ }
+ 
+ .deg-90 {
+    transform:rotate(144deg) translate(100%) rotate(-91deg);
+ }
+ 
+ .deg-135 {
+    transform:rotate(216deg) translate(100%) rotate(-136deg);
+ }
+ 
+ .deg-180 {
+    transform:rotate(288deg) translate(100%) rotate(-181deg);
+ }
+ 

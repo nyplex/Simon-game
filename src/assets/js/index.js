@@ -1,7 +1,10 @@
 import "../css/main.css"
-import { displayMenu } from "./display"
-import { translate } from "./translate"
+import { displayMenu, displayMobileMenu } from "./display"
+import { Game } from "./Game"
 
 
-displayMenu()
-translate()
+const game = new Game(1, 1, 1, 1)
+
+//displayMenu(game)
+
+displayMobileMenu()

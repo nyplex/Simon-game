@@ -1,56 +1,71 @@
-    <div id="setup-modal" class=" absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] max-h-[99%] sm:h-auto overflow-auto">
-        <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="">
+    <div aria-modal="true"  id="setup-modal" class="hidden absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto">
+
+
+        <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
         <div class="flex justify-between items-center">
-            <h1 class="font-OPS text-primary text-4xl">SIMON</h1>
-            <div class="flex justify-end">
-                <img data-flag="en" class="w-[30px] hover:cursor-pointer brightness-75 hover:brightness-100"
-                    src="../src/assets/media/images/englishFlag.svg" alt="">
-                <img data-flag="fr" class="w-[30px] ml-2 hover:cursor-pointer brightness-75 hover:brightness-100"
-                    src="../src/assets/media/images/frenchFlag.svg" alt="">
-            </div>
+            <h1 aria-hidden="true" class="font-OPS text-primary text-4xl">SIMON</h1>
         </div>
-        <div id="setupContent" class="mx-auto mt-8 font-IBM text-text">
-            <h1 id="setupTitle" class="text-4xl font-extrabold text-center  mb-4">Welcome</h1>
-            <p id="welcomeText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto">
+
+
+        <div class="mx-auto mt-8 font-IBM text-text">
+
+
+            <h1 id="setupTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0">Welcome</h1>
+
+            <p id="welcomeText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto" tabindex="0" aria-label="Text introduction">
                 First-time player ? Don’t remember how to play? Take a few minutes to read the rules.
             </p>
-            <button id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
-            <hr class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full bg-text">
-            <div class="setup-section-container">
-                <h2 id="themeText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Theme:</h2>
-                <div class="btn-container">
-                    <button class="active-button"><i class="fas fa-volume-down mr-2"></i>FX1</button>
-                    <button class="primary-button"><i class="fas fa-volume-down mr-2"></i>FX2</button>
-                    <button class="primary-button"><i class="fas fa-volume-down mr-2"></i>FX3</button>
+
+            <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
+
+            <hr aria-hidden="true" class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full bg-text">
+
+            <div id="setupDataContainer">
+                <div class="setup-section-container" aria-describedby="Users choose theme">
+                    <h2 id="themeText" class="setup-text" tabindex="0">Select Theme:</h2>
+                    <div class="btn-container">
+                        <button data-theme="1" class="active-button"><i class="fas fa-volume-down mr-2" tabindex="0" aria-roledescription="Play sound 1" name="Play theme 1"></i>FX1</button>
+                        <button data-theme="2" class="primary-button"><i class="fas fa-volume-down mr-2" tabindex="0" aria-roledescription="Play sound 2" name="Play theme 2"></i>FX2</button>
+                        <button data-theme="3" class="primary-button"><i class="fas fa-volume-down mr-2" tabindex="0" aria-roledescription="Play sound 3" name="Play theme 3"></i>FX3</button>
+                    </div>
+                </div>
+
+
+                <div class="setup-section-container" aria-describedby="Users choose number of players">
+                    <h2 id="playersText" class="setup-text" tabindex="0">Select Players:</h2>
+                    <div class="btn-container">
+                        <button data-players="1" class="active-button" tabindex="0" aria-roledescription="1 player" name="Single player"><i class="fas fa-user mr-2"></i>1 Player</button>
+                        <button data-players="2" class="primary-button" tabindex="0" aria-roledescription="2 players" name="2 players"><i class="fas fa-users mr-2"></i>2 Players</button>
+                        <button data-players="3" class="primary-button" tabindex="0" aria-roledescription="3 players" name="3 players"><i class="fas fa-users mr-2"></i>3 Players</button>
+                        <button data-players="4" class="primary-button" tabindex="0" aria-roledescription="4 players" name="4 players"><i class="fas fa-users mr-2"></i>4 Players</button>
+                    </div>
+                </div>
+
+
+                <div class="setup-section-container" aria-describedby="User choose game mode">
+                    <h2 id="modeText" class="setup-text" tabindex="0">Select Mode:</h2>
+                    <div class="btn-container">
+                        <button data-mode="1" class="active-button" tabindex="0" aria-roledescription="Mode 1" name="Mode 1">Mode 1</button>
+                        <button data-mode="2" class="primary-button" tabindex="0" aria-roledescription="Mode 2" name="Mode 2">Mode 2</button>
+                        <button data-mode="3" class="primary-button" tabindex="0" aria-roledescription="Mode 3" name="Mode 3">Mode 3</button>
+                    </div>
+                </div>
+
+
+                <div class="setup-section-container" aria-describedby="User choose game level">
+                    <h2 id="levelText" class="setup-text" tabindex="0">Select Level:</h2>
+                    <div class="btn-container">
+                        <button data-level="1" class="hover:bg-green-500 bg-green-600 level-button" tabindex="0" aria-roledescription="Level 1" name="Level 1">1</button>
+                        <button data-level="2" class="hover:bg-yellow-500 bg-yellow-600 level-button" tabindex="0" aria-roledescription="Level 2" name="Level 2">2</button>
+                        <button data-level="3" class="hover:bg-orange-500 bg-orange-600 level-button" tabindex="0" aria-roledescription="Level 3" name="Level 3">3</button>
+                        <button data-level="4" class="hover:bg-red-500 bg-red-600 level-button" tabindex="0" aria-roledescription="Level 4" name="Level 4">4</button>
+                        <button data-level="5" class="hover:bg-red-800 bg-red-900 level-button" tabindex="0" aria-roledescription="Level 5" name="Level 5">5</button>
+                    </div>
                 </div>
             </div>
-            <div class="setup-section-container">
-                <h2 id="playersText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-4">Select Players:</h2>
-                <div class="btn-container">
-                    <button class="active-button"><i class="fas fa-user mr-2"></i>1 Player</button>
-                    <button class="primary-button"><i class="fas fa-users mr-2"></i>2 Players</button>
-                    <button class="primary-button"><i class="fas fa-users mr-2"></i>3 Players</button>
-                    <button class="primary-button"><i class="fas fa-users mr-2"></i>4 Players</button>
-                </div>
-            </div>
-            <div class="setup-section-container">
-                <h2 id="modeText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Mode:</h2>
-                <div class="btn-container">
-                    <button class="active-button">Mode 1</button>
-                    <button class="primary-button">Mode 2</button>
-                    <button class="primary-button">Mode 3</button>
-                </div>
-            </div>
-            <div class="setup-section-container">
-                <h2 id="levelText" class="text-2xl font-extrabold text-left mb-4 mobile:mb-0 mr-2">Select Level:</h2>
-                <div class="btn-container">
-                    <button class="bg-secondaryVariant hover:bg-secondary hover:text-text mobile:p-1 mobile:text-sm text-lg level-button">AUTO</button>
-                    <button class="bg-primary level-button">1</button>
-                    <button class="hover:bg-yellow-500 hover:text-text bg-yellow-600 level-button">2</button>
-                    <button class="hover:bg-orange-500 hover:text-text bg-orange-600 level-button">3</button>
-                    <button class="hover:bg-red-500 hover:text-text bg-red-600 level-button">4</button>
-                </div>
-            </div>
-            <button class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">PLAY SIMON</h1></button>
+
+            <button id="playButton" name="Play game" class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">PLAY SIMON</h1></button>
+
+
         </div>
     </div>

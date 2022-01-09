@@ -98,3 +98,59 @@ body {
 .active-level:hover {
     color: #fff;
 }
+
+
+
+.circle-wrapper {
+    width:90%;
+    height:90%;
+    border-radius:51%;
+    position:relative;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
+ .circle {
+    border-radius: 51%;
+    display: block;
+    height: 40%;
+    left: 30%;
+    line-height: 100px;
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    width: 40%;
+ }
+ 
+ .deg-0 {
+    transform:translate(100%)
+ }
+ 
+ .deg-45 {
+    transform:rotate(72deg) translate(100%) rotate(-46deg);
+ }
+ 
+ .deg-90 {
+    transform:rotate(144deg) translate(100%) rotate(-91deg);
+ }
+ 
+ .deg-135 {
+    transform:rotate(216deg) translate(100%) rotate(-136deg);
+ }
+ 
+ .deg-180 {
+    transform:rotate(288deg) translate(100%) rotate(-181deg);
+ }
+ 
+ .deg-225 {
+    transform:rotate(226deg) translate(200%) rotate(-226deg);
+ }
+ 
+ .deg-270 {
+    transform:rotate(271deg) translate(200%) rotate(-271deg);
+ }
+ 
+ .deg-315 {
+    transform:rotate(316deg) translate(200%) rotate(-316deg);
+ }

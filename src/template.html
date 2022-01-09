@@ -18,7 +18,7 @@
     <%= files.rules %>
 
     <!-- Main Header -->
-    <header class="py-8 px-4 max-w-screen-lg mx-auto">
+    <header class="py-8 px-4 max-w-screen-lg mx-auto absolute top-0 left-[50%] translate-x-[-50%] w-full z-10">
         <div class="flex justify-between items-center">
             <h1 class="font-OPS text-white text-4xl z-50">SIMON</h1>
             <div class="text-white sm:flex sm:gap-2 hidden">
@@ -43,13 +43,21 @@
     </header>
     <!-- END Main Header -->
 
-    <main class="max-w-[80vw] max-h-[80vh] mx-auto mt-24">
-        <div class="rounded-full aspect-square max-w-screen-md w-full max-h-full bg-blue-600 relative mx-auto">
-            <div class="w-[40%] aspect-square bg-simonRed rounded-full absolute top-[17%] left-[90%] translate-x-[-50%]"></div>
-            <div class="w-[40%] aspect-square bg-simonYellow rounded-full absolute top-[-5%] left-[50%] translate-x-[-50%]"></div>
-            <div class="w-[40%] aspect-square bg-simonBlue rounded-full absolute top-[75%] left-[89%] translate-x-[-50%]"></div>
-            <div class="w-[40%] aspect-square bg-simonOrange rounded-full absolute top-[75%] left-[89%] translate-x-[-50%]"></div>
-            <div class="w-[40%] aspect-square bg-simonPink rounded-full absolute top-[75%] left-[89%] translate-x-[-50%]"></div>
+    <main class="relative w-[100vw] h-[100vh] max-w-[100vw] max-h-[100vh]">
+        <div class="absolute-center w-[90%] aspect-square max-h-[60%] max-w-screen-sm">
+            <div class="circle-wrapper bg-primary"> 
+                <div class="absolute-center bg-gray-900 w-[55%] aspect-square rounded-full z-50"></div>
+                <div class="circle deg-0 bg-simonRed">
+                </div> 
+                <div class="circle deg-45 bg-simonBlue">
+                </div> 
+                <div class="circle deg-90 bg-simonYellow">
+                </div> 
+                <div class="circle deg-135 bg-simonPink"> 
+                </div> 
+                <div class="circle deg-180 bg-simonOrange">
+                </div> 
+               </div>  
         </div>
 
     </main>

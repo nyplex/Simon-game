@@ -109,6 +109,7 @@ body {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: -1px 8px 7px 2px black;
  }
  
  .circle {
@@ -121,36 +122,57 @@ body {
     text-align: center;
     top: 30%;
     width: 40%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+ }
+
+
+ .simonRed {
+    transform:rotate(-16deg) translate(100%) rotate(-46deg);
+ }
+
+ .simonRed:hover {
+    box-shadow: inset 0 0 20px 5px #ff6060, 0 0 11px 1px #f32727;
+    background-color: rgb(255, 64, 64);
  }
  
- .deg-0 {
-    transform:translate(100%)
+ .simonBlue {
+    transform:rotate(56deg) translate(100%) rotate(-46deg);
+ }
+
+ .simonBlue:hover {
+    background-color: rgb(67, 226, 247);
+    box-shadow: inset 0 0 20px 5px #60bdff, 0 0 11px 1px #27cdf3;
  }
  
- .deg-45 {
-    transform:rotate(72deg) translate(100%) rotate(-46deg);
+ .simonYellow {
+    transform:rotate(128deg) translate(100%) rotate(-91deg);
+ }
+
+ .simonYellow:hover {
+    background-color: rgb(255, 227, 89);
+    box-shadow: inset 0 0 20px 5px #fdf5cc, 0 0 11px 1px #ffeb87;
  }
  
- .deg-90 {
-    transform:rotate(144deg) translate(100%) rotate(-91deg);
+ .simonPink {
+    transform:rotate(200deg) translate(100%) rotate(-136deg);
+ }
+
+ .simonPink:hover {
+    background-color: rgb(255, 56, 185);
+    box-shadow: inset 0 0 20px 5px #ff60fa, 0 0 11px 1px #fb36c8;
  }
  
- .deg-135 {
-    transform:rotate(216deg) translate(100%) rotate(-136deg);
+ .simonOrange {
+    transform:rotate(272deg) translate(100%) rotate(-181deg);
+ }
+
+ .simonOrange:hover {
+    background-color: rgb(255, 155, 41);
+    box-shadow: inset 0 0 20px 5px #ff8c60, 0 0 11px 1px #f37227;
  }
  
- .deg-180 {
-    transform:rotate(288deg) translate(100%) rotate(-181deg);
- }
- 
- .deg-225 {
-    transform:rotate(226deg) translate(200%) rotate(-226deg);
- }
- 
- .deg-270 {
-    transform:rotate(271deg) translate(200%) rotate(-271deg);
- }
- 
- .deg-315 {
-    transform:rotate(316deg) translate(200%) rotate(-316deg);
+
+ .simon-screen {
+    box-shadow: 0 0 6px 2px #1f1f1f;
  }

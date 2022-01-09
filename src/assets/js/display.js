@@ -96,6 +96,6 @@ let setupInteraction = (game) => {
 
     $("#playButton").on("click", () => {
         hideSetup()
-        startGame(game)
+        game.generateGamePlay()
     })
 }

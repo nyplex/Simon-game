@@ -4,20 +4,15 @@ export class Game {
         this.players = players
         this.mode = mode
         this.level = level
-        this.simonSays = ["green", "yellow", "yellow", "red", "blue", "red"]
+        this.sequence = ["green", "yellow", "yellow", "red", "blue", "red"]
         this.colors = []
     }
 
-    simonSay() {
+    addToSequence() {
         this.#getColors()
         const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
-        this.simonSays.push(newColors)
-        /*for(let i = 0; i < this.simonSays.length; i++) {
-            let selector = `*[data-lens="${this.simonSays[i]}"]`
-            $(selector).data("lens")
-        }*/
-        //console.log(this.simonSays);
-        this.#lightUpSequence(this.simonSays)
+        this.sequence.push(newColors)
+        this.#playSequence(this.sequence)
     }
 
     /**
@@ -41,8 +36,7 @@ export class Game {
 
         $("#simon-colors-container").html(html)
         this.#lightsOn()
-        this.#countDown(5)
-        this.simonSay()
+        let countdown = this.#countDown(5)
     }
 
     /**
@@ -106,6 +100,7 @@ export class Game {
         let interval = setInterval(() => {
             if(time === 0) {
                 clearInterval(interval);
+                this.addToSequence()
             }else{
                 time = time - 1
                 $("#simon-text").text(time)
@@ -121,11 +116,24 @@ export class Game {
         }
     }
 
-    #lightUpSequence(sequence) {
+    delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    async #playSequence(sequence) {
         for(let i = 0; i < sequence.length; i ++) {
+            let className = sequence[i]
+            let classNameUpper = className.charAt(0).toUpperCase() + className.slice(1)
+            let selector = `*[data-lens="${sequence[i]}"]`
             setTimeout(() => {
-                console.log(sequence[i]);
-            }, i * 1000);
+                $(selector).addClass("simon" + classNameUpper + "-lightsOn")
+            }, 1000 * i);
+            
+            await this.delay(1000)
+
+            setTimeout(() => {
+                $(selector).removeClass("simon" + classNameUpper + "-lightsOn")
+            }, 1000 * i);
         }
     }
 }

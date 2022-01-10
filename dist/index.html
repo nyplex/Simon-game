@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Simon 2.0</title>
-<script defer src="main.7457c11ee002bac66a39.js"></script><link href="main.a22d67e96ad5345cb2ae.css" rel="stylesheet"></head>
+<script defer src="main.3a1f2a374bde730c1482.js"></script><link href="main.07ecc2c0548fe8a05cc0.css" rel="stylesheet"></head>
 
 <body class="max-h-[100vh] overflow-hidden">
     
@@ -16,7 +16,7 @@
     <div aria-hidden="true" id="blur-bg" class="w-[100vw] h-[100vh]  absolute z-0 top-0 modal-bg"></div>
     
     <!-- Setup Game Modal -->
-        <div aria-modal="true"  id="setup-modal" class="absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto z-20">
+        <div aria-modal="true"  id="setup-modal" class="absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto">
 
 
         <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
@@ -89,7 +89,7 @@
     </div>
     
     <!-- Rules Modal -->
-    <div aria-modal="true" id="rules-modal" class="absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto hidden z-20">
+    <div aria-modal="true" id="rules-modal" class="setup-modal hidden">
 
     <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
     <div class="flex justify-between items-center">
@@ -294,27 +294,7 @@
 </div>
 
     <!-- Main Header -->
-    <header id="main-header" aria-roledescription="navbar" role="navigation" class="py-8 px-4 max-w-screen-lg mx-auto absolute top-0 left-[50%] translate-x-[-50%] w-full z-10 hidden">
-    <div class="flex justify-between items-center">
-        <h1 class="font-OPS text-white text-4xl z-50" role="img" aria-label="Simon logo">SIMON</h1>
-        <div role="navigation" class="text-white sm:flex sm:gap-2 hidden">
-            <button role="button" aria-label="new game" class="button-header">NEW GAME</button>
-            <button role="button" aria-label="restart game" class="button-header">RESTART</button>
-        </div>
-        <div class="sm:hidden">
-            <i class="fas fa-bars text-white text-4xl cursor-pointer" id="burger-icon"></i>
-        </div>
-        <div class="bg-primary w-[100%] h-[100vh] max-h-[100vh] max-w-[100vw] absolute top-0 left-0 z-0 sm:hidden hidden" id="mobile-menu">
-            <div class="relative w-full h-full">
-                <div role="navigation" class="text-white flex flex-col gap-8 absolute-center mobile:w-[50%] w-[90%]">
-                    <button role="button" aria-label="new game" class="button-header">NEW GAME</button>
-                    <button role="button" aria-label="restart game" class="button-header">RESTART</button>
-                    <button role="button" aria-label="resume game" class="button-header" id="resume-game">RESUME</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+    
 
 
     <!-- Main Gameplay -->

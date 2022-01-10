@@ -18,11 +18,9 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, "dist"),
-        clean: {
-            keep: /images\//, // Keep these assets under 'ignored/dir'.
-        },
+        clean: true
     },
-    devtool: 'inline-source-map',
+    //devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -80,12 +78,6 @@ module.exports = {
         }),
     ],
     optimization: {
-        splitChunks: {
-            cacheGroups: {
-              vendor: {
-                test: /[\\/]node_modules[\\/]/,
-              },
-            },
-        },
-    },
+      usedExports: false, // <- no remove unused function
+  }
 }

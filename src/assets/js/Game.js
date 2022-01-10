@@ -4,6 +4,20 @@ export class Game {
         this.players = players
         this.mode = mode
         this.level = level
+        this.simonSays = ["green", "yellow", "yellow", "red", "blue", "red"]
+        this.colors = []
+    }
+
+    simonSay() {
+        this.#getColors()
+        const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
+        this.simonSays.push(newColors)
+        /*for(let i = 0; i < this.simonSays.length; i++) {
+            let selector = `*[data-lens="${this.simonSays[i]}"]`
+            $(selector).data("lens")
+        }*/
+        //console.log(this.simonSays);
+        this.#lightUpSequence(this.simonSays)
     }
 
     /**
@@ -27,6 +41,8 @@ export class Game {
 
         $("#simon-colors-container").html(html)
         this.#lightsOn()
+        this.#countDown(5)
+        this.simonSay()
     }
 
     /**
@@ -34,6 +50,7 @@ export class Game {
      * ? Light-up the game's colors when the user clicks on them
      */
     #lightsOn() {
+        $(".circle").addClass("cursor-pointer")
         $("*[data-lens]").on("mousedown, pointerdown", (e) => {
             const data = $(e.target).data("lens")
             switch (data) {
@@ -78,5 +95,37 @@ export class Game {
                     return
             }
         })    
+    }
+
+    /**
+     * countDown
+     * ? Display a countdown before the game starts
+     * @param {int} time 
+     */
+    #countDown(time) {
+        let interval = setInterval(() => {
+            if(time === 0) {
+                clearInterval(interval);
+            }else{
+                time = time - 1
+                $("#simon-text").text(time)
+            }
+        }, 1000);
+    }
+
+    #getColors() {
+        if(this.level === 1 || this.level === 2) {
+            this.colors.push("red", "blue", "yellow", "green")
+        }else{
+            this.colors.push("red", "blue", "yellow", "pink", "green")
+        }
+    }
+
+    #lightUpSequence(sequence) {
+        for(let i = 0; i < sequence.length; i ++) {
+            setTimeout(() => {
+                console.log(sequence[i]);
+            }, i * 1000);
+        }
     }
 }

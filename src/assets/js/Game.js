@@ -15,11 +15,13 @@ export class Game {
         this.#playSequence(this.sequence)
     }
 
+
     /**
      * generateGamePlay
      * ? Generate the Simon's colors depending on the game's level
      */
     generateGamePlay() {
+        $("#main-game-container").removeClass("hidden")
         let html = ""
         if(this.level === 3 || this.level === 4 || this.level === 5) {
             html += `<div data-lens="red" class="circle simonRed bg-simonRed simon-1-5"></div> 

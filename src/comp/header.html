@@ -1,0 +1,21 @@
+<header id="main-header" aria-roledescription="navbar" role="navigation" class="py-8 px-4 max-w-screen-lg mx-auto absolute top-0 left-[50%] translate-x-[-50%] w-full z-10 hidden">
+    <div class="flex justify-between items-center">
+        <h1 class="font-OPS text-white text-4xl z-50" role="img" aria-label="Simon logo">SIMON</h1>
+        <div role="navigation" class="text-white sm:flex sm:gap-2 hidden">
+            <button role="button" aria-label="new game" class="button-header">NEW GAME</button>
+            <button role="button" aria-label="restart game" class="button-header">RESTART</button>
+        </div>
+        <div class="sm:hidden">
+            <i class="fas fa-bars text-white text-4xl cursor-pointer" id="burger-icon"></i>
+        </div>
+        <div class="bg-primary w-[100%] h-[100vh] max-h-[100vh] max-w-[100vw] absolute top-0 left-0 z-0 sm:hidden hidden" id="mobile-menu">
+            <div class="relative w-full h-full">
+                <div role="navigation" class="text-white flex flex-col gap-8 absolute-center mobile:w-[50%] w-[90%]">
+                    <button role="button" aria-label="new game" class="button-header">NEW GAME</button>
+                    <button role="button" aria-label="restart game" class="button-header">RESTART</button>
+                    <button role="button" aria-label="resume game" class="button-header" id="resume-game">RESUME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

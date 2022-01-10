@@ -1,12 +1,18 @@
-import { startGame } from "./startGame"
-
+/**
+ * displayMenu
+ * ? Called from index.js && Display menu and setup interaction when the page is loaded
+ * @param {Object} game - Game's object
+ */
 export let displayMenu = (game) => {
     displayRules()
     displaySetup(game)
 }
 
+/**
+ * displayRules
+ * ? Called from displeyMenu() && Hide setup modal and display rule's modal 
+ */
 let displayRules = () => {
-    $("#blur-bg").removeClass("hidden")
     $("#rules-btn").on("click", () => {
         $("#setup-modal").slideUp(() => {
             $("#rules-modal").slideDown()
@@ -15,8 +21,13 @@ let displayRules = () => {
     })
 }
 
+/**
+ * displaySetup
+ * ? call from displayMenu() && hide rule's modal and display setup modal
+ * ? callback setupInteraction
+ * @param {object} game - Game's object
+ */
 let displaySetup = (game) => {
-    $("#blur-bg").removeClass("hidden")
     setupInteraction(game)
     $("#ready-btn").on("click", () => {
         $("#rules-modal").slideUp(() => {
@@ -25,12 +36,19 @@ let displaySetup = (game) => {
     })
 }
 
+/**
+ * hideSetup
+ * ? Hide setup modal
+ */
 let hideSetup = () => {
     $("#setup-modal").slideUp()
     $("#rules-modal").slideUp()
-    $("#blur-bg").addClass("hidden")
 }
 
+/**
+ * displayMobileMenu
+ * ? Display and hide the mobile menu when user clicks on burger icon
+ */
 export let displayMobileMenu = () => {
     $("#burger-icon").on("click", () => {
         $("#mobile-menu").toggleClass("hidden")
@@ -40,7 +58,11 @@ export let displayMobileMenu = () => {
     })
 }
 
-
+/**
+ * setupInteraction
+ * ? On the setup modal, when user click on the buttons change BG color and add the value to Game object.
+ * @param {object} game - Game's object
+ */
 let setupInteraction = (game) => {
     $("#setupDataContainer").on("click", (e) => {
         if(e.target.localName != "button") {
@@ -95,7 +117,15 @@ let setupInteraction = (game) => {
     })
 
     $("#playButton").on("click", () => {
+        //Hide setup modal
         hideSetup()
+
+        //Display the game header (navigation)
+        $("#main-header").removeClass("hidden")
+        
+        //display the mobile's nav
+        displayMobileMenu()
+
         game.generateGamePlay()
     })
 }

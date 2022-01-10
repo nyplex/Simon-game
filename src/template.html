@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -10,61 +10,33 @@
     <title>Simon 2.0</title>
 </head>
 
-<body class="max-h-[100vh]">
-    <div aria-hidden="true" id="blur-bg" class="w-[100vw] h-[100vh]  absolute z-10 top-0 modal-bg"></div>
+<body class="max-h-[100vh] overflow-hidden">
+    
+    <!-- Blur BG -->
+    <div aria-hidden="true" id="blur-bg" class="w-[100vw] h-[100vh]  absolute z-0 top-0 modal-bg"></div>
+    
     <!-- Setup Game Modal -->
     <%= files.setup %>
+    
     <!-- Rules Modal -->
     <%= files.rules %>
 
     <!-- Main Header -->
-    <header id="main-header" class="hidden py-8 px-4 max-w-screen-lg mx-auto absolute top-0 left-[50%] translate-x-[-50%] w-full z-10">
-        <div class="flex justify-between items-center">
-            <h1 class="font-OPS text-white text-4xl z-50">SIMON</h1>
-            <div class="text-white sm:flex sm:gap-2 hidden">
-                <button class="button-header">NEW GAME</button>
-                <button class="button-header">RESTART</button>
-                <button id="rules-button-dk" class="button-header">RULES</button>
-            </div>
-            <div class="sm:hidden">
-                <i class="fas fa-bars text-white text-4xl cursor-pointer" id="burger-icon"></i>
-            </div>
-            <div class="bg-primary w-[100%] h-[100vh] max-h-[100vh] max-w-[100vw] absolute top-0 left-0 z-0 sm:hidden hidden" id="mobile-menu">
-                <div class="relative w-full h-full">
-                    <div class="text-white flex flex-col gap-8 absolute-center mobile:w-[50%] w-[90%]">
-                        <button class="button-header">NEW GAME</button>
-                        <button class="button-header">RESTART</button>
-                        <button id="rules-button-mb" class="button-header">RULES</button>
-                        <button class="button-header" id="resume-game">RESUME</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- END Main Header -->
+    <%= files.header %>
 
-    <main class="relative w-[100vw] h-[100vh] max-w-[100vw] max-h-[100vh]">
+
+    <!-- Main Gameplay -->
+    <main class="relative w-[100vw] h-[100vh] max-w-[100vw] max-h-[100vh] z-0">
         <div class="absolute-center w-[90%] aspect-square max-h-[60%] max-w-screen-sm">
             <div class="circle-wrapper bg-primary"> 
                 <div class="absolute-center bg-gray-900 w-[55%] aspect-square rounded-full z-50 simon-screen">
                     <h6 class="text-white absolute-center text-center text-[100%] font-IBM font-bold cursor-pointer">CLICK HERE TO START</h6>
                 </div>
-                <div id="simon-colors-container">
-                    <div class="circle simonRed bg-simonRed">
-                    </div> 
-                    <div class="circle simonBlue bg-simonBlue">
-                    </div> 
-                    <div class="circle simonYellow bg-simonYellow">
-                    </div> 
-                    <div class="circle simonPink bg-simonPink"> 
-                    </div> 
-                    <div class="circle simonOrange bg-simonOrange">
-                    </div> 
-                </div>
-               </div>  
+                <div id="simon-colors-container"></div>
+            </div>  
         </div>
-
     </main>
+    <!-- End Main Gameplay -->
 </body>
 
 </html>

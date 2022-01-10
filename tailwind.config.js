@@ -17,7 +17,7 @@ module.exports = {
         simonRed: "#C30000",
         simonBlue: "#0097AC",
         simonYellow: "#FFD600",
-        simonOrange: "#FF8A00",
+        simonGreen: "#3dd53d",
         simonPink: "#D8008E"
       }
     },

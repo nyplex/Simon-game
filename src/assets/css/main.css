@@ -12,7 +12,7 @@
 
     .modal-bg {
         background: rgba(255,255,255,0);
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(3px);
     }
 
     .absolute-center {
@@ -82,6 +82,16 @@
     .button-header {
         @apply sm:py-2 py-3 px-4 text-text font-IBM font-bold bg-secondary rounded-full hover:bg-secondaryVariant hover:text-white;
     }
+
+    .circle-wrapper {
+        @apply w-[90%] h-[90%] rounded-full relative mt-[50px] mx-auto;
+        box-shadow: -1px 8px 7px 2px black;
+    }
+    
+    .circle {
+        @apply rounded-full block h-[40%] left-[30%] leading-[100px] absolute text-center top-[30%] w-[40%] cursor-pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
 }
 
 body {
@@ -99,80 +109,73 @@ body {
     color: #fff;
 }
 
+/*******  Simon's game 5 colors   *********/
+.simon-1-5 {
+    transform: rotate(-16deg) translate(100%) rotate(-46deg);
+}
+
+.simon-2-5 {
+    transform: rotate(56deg) translate(100%) rotate(-46deg);
+}
+
+.simon-3-5 {
+    transform: rotate(128deg) translate(100%) rotate(-91deg);
+}
+
+.simon-4-5 {
+    transform: rotate(200deg) translate(100%) rotate(-136deg);
+}
+
+.simon-5-5 {
+    transform: rotate(272deg) translate(100%) rotate(-181deg);
+}
 
 
-.circle-wrapper {
-    width:90%;
-    height:90%;
-    border-radius:51%;
-    position:relative;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: -1px 8px 7px 2px black;
- }
- 
- .circle {
-    border-radius: 51%;
-    display: block;
-    height: 40%;
-    left: 30%;
-    line-height: 100px;
-    position: absolute;
-    text-align: center;
-    top: 30%;
-    width: 40%;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
- }
+/********** Simon's 4 colors **********/
+.simon-1-4 {
+    transform: rotate(-88deg) translate(100%) rotate(-46deg);
+}
+
+.simon-2-4 {
+    transform: rotate(2deg) translate(100%) rotate(-46deg);
+}
+
+.simon-3-4 {
+    transform: rotate(92deg) translate(100%) rotate(-91deg);
+}
+
+.simon-4-4 {
+    transform: rotate(181deg) translate(100%) rotate(-136deg);
+}
+
+.simonRed-lightsOn {
+box-shadow: inset 0 0 20px 5px #ff6060, 0 0 11px 1px #f32727;
+background-color: rgb(255, 64, 64);
+}
+
+.simonBlue-lightsOn {
+background-color: rgb(67, 226, 247);
+box-shadow: inset 0 0 20px 5px #60bdff, 0 0 11px 1px #27cdf3;
+}
 
 
- .simonRed {
-    transform:rotate(-16deg) translate(100%) rotate(-46deg);
- }
+.simonYellow-lightsOn {
+background-color: rgb(255, 227, 89);
+box-shadow: inset 0 0 20px 5px #fdf5cc, 0 0 11px 1px #ffeb87;
+}
 
- .simonRed:hover {
-    box-shadow: inset 0 0 20px 5px #ff6060, 0 0 11px 1px #f32727;
-    background-color: rgb(255, 64, 64);
- }
- 
- .simonBlue {
-    transform:rotate(56deg) translate(100%) rotate(-46deg);
- }
 
- .simonBlue:hover {
-    background-color: rgb(67, 226, 247);
-    box-shadow: inset 0 0 20px 5px #60bdff, 0 0 11px 1px #27cdf3;
- }
- 
- .simonYellow {
-    transform:rotate(128deg) translate(100%) rotate(-91deg);
- }
+.simonPink-lightsOn {
+background-color: rgb(255, 56, 185);
+box-shadow: inset 0 0 20px 5px #ff60fa, 0 0 11px 1px #fb36c8;
+}
 
- .simonYellow:hover {
-    background-color: rgb(255, 227, 89);
-    box-shadow: inset 0 0 20px 5px #fdf5cc, 0 0 11px 1px #ffeb87;
- }
- 
- .simonPink {
-    transform:rotate(200deg) translate(100%) rotate(-136deg);
- }
+.simonGreen-lightsOn {
+background-color: #47ff47;
+box-shadow: inset 0 0 20px 5px #c6ffbc, 0 0 11px 1px #33ff00;
+}
 
- .simonPink:hover {
-    background-color: rgb(255, 56, 185);
-    box-shadow: inset 0 0 20px 5px #ff60fa, 0 0 11px 1px #fb36c8;
- }
- 
- .simonOrange {
-    transform:rotate(272deg) translate(100%) rotate(-181deg);
- }
 
- .simonOrange:hover {
-    background-color: rgb(255, 155, 41);
-    box-shadow: inset 0 0 20px 5px #ff8c60, 0 0 11px 1px #f37227;
- }
- 
-
- .simon-screen {
-    box-shadow: 0 0 6px 2px #1f1f1f;
- }
+.simon-screen {
+box-shadow: 0 0 6px 2px #1f1f1f;
+}

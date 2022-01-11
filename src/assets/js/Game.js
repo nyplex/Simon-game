@@ -1,5 +1,5 @@
 import { colorsInteraction, lightsOff, lightsOn } from "./gamePlay"
-import { countDown, delay, getColors, getSequenceNumber, getSound, IncreaseSpeed } from "./utilities"
+import { delay, getSound, IncreaseSpeed } from "./utilities"
 
 export class Game {
     constructor(theme, players, mode, level) {

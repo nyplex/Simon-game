@@ -1,5 +1,5 @@
 import "../css/main.css"
-import { displayMenu, displayMobileMenu } from "./display"
+import { displayMenu } from "./display"
 import { Game } from "./Game"
 
 

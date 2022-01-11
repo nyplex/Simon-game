@@ -31,18 +31,39 @@ export let generateGamePlay = (game) => {
  * ? Light-up the game's colors when the user clicks on them
  * @param {Object} game 
  */
-export let lightsOn = (game) => {
+export let colorsInteraction = (game) => {
     $(".circle").addClass("cursor-pointer")
     $("*[data-lens]").on("mousedown, pointerdown", (e) => {
         const data = $(e.target).data("lens")
         let music = getSound(data, game)
-        let className = "simon" + data.charAt(0).toUpperCase() + data.slice(1) + "-lightsOn"
-        $(e.target).addClass(className)
+        lightsOn(e.target, data)
         music.play()
     })
     $("*[data-lens]").on("mouseup, pointerup", (e) => {
         const data = $(e.target).data("lens")
-        let className = "simon" + data.charAt(0).toUpperCase() + data.slice(1) + "-lightsOn"
-        $(e.target).removeClass(className)
+        lightsOff(e.target, data)
     })  
+}
+
+/**
+ * lightsOn
+ * ? Light up a specific color
+ * @param {object} event target event
+ * @param {string} color 
+ */
+export let lightsOn = (event, color) => {
+    console.log(event);
+    let className = "simon" + color.charAt(0).toUpperCase() + color.slice(1) + "-lightsOn"
+        $(event).addClass(className)
+}
+
+/**
+ * lightsOff
+ * ? light off a specific color
+ * @param {object} event target event
+ * @param {string} color 
+ */
+export let lightsOff = (event, color) => {
+    let className = "simon" + color.charAt(0).toUpperCase() + color.slice(1) + "-lightsOn"
+    $(event).removeClass(className)
 }

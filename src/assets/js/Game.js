@@ -1,4 +1,4 @@
-import { lightsOn } from "./gamePlay"
+import { colorsInteraction, lightsOff, lightsOn } from "./gamePlay"
 import { countDown, delay, getColors, getSequenceNumber, getSound, IncreaseSpeed } from "./utilities"
 
 export class Game {
@@ -13,28 +13,11 @@ export class Game {
         this.userSequence = []
     }
 
-    /**
-     * startGame
-     * ? This function start the game
-     */
+
     startGame() {
         this.simonSay()
     }
 
-    /**
-     * addToSequence
-     * ? This function take a color as parameter and will add this color to the sequence. It will then play the sequence. 
-     * @param {string} color 
-     */
-    addToSequence(color) {
-        this.sequence.push(color)
-        this.#playSequence(this.sequence)
-    }
-
-    /**
-     * simonSay
-     * ? This function randomly choose a new color to add to the sequence
-     */
     simonSay() {
         const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
         this.addToSequence(newColors)  
@@ -42,7 +25,7 @@ export class Game {
 
     userSays() {
         $("#simon-text").text("Your Turn")
-        lightsOn(this)
+        colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
             let color = $(e.target).data("lens")
             this.userSequence.push(color)
@@ -50,6 +33,17 @@ export class Game {
         })
     }
 
+    addToSequence(color) {
+        this.sequence.push(color)
+        this.#playSequence(this.sequence)
+    }
+
+
+    /**
+     * checkSequence
+     * ? Check if last user input match the game's sequence. If true, keep playing, if false exit game. 
+     * @return
+     */
     checkSequence() {
         let length = this.userSequence.length - 1
         let colorToCheck = this.sequence[length]
@@ -85,15 +79,14 @@ export class Game {
             }
         }
         for(let i = 0; i < sequence.length; i ++) {
-            let className = sequence[i].charAt(0).toUpperCase() + sequence[i].slice(1)
+            let target = $(`*[data-lens="${sequence[i]}"]`)
             let music = getSound(sequence[i], this)
             if(music != false) {
                 music.play()
             }
-            $(`*[data-lens="${sequence[i]}"]`).addClass("simon" + className + "-lightsOn")
+            lightsOn(target[0], sequence[i])
             await delay(this.speed)
-
-            $(`*[data-lens="${sequence[i]}"]`).removeClass("simon" + className + "-lightsOn")
+            lightsOff(target[0], sequence[i])
             await delay(this.speed)
         }
         this.userSays()

@@ -6,9 +6,10 @@ export class Game {
         this.players = players
         this.mode = mode
         this.level = level
-        this.sequence = ["green", "yellow", "green", "green", "red", "blue", "blue", "red"]
+        this.sequence = []
         this.colors = []
         this.speed = 500
+        this.userSequence = []
     }
 
     /**
@@ -38,6 +39,37 @@ export class Game {
         this.addToSequence(newColors)  
     }
 
+    userSays() {
+        $("#simon-text").text("Your Turn")
+        this.#lightsOn()
+        $("*[data-lens]").on("click", (e) => {
+            let color = $(e.target).data("lens")
+            this.userSequence.push(color)
+            this.checkSequence()
+        })
+    }
+
+    checkSequence() {
+        let length = this.userSequence.length - 1
+        let colorToCheck = this.sequence[length]
+        let lastUserColor = this.userSequence[length]
+
+        if(lastUserColor === colorToCheck) {
+            if(this.userSequence.length === this.sequence.length) {
+                $("*[data-lens]").off()
+                $(".circle").removeClass("cursor-pointer")
+                this.userSequence = []
+                this.simonSay()
+                return
+            }  
+        }else{
+            $("*[data-lens]").off()
+            $(".circle").removeClass("cursor-pointer")
+            $("#simon-text").text("GAME OVER")
+            return
+        }
+    }
+
     /**
      * generateGamePlay
      * ? Generate the Simon's colors depending on the game's level
@@ -60,7 +92,6 @@ export class Game {
         }
 
         $("#simon-colors-container").html(html)
-        this.#lightsOn()
         let countdown = this.#countDown(5)
     }
 
@@ -72,21 +103,27 @@ export class Game {
         $(".circle").addClass("cursor-pointer")
         $("*[data-lens]").on("mousedown, pointerdown", (e) => {
             const data = $(e.target).data("lens")
+            let music = getSound(data, this)
             switch (data) {
                 case "red": 
                     $(e.target).addClass("simonRed-lightsOn")
+                    music.play()
                     break
                 case "blue": 
                     $(e.target).addClass("simonBlue-lightsOn")
+                    music.play()
                     break
                 case "yellow": 
                     $(e.target).addClass("simonYellow-lightsOn")
+                    music.play()
                     break
                 case "pink": 
                     $(e.target).addClass("simonPink-lightsOn")
+                    music.play()
                     break
                 case "green": 
                     $(e.target).addClass("simonGreen-lightsOn")
+                    music.play()
                     break
                 default:
                     return
@@ -94,6 +131,7 @@ export class Game {
         })
         $("*[data-lens]").on("mouseup, pointerup", (e) => {
             const data = $(e.target).data("lens")
+            
             switch (data) {
                 case "red": 
                     $(e.target).removeClass("simonRed-lightsOn")
@@ -125,12 +163,13 @@ export class Game {
         let interval = setInterval(() => {
             if(time === 0) {
                 clearInterval(interval);
+                $("#simon-text").text("")
                 this.startGame()
             }else{
                 time = time - 1
                 $("#simon-text").text(time)
             }
-        }, 50);
+        }, 1000);
     }
 
     /**
@@ -152,6 +191,8 @@ export class Game {
      * @param {array} sequence 
      */
     async #playSequence(sequence) {
+        $("#simon-text").text("SIMON SAYS")
+        await delay(1000)
         if(IncreaseSpeed(sequence.length)) {
             if(this.speed <= 300) {
                 this.speed -= 100
@@ -161,11 +202,11 @@ export class Game {
 
             let className = sequence[i].charAt(0).toUpperCase() + sequence[i].slice(1)
             let music = getSound(sequence[i], this)
-
-            $(`*[data-lens="${sequence[i]}"]`).addClass("simon" + className + "-lightsOn")
             if(music != false) {
                 music.play()
             }
+            $(`*[data-lens="${sequence[i]}"]`).addClass("simon" + className + "-lightsOn")
+            
 
             await delay(this.speed)
 
@@ -174,5 +215,7 @@ export class Game {
             await delay(this.speed)
             
         }
+
+        this.userSays()
     }
 }

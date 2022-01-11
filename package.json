@@ -19,6 +19,7 @@
   "homepage": "https://github.com/nyplex/Simon-game#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.1",
+    "compression-webpack-plugin": "^9.2.0",
     "css-loader": "^6.5.1",
     "cssnano": "^5.0.14",
     "file-loader": "^6.2.0",

@@ -14,11 +14,11 @@ module.exports = {
         primary: "#1D3557",
         text: "#323232",
         secondaryVariant: "#457B9D",
-        simonRed: "#C30000",
-        simonBlue: "#0097AC",
-        simonYellow: "#FFD600",
-        simonGreen: "#3dd53d",
-        simonPink: "#D8008E"
+        simonRed: "#870000",
+        simonBlue: "#005763",
+        simonYellow: "#998000",
+        simonGreen: "#007800",
+        simonPink: "#6e0048"
       }
     },
     screens: {

@@ -1,26 +1,49 @@
+import { delay, getSequenceNumber, getSound, IncreaseSpeed } from "./utilities"
+
 export class Game {
     constructor(theme, players, mode, level) {
         this.theme = theme
         this.players = players
         this.mode = mode
         this.level = level
-        this.sequence = ["green", "yellow", "yellow", "red", "blue", "red"]
+        this.sequence = ["green", "yellow", "green", "green", "red", "blue", "blue", "red"]
         this.colors = []
+        this.speed = 500
     }
 
-    addToSequence() {
-        this.#getColors()
-        const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
-        this.sequence.push(newColors)
+    /**
+     * startGame
+     * ? This function start the game
+     */
+    startGame() {
+        this.simonSay()
+    }
+
+    /**
+     * addToSequence
+     * ? This function take a color as parameter and will add this color to the sequence. It will then play the sequence. 
+     * @param {string} color 
+     */
+    addToSequence(color) {
+        this.sequence.push(color)
         this.#playSequence(this.sequence)
     }
 
+    /**
+     * simonSay
+     * ? This function randomly choose a new color to add to the sequence
+     */
+    simonSay() {
+        const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
+        this.addToSequence(newColors)  
+    }
 
     /**
      * generateGamePlay
      * ? Generate the Simon's colors depending on the game's level
      */
     generateGamePlay() {
+        this.#getColors()
         $("#main-game-container").removeClass("hidden")
         let html = ""
         if(this.level === 3 || this.level === 4 || this.level === 5) {
@@ -102,14 +125,18 @@ export class Game {
         let interval = setInterval(() => {
             if(time === 0) {
                 clearInterval(interval);
-                this.addToSequence()
+                this.startGame()
             }else{
                 time = time - 1
                 $("#simon-text").text(time)
             }
-        }, 1000);
+        }, 50);
     }
 
+    /**
+     * getColors
+     * ? Depending on the game's level, this function generate the colors to play with and store them in the object.
+     */
     #getColors() {
         if(this.level === 1 || this.level === 2) {
             this.colors.push("red", "blue", "yellow", "green")
@@ -117,25 +144,35 @@ export class Game {
             this.colors.push("red", "blue", "yellow", "pink", "green")
         }
     }
-
-    delay(time) {
-        return new Promise(resolve => setTimeout(resolve, time));
-    }
-
+    
+    
+    /**
+     * playSequence
+     * ? This private function will play back the colors sequence with sound FX.
+     * @param {array} sequence 
+     */
     async #playSequence(sequence) {
+        if(IncreaseSpeed(sequence.length)) {
+            if(this.speed <= 300) {
+                this.speed -= 100
+            }
+        }
         for(let i = 0; i < sequence.length; i ++) {
-            let className = sequence[i]
-            let classNameUpper = className.charAt(0).toUpperCase() + className.slice(1)
-            let selector = `*[data-lens="${sequence[i]}"]`
-            setTimeout(() => {
-                $(selector).addClass("simon" + classNameUpper + "-lightsOn")
-            }, 1000 * i);
-            
-            await this.delay(1000)
 
-            setTimeout(() => {
-                $(selector).removeClass("simon" + classNameUpper + "-lightsOn")
-            }, 1000 * i);
+            let className = sequence[i].charAt(0).toUpperCase() + sequence[i].slice(1)
+            let music = getSound(sequence[i], this)
+
+            $(`*[data-lens="${sequence[i]}"]`).addClass("simon" + className + "-lightsOn")
+            if(music != false) {
+                music.play()
+            }
+
+            await delay(this.speed)
+
+            $(`*[data-lens="${sequence[i]}"]`).removeClass("simon" + className + "-lightsOn")
+
+            await delay(this.speed)
+            
         }
     }
 }

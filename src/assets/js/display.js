@@ -125,7 +125,7 @@ let setupInteraction = (game) => {
         
         //display the mobile's nav
         displayMobileMenu()
-
+        
         game.generateGamePlay()
     })
 }

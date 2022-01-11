@@ -2,6 +2,7 @@ const path = require("path")
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 const webpack = require("webpack");
 
 const files = {
@@ -20,7 +21,7 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
-    //devtool: 'inline-source-map',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -70,12 +71,17 @@ module.exports = {
           }
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].[contenthash].css",
+          filename: "[name].[contenthash].css",
         }),
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
+          $: 'jquery',
+          jQuery: 'jquery',
         }),
+        new CompressionPlugin({
+          test: /\.js$/i,
+          algorithm: "gzip",
+          filename: "[path][base].gz"
+        })
     ],
     optimization: {
       usedExports: false, // <- no remove unused function

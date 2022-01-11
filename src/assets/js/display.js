@@ -1,3 +1,5 @@
+import { generateGamePlay } from "./gamePlay"
+
 /**
  * displayMenu
  * ? Called from index.js && Display menu and setup interaction when the page is loaded
@@ -125,7 +127,6 @@ let setupInteraction = (game) => {
         
         //display the mobile's nav
         displayMobileMenu()
-        
-        game.generateGamePlay()
+        generateGamePlay(game)
     })
 }

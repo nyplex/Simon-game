@@ -36,3 +36,35 @@ export let IncreaseSpeed = (sequence) => {
         return false
     }
 }
+
+/**
+ * getColors
+ * ? Depending on the game's level, this function generate the colors to play with and store them in the object
+ * @param {Object} game 
+ */
+export let getColors = (game) => {
+    if(game.level === 1 || game.level === 2) {
+        game.colors.push("red", "blue", "yellow", "green")
+    }else{
+        game.colors.push("red", "blue", "yellow", "pink", "green")
+    }
+}
+
+/**
+ * countDown
+ * ? Display a countdown before the game starts
+ * @param {int} time 
+ * @param {Object} game 
+ */
+export let countDown = (time, game) => {
+    let interval = setInterval(() => {
+        if(time === 0) {
+            clearInterval(interval);
+            $("#simon-text").text("")
+            game.startGame()
+        }else{
+            time = time - 1
+            $("#simon-text").text(time)
+        }
+    }, 1000);
+}

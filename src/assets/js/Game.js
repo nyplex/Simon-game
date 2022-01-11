@@ -1,4 +1,5 @@
-import { delay, getSequenceNumber, getSound, IncreaseSpeed } from "./utilities"
+import { lightsOn } from "./gamePlay"
+import { countDown, delay, getColors, getSequenceNumber, getSound, IncreaseSpeed } from "./utilities"
 
 export class Game {
     constructor(theme, players, mode, level) {
@@ -41,7 +42,7 @@ export class Game {
 
     userSays() {
         $("#simon-text").text("Your Turn")
-        this.#lightsOn()
+        lightsOn(this)
         $("*[data-lens]").on("click", (e) => {
             let color = $(e.target).data("lens")
             this.userSequence.push(color)
@@ -53,7 +54,6 @@ export class Game {
         let length = this.userSequence.length - 1
         let colorToCheck = this.sequence[length]
         let lastUserColor = this.userSequence[length]
-
         if(lastUserColor === colorToCheck) {
             if(this.userSequence.length === this.sequence.length) {
                 $("*[data-lens]").off()
@@ -70,120 +70,6 @@ export class Game {
         }
     }
 
-    /**
-     * generateGamePlay
-     * ? Generate the Simon's colors depending on the game's level
-     */
-    generateGamePlay() {
-        this.#getColors()
-        $("#main-game-container").removeClass("hidden")
-        let html = ""
-        if(this.level === 3 || this.level === 4 || this.level === 5) {
-            html += `<div data-lens="red" class="circle simonRed bg-simonRed simon-1-5"></div> 
-                    <div data-lens="blue" class="circle simonBlue bg-simonBlue simon-2-5"></div> 
-                    <div data-lens="yellow" class="circle simonYellow bg-simonYellow simon-3-5"></div> 
-                    <div data-lens="pink" class="circle simonPink bg-simonPink simon-4-5"> </div> 
-                    <div data-lens="green" class="circle simonGreen bg-simonGreen simon-5-5"></div>`
-        }else {
-            html += `<div data-lens="red" class="circle simonRed bg-simonRed simon-1-4"></div> 
-                    <div data-lens="blue" class="circle simonBlue bg-simonBlue simon-2-4"></div> 
-                    <div data-lens="yellow" class="circle simonYellow bg-simonYellow simon-3-4"></div>  
-                    <div data-lens="green" class="circle simonGreen bg-simonGreen simon-4-4"></div>`
-        }
-
-        $("#simon-colors-container").html(html)
-        let countdown = this.#countDown(5)
-    }
-
-    /**
-     * lightsOn
-     * ? Light-up the game's colors when the user clicks on them
-     */
-    #lightsOn() {
-        $(".circle").addClass("cursor-pointer")
-        $("*[data-lens]").on("mousedown, pointerdown", (e) => {
-            const data = $(e.target).data("lens")
-            let music = getSound(data, this)
-            switch (data) {
-                case "red": 
-                    $(e.target).addClass("simonRed-lightsOn")
-                    music.play()
-                    break
-                case "blue": 
-                    $(e.target).addClass("simonBlue-lightsOn")
-                    music.play()
-                    break
-                case "yellow": 
-                    $(e.target).addClass("simonYellow-lightsOn")
-                    music.play()
-                    break
-                case "pink": 
-                    $(e.target).addClass("simonPink-lightsOn")
-                    music.play()
-                    break
-                case "green": 
-                    $(e.target).addClass("simonGreen-lightsOn")
-                    music.play()
-                    break
-                default:
-                    return
-            }
-        })
-        $("*[data-lens]").on("mouseup, pointerup", (e) => {
-            const data = $(e.target).data("lens")
-            
-            switch (data) {
-                case "red": 
-                    $(e.target).removeClass("simonRed-lightsOn")
-                    break
-                case "blue": 
-                    $(e.target).removeClass("simonBlue-lightsOn")
-                    break
-                case "yellow": 
-                    $(e.target).removeClass("simonYellow-lightsOn")
-                    break
-                case "pink": 
-                    $(e.target).removeClass("simonPink-lightsOn")
-                    break
-                case "green": 
-                    $(e.target).removeClass("simonGreen-lightsOn")
-                    break
-                default:
-                    return
-            }
-        })    
-    }
-
-    /**
-     * countDown
-     * ? Display a countdown before the game starts
-     * @param {int} time 
-     */
-    #countDown(time) {
-        let interval = setInterval(() => {
-            if(time === 0) {
-                clearInterval(interval);
-                $("#simon-text").text("")
-                this.startGame()
-            }else{
-                time = time - 1
-                $("#simon-text").text(time)
-            }
-        }, 1000);
-    }
-
-    /**
-     * getColors
-     * ? Depending on the game's level, this function generate the colors to play with and store them in the object.
-     */
-    #getColors() {
-        if(this.level === 1 || this.level === 2) {
-            this.colors.push("red", "blue", "yellow", "green")
-        }else{
-            this.colors.push("red", "blue", "yellow", "pink", "green")
-        }
-    }
-    
     
     /**
      * playSequence
@@ -199,23 +85,17 @@ export class Game {
             }
         }
         for(let i = 0; i < sequence.length; i ++) {
-
             let className = sequence[i].charAt(0).toUpperCase() + sequence[i].slice(1)
             let music = getSound(sequence[i], this)
             if(music != false) {
                 music.play()
             }
             $(`*[data-lens="${sequence[i]}"]`).addClass("simon" + className + "-lightsOn")
-            
-
             await delay(this.speed)
 
             $(`*[data-lens="${sequence[i]}"]`).removeClass("simon" + className + "-lightsOn")
-
             await delay(this.speed)
-            
         }
-
         this.userSays()
     }
 }

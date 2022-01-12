@@ -1,4 +1,5 @@
 import { colorsInteraction, lightsOff, lightsOn } from "./gamePlay"
+import { Players } from "./Players"
 import { delay, getSound, IncreaseSpeed } from "./utilities"
 
 export class Game {
@@ -12,10 +13,13 @@ export class Game {
         this.colors = []
         this.speed = 500
         this.userSequence = []
+        this.playersTurn = 1
+        this.Players = new Players()
     }
 
 
     startGame() {
+        //call diffrent function depending on the game's mode
         this.simonSay()
     }
 
@@ -24,8 +28,9 @@ export class Game {
         this.addToSequence(newColors)  
     }
 
+
     userSays() {
-        $("#simon-text").text("Your Turn")
+        $("#simon-text").text(this.Players.usersTurn(this))
         colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
             let color = $(e.target).data("lens")
@@ -45,7 +50,7 @@ export class Game {
      * ? Check if last user input match the game's sequence. If true, keep playing, if false exit game. 
      * @return
      */
-    checkSequence() {
+    async checkSequence() {
         let length = this.userSequence.length - 1
         let colorToCheck = this.sequence[length]
         let lastUserColor = this.userSequence[length]
@@ -54,14 +59,28 @@ export class Game {
                 $("*[data-lens]").off()
                 $(".circle").removeClass("cursor-pointer")
                 this.userSequence = []
+                await delay(500)
                 this.simonSay()
                 return
             }  
         }else{
             $("*[data-lens]").off()
             $(".circle").removeClass("cursor-pointer")
-            $("#simon-text").text("GAME OVER")
+            this.gameOver()
             return
+        }
+    }
+
+
+    gameOver() {
+        //open a modal with the score details
+        console.log("Sequence length: " + this.sequence.length);
+        if(this.players > 1) {
+            let player = this.playersTurn - 1
+            if(player <= 0) {
+                player = this.players
+            }
+            console.log("Player " + player + " lost!")
         }
     }
 
@@ -74,8 +93,8 @@ export class Game {
     async #playSequence(sequence) {
         $("#simon-text").text("SIMON SAYS")
         await delay(1000)
-        if(IncreaseSpeed(sequence.length)) {
-            if(this.speed <= 300) {
+        if(IncreaseSpeed(sequence.length, this)) {
+            if(this.speed >= 300) {
                 this.speed -= 100
             }
         }

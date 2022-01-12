@@ -26,10 +26,14 @@ export let getSound = (color, game) => {
  * IncreaseSpeed
  * ? This function return true if the game must increase the speed
  * @param {int} sequence 
+ * @param {Object} game
  * @returns {boolean} 
  */
-export let IncreaseSpeed = (sequence) => {
-    let result = (sequence - 1) / 4 
+export let IncreaseSpeed = (sequence, game) => {
+    let result = (sequence - 1) / 4
+    if(game.level === 2 || game.level === 4) {
+        return false
+    } 
     if(Number.isInteger(result)) {
         return true
     }else{
@@ -66,5 +70,5 @@ export let countDown = (time, game) => {
             time = time - 1
             $("#simon-text").text(time)
         }
-    }, 1000);
+    }, 100);
 }

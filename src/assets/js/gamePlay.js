@@ -37,7 +37,10 @@ export let colorsInteraction = (game) => {
         const data = $(e.target).data("lens")
         let music = getSound(data, game)
         lightsOn(e.target, data)
-        music.play()
+        if(music != false) {
+            music.play()
+        }
+        
     })
     $("*[data-lens]").on("mouseup, pointerup", (e) => {
         const data = $(e.target).data("lens")

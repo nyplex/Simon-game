@@ -66,5 +66,5 @@ export let countDown = (time, game) => {
             time = time - 1
             $("#simon-text").text(time)
         }
-    }, 100);
+    }, 1000);
 }

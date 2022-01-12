@@ -52,7 +52,6 @@ export let colorsInteraction = (game) => {
  * @param {string} color 
  */
 export let lightsOn = (event, color) => {
-    console.log(event);
     let className = "simon" + color.charAt(0).toUpperCase() + color.slice(1) + "-lightsOn"
         $(event).addClass(className)
 }

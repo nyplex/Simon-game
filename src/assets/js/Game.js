@@ -2,11 +2,12 @@ import { colorsInteraction, lightsOff, lightsOn } from "./gamePlay"
 import { delay, getSound, IncreaseSpeed } from "./utilities"
 
 export class Game {
-    constructor(theme, players, mode, level) {
+    constructor(theme, players, mode, level, sounds) {
         this.theme = theme
         this.players = players
         this.mode = mode
         this.level = level
+        this.sounds = sounds
         this.sequence = []
         this.colors = []
         this.speed = 500

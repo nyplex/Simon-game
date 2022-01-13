@@ -10,7 +10,7 @@ const yellowSound = new Audio("../src/assets/media/sounds/yellow.wav")
 const pinkSound = new Audio("../src/assets/media/sounds/pink.wav")
 
 
-const game = new Game(1, 1, 1, 1, {
+const game = new Game(1, [0], 1, 1, {
     blue: blueSound,
     red: redSound,
     green: greenSound,

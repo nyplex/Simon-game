@@ -80,7 +80,12 @@ let setupInteraction = (game) => {
                 $(e.target).addClass("active-button")
                 break;
             case "players":
-                game.players = $(e.target).data("players")
+                let playersNumber = $(e.target).data("players")
+                let playersArray = []
+                for(let i = 0; i < playersNumber; i++){
+                    playersArray.push(i)
+                }
+                game.players = playersArray
                 $("*[data-players]").removeClass("active-button")
                 $("*[data-players]").addClass("primary-button")
                 $(e.target).addClass("active-button")

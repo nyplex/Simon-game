@@ -4,6 +4,7 @@ import { delay, getSound, IncreaseSpeed } from "./utilities"
 
 export class Game {
     constructor(theme, players, mode, level, sounds) {
+        
         this.theme = theme
         this.players = players
         this.mode = mode
@@ -13,8 +14,8 @@ export class Game {
         this.colors = []
         this.speed = 500
         this.userSequence = []
-        this.playersTurn = 1
-        this.Players = new Players()
+        this.playersTurn = this.players[0]
+        this.playerData = new Players()
     }
 
 
@@ -26,22 +27,22 @@ export class Game {
     simonSay() {
         const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
         this.addToSequence(newColors)  
+        this.#playSequence(this.sequence)
     }
 
 
     userSays() {
-        $("#simon-text").text(this.Players.usersTurn(this))
         colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
             let color = $(e.target).data("lens")
             this.userSequence.push(color)
             this.checkSequence()
         })
+        $("#simon-text").text(this.playerData.usersTurn(this))
     }
 
     addToSequence(color) {
         this.sequence.push(color)
-        this.#playSequence(this.sequence)
     }
 
 
@@ -66,21 +67,31 @@ export class Game {
         }else{
             $("*[data-lens]").off()
             $(".circle").removeClass("cursor-pointer")
-            this.gameOver()
+            //if mode 1 and single players and wrong sequence gameover() and display result
+            //if mode 1 and multiplayers, remove the player and keep playing
+            this.wrongSequence()
             return
         }
     }
 
+    removePlayer(index) {
+        this.players.splice(index - 1, 1)
+    }
 
-    gameOver() {
-        //open a modal with the score details
-        console.log("Sequence length: " + this.sequence.length);
-        if(this.players > 1) {
-            let player = this.playersTurn - 1
-            if(player <= 0) {
-                player = this.players
-            }
-            console.log("Player " + player + " lost!")
+    wrongSequence() {
+        //if mode 1 and single player
+        if(this.players.length === 1) {
+            // call gameover function
+            console.log("game over, single player, display results");
+        }else if(this.players.length > 1) {
+            this.removePlayer(this.playersTurn)
+            // setup score for the user out
+            let playerOut = (this.playersTurn > 0) ? this.playersTurn - 1 : 0
+            console.log("player " + playerOut + " is out");
+            console.log("keep playing with remainning user: " + this.players);
+            this.userSequence = []
+            this.#playSequence(this.sequence)
+
         }
     }
 

@@ -18,8 +18,7 @@ export let getSound = (color, game) => {
     if(game.theme === 4) {
         return false
     }
-    let music = new Audio("../src/assets/media/sounds/" + color + ".wav")
-    return music
+    return game.sounds[color]
 }
 
 /**

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Simon 2.0</title>
-<script defer src="main.c92c51488ef6fc817d1d.js"></script><link href="main.94d2f1181f7e768bca21.css" rel="stylesheet"></head>
+<script defer src="main.c92c51488ef6fc817d1d.js"></script><link href="main.53e8abd125cc5874220a.css" rel="stylesheet"></head>
 
 <body class="max-h-[100vh] overflow-hidden">
 
@@ -320,11 +320,17 @@
     
             <div id="setupDataContainer">
                 
+                <div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
+                    <p class="text-gray-500 font-bold">Sequence's length</p>
+                    <p class="text-gray-700 font-bold text-2xl">6 colors</p>
+                </div>
     
             </div>
     
-            <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">RESTART</span></button> 
-            <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">SETUP NEW GAME</span></button>    
+            <div class="flex justify-between">
+                <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">RESTART</span></button> 
+                <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">SETUP NEW GAME</span></button>
+            </div>    
     
         </div>
         <!-------------------------- end score modal ------------------------------->

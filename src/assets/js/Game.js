@@ -89,6 +89,7 @@ export class Game {
         //if mode 1 and single player
         if(this.multiplayers === false) {
             console.log("game over, single player");
+            $("#score-modal").removeClass("hidden")
             this.setupPlayersData(this.players[this.playersTurn - 1])
         }else if(this.players.length > 1) {
             $("#simon-text").text("Player " + this.players[this.playersTurn - 1] + " is out")

@@ -36,7 +36,7 @@ export let IncreaseSpeed = (sequence, game) => {
     }
     if(Number.isInteger(result) && result >= 1) {
         if(game.speed >= 100) {
-            game.speed -= 200
+            game.speed -= 150
         }
     }
     return

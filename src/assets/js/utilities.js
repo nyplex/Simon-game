@@ -31,13 +31,15 @@ export let getSound = (color, game) => {
 export let IncreaseSpeed = (sequence, game) => {
     let result = (sequence - 1) / 4
     if(game.level === 2 || game.level === 4) {
-        return false
-    } 
-    if(Number.isInteger(result)) {
-        return true
-    }else{
-        return false
+        game.speed = 300
+        return
     }
+    if(Number.isInteger(result) && result >= 1) {
+        if(game.speed >= 100) {
+            game.speed -= 200
+        }
+    }
+    return
 }
 
 /**
@@ -70,4 +72,24 @@ export let countDown = (time, game) => {
             $("#simon-text").text(time)
         }
     }, 100);
+}
+
+
+/**
+ * usersTurn
+ * @param {Object} game 
+ * @returns {string}
+*/
+export let usersTurn = (game) => {
+    if(game.multiplayers === false) {
+        game.playersTurn = 1
+        return "Your Turn"
+    }else{
+        if(game.playersTurn >= game.players.length) {
+            game.playersTurn = 0
+        }
+        let html =  "Player " + game.players[game.playersTurn] + ",<br> it's your turn"
+        game.playersTurn += 1
+        return html
+    }
 }

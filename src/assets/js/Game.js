@@ -1,12 +1,12 @@
-import { colorsInteraction, lightsOff, lightsOn } from "./gamePlay"
-import { Players } from "./Players"
-import { delay, getSound, IncreaseSpeed } from "./utilities"
+import { colorsInteraction, lightsOff, lightsOn, rotateColors, timeToRotate } from "./gamePlay"
+import { delay, getSound, IncreaseSpeed, usersTurn } from "./utilities"
 
 export class Game {
     constructor(theme, players, mode, level, sounds) {
         
         this.theme = theme
         this.players = players
+        this.multiplayers = false
         this.mode = mode
         this.level = level
         this.sounds = sounds
@@ -14,8 +14,8 @@ export class Game {
         this.colors = []
         this.speed = 500
         this.userSequence = []
-        this.playersTurn = this.players[0]
-        this.playerData = new Players()
+        this.playersTurn = 0
+        this.playerData = []
     }
 
 
@@ -32,19 +32,25 @@ export class Game {
 
 
     userSays() {
+        let timeOut = setTimeout(() => {
+            //play buzz sound 
+            console.log("BUZZZZ");
+            $("*[data-lens]").off()
+            this.wrongSequence()
+        }, 5000);
         colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
+            clearTimeout(timeOut)
             let color = $(e.target).data("lens")
             this.userSequence.push(color)
             this.checkSequence()
         })
-        $("#simon-text").text(this.playerData.usersTurn(this))
+        $("#simon-text").html(usersTurn(this))
     }
 
     addToSequence(color) {
         this.sequence.push(color)
     }
-
 
     /**
      * checkSequence
@@ -75,24 +81,38 @@ export class Game {
     }
 
     removePlayer(index) {
-        this.players.splice(index - 1, 1)
+        this.players.splice(index, 1)
+        this.playersTurn -= 1
     }
 
-    wrongSequence() {
+    async wrongSequence() {
         //if mode 1 and single player
-        if(this.players.length === 1) {
-            // call gameover function
-            console.log("game over, single player, display results");
+        if(this.multiplayers === false) {
+            console.log("game over, single player");
+            this.setupPlayersData(this.players[this.playersTurn - 1])
         }else if(this.players.length > 1) {
-            this.removePlayer(this.playersTurn)
-            // setup score for the user out
-            let playerOut = (this.playersTurn > 0) ? this.playersTurn - 1 : 0
-            console.log("player " + playerOut + " is out");
-            console.log("keep playing with remainning user: " + this.players);
+            $("#simon-text").text("Player " + this.players[this.playersTurn - 1] + " is out")
+            await delay(1500)
+            this.setupPlayersData(this.players[this.playersTurn - 1])
+            this.removePlayer(this.playersTurn - 1)
             this.userSequence = []
-            this.#playSequence(this.sequence)
-
+            this.userSays()
+        }else{
+            this.setupPlayersData(this.players[this.playersTurn - 1])
+            console.log("game over, multi player");
         }
+    }
+
+
+    setupPlayersData(player) {
+        let score = this.sequence.length - 1
+        if(this.sequence.length <= 0) {
+            score = 0
+        }
+        this.playerData.push({
+            player: player,
+            score: score
+        })
     }
 
     
@@ -104,21 +124,22 @@ export class Game {
     async #playSequence(sequence) {
         $("#simon-text").text("SIMON SAYS")
         await delay(1000)
-        if(IncreaseSpeed(sequence.length, this)) {
-            if(this.speed >= 300) {
-                this.speed -= 100
-            }
-        }
+        IncreaseSpeed(sequence.length, this)
         for(let i = 0; i < sequence.length; i ++) {
             let target = $(`*[data-lens="${sequence[i]}"]`)
             let music = getSound(sequence[i], this)
             if(music != false) {
+                music.currentTime = 0;
                 music.play()
             }
             lightsOn(target[0], sequence[i])
             await delay(this.speed)
             lightsOff(target[0], sequence[i])
             await delay(this.speed)
+        }
+        rotateColors(sequence.length, this)
+        if(timeToRotate(sequence.length, this)) {
+            await delay(2100)
         }
         this.userSays()
     }

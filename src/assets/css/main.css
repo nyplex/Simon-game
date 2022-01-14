@@ -179,3 +179,7 @@ box-shadow: inset 0 0 20px 5px #c6ffbc, 0 0 11px 1px #33ff00;
 .simon-screen {
 box-shadow: 0 0 6px 2px #1f1f1f;
 }
+
+#simon-colors-container {
+    transition: transform 2s;
+}

@@ -83,9 +83,12 @@ let setupInteraction = (game) => {
                 let playersNumber = $(e.target).data("players")
                 let playersArray = []
                 for(let i = 0; i < playersNumber; i++){
-                    playersArray.push(i)
+                    playersArray.push(i + 1)
                 }
                 game.players = playersArray
+                if(playersNumber > 1) {
+                    game.multiplayers = true
+                }
                 $("*[data-players]").removeClass("active-button")
                 $("*[data-players]").addClass("primary-button")
                 $(e.target).addClass("active-button")

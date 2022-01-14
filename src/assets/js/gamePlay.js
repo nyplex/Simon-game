@@ -1,4 +1,4 @@
-import { countDown, getColors, getSound } from "./utilities"
+import { countDown, delay, getColors, getSound } from "./utilities"
 
 
 /**
@@ -38,6 +38,7 @@ export let colorsInteraction = (game) => {
         let music = getSound(data, game)
         lightsOn(e.target, data)
         if(music != false) {
+            music.currentTime = 0;
             music.play()
         }
         
@@ -68,4 +69,26 @@ export let lightsOn = (event, color) => {
 export let lightsOff = (event, color) => {
     let className = "simon" + color.charAt(0).toUpperCase() + color.slice(1) + "-lightsOn"
     $(event).removeClass(className)
+}
+
+
+export let rotateColors = (sequence, game) => {
+    if(timeToRotate(sequence, game)) {
+        let container = $("#simon-colors-container")
+        let rotation = Math.random() * (1000 - 360) + 360;
+        $(container).css("transform", `rotate(${rotation}deg)`)
+    }
+    
+}
+
+
+export let timeToRotate = (sequence, game) => {
+    let result = (sequence - 1) / 4
+    if(game.level === 1 || game.level === 3) {
+        return false
+    } 
+    if(Number.isInteger(result) && result >= 1) {
+        return true
+    }
+    return false
 }

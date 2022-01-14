@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Simon 2.0</title>
-<script defer src="main.c92c51488ef6fc817d1d.js"></script><link href="main.66b4208884bb7bee198a.css" rel="stylesheet"></head>
+<script defer src="main.c92c51488ef6fc817d1d.js"></script><link href="main.94d2f1181f7e768bca21.css" rel="stylesheet"></head>
 
 <body class="max-h-[100vh] overflow-hidden">
+
+    
+    
     
     <!-- Blur BG -->
     <div aria-hidden="true" id="blur-bg" class="w-[100vw] h-[100vh]  absolute z-0 top-0 modal-bg"></div>
@@ -292,6 +295,71 @@
         </ul>
 
         <button name="Back to setup" id="ready-btn" class="m-auto bg-pink-500 block mt-10 mb-6 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">I'm Ready!</h1></button>
+    </div>
+</div>
+
+    <!-------------------------- score modal ------------------------------->
+    
+    <div aria-modal="true"  id="setup-modal" class="absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto z-20">
+
+
+        <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
+        <div class="flex justify-between items-center">
+            <h1 aria-hidden="true" class="font-OPS text-primary text-4xl">SIMON</h1>
+        </div>
+    
+    
+        <div class="mx-auto mt-8 font-IBM text-text">
+    
+    
+            <h1 id="scoreTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0">You did it!</h1>
+    
+            <p id="scoreText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto text-gray-400" tabindex="0" aria-label="Text introduction">
+                Game over! Here's how you got on...
+            </p>
+    
+            <div id="setupDataContainer">
+                
+    
+            </div>
+    
+            <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">RESTART</span></button> 
+            <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">SETUP NEW GAME</span></button>    
+    
+        </div>
+        <!-------------------------- end score modal ------------------------------->
+
+    <!-- Score Modal -->
+    <div aria-modal="true"  id="setup-modal" class="hidden absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-10 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto z-20">
+
+
+    <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
+    <div class="flex justify-between items-center">
+        <h1 aria-hidden="true" class="font-OPS text-primary text-4xl">SIMON</h1>
+    </div>
+
+
+    <div class="mx-auto mt-8 font-IBM text-text">
+
+
+        <h1 id="setupTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0">Welcome</h1>
+
+        <p id="welcomeText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto" tabindex="0" aria-label="Text introduction">
+            First-time player ? Don’t remember how to play? Take a few minutes to read the rules.
+        </p>
+
+        <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
+
+        <hr aria-hidden="true" class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full bg-text">
+
+        <div id="setupDataContainer">
+            
+
+        </div>
+
+        <button id="playButton" name="Play game" class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">PLAY SIMON</h1></button>
+
+
     </div>
 </div>
 

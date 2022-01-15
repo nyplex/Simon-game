@@ -138,3 +138,10 @@ let setupInteraction = (game) => {
         generateGamePlay(game)
     })
 }
+
+
+export let setupNewGame = () => {
+    $("#new-game-score-btn").on("click", () => {
+        location.reload();
+    })
+}

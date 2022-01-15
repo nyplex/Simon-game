@@ -1,3 +1,4 @@
+import { restartGame, setupNewGame } from "./display"
 import { countDown, delay, getColors, getSound } from "./utilities"
 
 
@@ -95,6 +96,8 @@ export let timeToRotate = (sequence, game) => {
 
 
 export let gameOver = (game) => {
+    //restartGame()
+    setupNewGame()
     if(game.multiplayers === false) {
         $("#scoreTitle").text("Game Over!")
         $("#scoreText").text("Here's how you got on...")
@@ -109,20 +112,24 @@ export let gameOver = (game) => {
     }else{
         let data = game.playerData
         let sorted = []
+        let html = ""
         for (var score in data) {
             sorted.push([score, data[score]]);
         }
         sorted.sort(function(a, b) {
             return a[1] - b[1];
         });
-        let html
+        sorted.reverse()
         for(let i = 0; i < sorted.length; i++) {
+            console.log(sorted[i]);
             let score = (sorted[i][1] <= 1) ? "color" : "colors"
              html += `<div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
-                        <p class="text-gray-500 font-bold">Sequence's length</p>
+                        <p class="text-gray-500 font-bold">Player ${sorted[i][0]}</p>
                         <p class="text-gray-700 font-bold text-2xl">${sorted[i][1]} ${score}</p>
                     </div>`
         }
+        $("#scoreTitle").text("Game Over!")
+        $("#scoreText").text("Here's how you got on...")
         $("#scoresContainer").html(html)
         $("#score-modal").removeClass("hidden")
         return

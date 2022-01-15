@@ -140,6 +140,10 @@ let setupInteraction = (game) => {
 }
 
 
+/**
+ * setupNewGame
+ * ? When user click on "Setup new game" button.
+ */
 export let setupNewGame = () => {
     $("#new-game-score-btn").on("click", () => {
         location.reload();

@@ -73,6 +73,12 @@ export let lightsOff = (event, color) => {
 }
 
 
+/**
+ * rotateColors
+ * ? the fonction will rotate randomly the colors in the gameplay 
+ * @param {int} sequence 
+ * @param {Object} game 
+ */
 export let rotateColors = (sequence, game) => {
     if(timeToRotate(sequence, game)) {
         let container = $("#simon-colors-container")
@@ -82,7 +88,13 @@ export let rotateColors = (sequence, game) => {
     
 }
 
-
+/**
+ * timeToRotate
+ * ? will determine if it is time to rotate the colors
+ * @param {int} sequence 
+ * @param {Object} game 
+ * @returns {boolean}
+ */
 export let timeToRotate = (sequence, game) => {
     let result = (sequence - 1) / 4
     if(game.level === 1 || game.level === 3) {
@@ -95,6 +107,12 @@ export let timeToRotate = (sequence, game) => {
 }
 
 
+/**
+ * gameOver
+ * ? will display the game over modal and append all the data/results
+ * @param {Object} game 
+ * @returns 
+ */
 export let gameOver = (game) => {
     //restartGame()
     setupNewGame()

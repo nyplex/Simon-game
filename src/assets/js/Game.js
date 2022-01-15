@@ -24,13 +24,21 @@ export class Game {
         this.simonSay()
     }
 
+    /**
+     * simonSay
+     * ? This function will choose a random from this.colors array and this color the sequence and play the sequence
+     */
     simonSay() {
         const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
         this.addToSequence(newColors)  
         this.#playSequence(this.sequence)
     }
 
-
+    /**
+     * userSays
+     * ? this function launch a timeOut and after 5sec call gameOVer()
+     * ? this function listen for an user's input and add the input to the user's sequence.
+     */
     userSays() {
         let timeOut = setTimeout(() => {
             //play buzz sound 
@@ -48,6 +56,11 @@ export class Game {
         $("#simon-text").html(usersTurn(this))
     }
 
+    /**
+     * addToSequence
+     * ? This function add a color to this.sequence
+     * @param {string} color 
+     */
     addToSequence(color) {
         this.sequence.push(color)
     }
@@ -82,11 +95,20 @@ export class Game {
         }
     }
 
+    /**
+     * removePlayer
+     * ? Remove a player from this.player array
+     * @param {int} index 
+     */
     removePlayer(index) {
         this.players.splice(index, 1)
         this.playersTurn -= 1
     }
 
+    /**
+     * wrongSequence
+     * ? Play a buzz sound and will call some function depending on the multiplayers being true or false 
+     */
     async wrongSequence() {
         // play buzz sound
         let music = getSound("buzz", this)
@@ -110,6 +132,11 @@ export class Game {
     }
 
 
+    /**
+     * setupPlayersData
+     * ? add the score of the player to the array this.playersData
+     * @param {id} player 
+     */
     setupPlayersData(player) {
         let score = this.sequence.length - 1
         if(this.sequence.length <= 0) {

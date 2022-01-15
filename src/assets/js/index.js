@@ -8,6 +8,7 @@ const redSound = new Audio("../src/assets/media/sounds/red.wav")
 const greenSound = new Audio("../src/assets/media/sounds/green.wav")
 const yellowSound = new Audio("../src/assets/media/sounds/yellow.wav")
 const pinkSound = new Audio("../src/assets/media/sounds/pink.wav")
+const buzzSound = new Audio("../src/assets/media/sounds/buzz.wav")
 
 
 const game = new Game(1, [1], 1, 1, {
@@ -15,7 +16,8 @@ const game = new Game(1, [1], 1, 1, {
     red: redSound,
     green: greenSound,
     yellow: yellowSound,
-    pink: pinkSound
+    pink: pinkSound,
+    buzz: buzzSound
 })
 
 displayMenu(game)

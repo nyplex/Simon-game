@@ -1,4 +1,4 @@
-import { colorsInteraction, lightsOff, lightsOn, rotateColors, timeToRotate } from "./gamePlay"
+import { colorsInteraction, gameOver, lightsOff, lightsOn, rotateColors, timeToRotate } from "./gamePlay"
 import { delay, getSound, IncreaseSpeed, usersTurn } from "./utilities"
 
 export class Game {
@@ -59,16 +59,18 @@ export class Game {
      */
     async checkSequence() {
         let length = this.userSequence.length - 1
-        let colorToCheck = this.sequence[length]
-        let lastUserColor = this.userSequence[length]
-        if(lastUserColor === colorToCheck) {
+        if(this.userSequence[length] === this.sequence[length]) {
             if(this.userSequence.length === this.sequence.length) {
-                $("*[data-lens]").off()
-                $(".circle").removeClass("cursor-pointer")
-                this.userSequence = []
-                await delay(500)
-                this.simonSay()
-                return
+                if(this.mode === 1) {
+                    $("*[data-lens]").off()
+                    $(".circle").removeClass("cursor-pointer")
+                    this.userSequence = []
+                    await delay(500)
+                    this.simonSay()
+                    return
+                }else if(this.mode === 2) {
+                    console.log("mode 2");
+                }
             }  
         }else{
             $("*[data-lens]").off()
@@ -86,11 +88,13 @@ export class Game {
     }
 
     async wrongSequence() {
+        // play buzz sound
+        let music = getSound("buzz", this)
+        music.play()
         //if mode 1 and single player
         if(this.multiplayers === false) {
-            console.log("game over, single player");
-            $("#score-modal").removeClass("hidden")
             this.setupPlayersData(this.players[this.playersTurn - 1])
+            gameOver(this)
         }else if(this.players.length > 1) {
             $("#simon-text").text("Player " + this.players[this.playersTurn - 1] + " is out")
             await delay(1500)
@@ -100,6 +104,7 @@ export class Game {
             this.userSays()
         }else{
             this.setupPlayersData(this.players[this.playersTurn - 1])
+            gameOver(this)
             console.log("game over, multi player");
         }
     }

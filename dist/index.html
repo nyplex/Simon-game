@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Simon 2.0</title>
-<script defer src="main.60dfcf6de8d54b2bd679.js"></script><link href="main.327fd7a241ce631427dc.css" rel="stylesheet"></head>
+<script defer src="main.d7fb9f679595801ca8a6.js"></script><link href="main.327fd7a241ce631427dc.css" rel="stylesheet"></head>
 
 <body class="max-h-[100vh] overflow-hidden">
 
@@ -312,24 +312,16 @@
         <div class="mx-auto mt-8 font-IBM text-text">
     
     
-            <h1 id="scoreTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0">Game Over!</h1>
+            <h1 id="scoreTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0"></h1>
     
             <p id="scoreText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto text-gray-400" tabindex="0" aria-label="Text introduction">
-                Here's how you got on...
             </p>
     
-            <div id="setupDataContainer">
-                
-                <div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
-                    <p class="text-gray-500 font-bold">Sequence's length</p>
-                    <p class="text-gray-700 font-bold text-2xl">6 colors</p>
-                </div>
-    
-            </div>
+            <div id="scoresContainer"></div>
     
             <div class="flex justify-between">
-                <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">RESTART</span></button> 
-                <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">SETUP NEW GAME</span></button>
+                <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="restart-score-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">RESTART</span></button> 
+                <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="new-game-score-btn">SETUP NEW GAME</span></button>
             </div>    
     
         </div>

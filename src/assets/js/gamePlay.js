@@ -92,3 +92,32 @@ export let timeToRotate = (sequence, game) => {
     }
     return false
 }
+
+
+export let gameOver = (game) => {
+    if(game.multiplayers === false) {
+        console.log("hello");
+        $("#scoreTitle").text("Game Over!")
+        $("#scoreText").text("Here's how you got on...")
+        let score = (game.playerData[0].score <= 1) ? "color" : "colors"
+        let html = `<div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
+                        <p class="text-gray-500 font-bold">Sequence's length</p>
+                        <p class="text-gray-700 font-bold text-2xl">${game.playerData[0].score} ${score}</p>
+                    </div>`
+        $("#scoresContainer").html(html)
+        $("#score-modal").removeClass("hidden")
+        return
+    }else{
+        let data = game.playerData // array [{}, {}, {}]
+        let sortedScore = []
+        for(let i = 0; i < data.lenght; i++) {
+            for(let score in data[i]) {
+                sortedScore.push([score, data[score]])
+            }
+        }
+        sortedScore.sort(function(a, b) {
+            return a[1] - b[1]
+        })
+        console.log(sortedScore);
+    }
+}

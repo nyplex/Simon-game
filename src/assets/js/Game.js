@@ -18,7 +18,6 @@ export class Game {
         this.playerData = {}
     }
 
-
     startGame() {
         //call diffrent function depending on the game's mode
         this.simonSay()
@@ -40,6 +39,8 @@ export class Game {
      * ? this function listen for an user's input and add the input to the user's sequence.
      */
     userSays() {
+        $("#simon-text").html(usersTurn(this))
+        $("*[data-lens]").off()
         let timeOut = setTimeout(() => {
             //play buzz sound 
             console.log("BUZZZZ");
@@ -53,7 +54,7 @@ export class Game {
             this.userSequence.push(color)
             this.checkSequence()
         })
-        $("#simon-text").html(usersTurn(this))
+        
     }
 
     /**
@@ -63,6 +64,27 @@ export class Game {
      */
     addToSequence(color) {
         this.sequence.push(color)
+    }
+
+    userAddToSequence() {
+        if(this.multiplayers === false) {
+            console.log("Add one color");
+        }else{
+            let html = usersTurn(this)
+            html += ", add one color"
+            console.log(html);
+        }
+        
+        //$("#simon-text").html(usersTurn(this))
+        colorsInteraction(this)
+        $("*[data-lens]").on("click", (e) => {
+            //clearTimeout(timeOut)
+            let color = $(e.target).data("lens")
+            this.sequence.push(color)
+            this.userSequence = []
+            this.userSays()
+            $("#simon-text").html(usersTurn(this))
+        })
     }
 
     /**
@@ -82,7 +104,10 @@ export class Game {
                     this.simonSay()
                     return
                 }else if(this.mode === 2) {
+                    $("*[data-lens]").off()
                     console.log("mode 2");
+                    console.log(this.sequence);
+                    this.userAddToSequence()
                 }
             }  
         }else{

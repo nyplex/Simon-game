@@ -15,7 +15,7 @@ export class Game {
         this.speed = 500
         this.userSequence = []
         this.playersTurn = 0
-        this.playerData = []
+        this.playerData = {}
     }
 
 
@@ -115,10 +115,7 @@ export class Game {
         if(this.sequence.length <= 0) {
             score = 0
         }
-        this.playerData.push({
-            player: player,
-            score: score
-        })
+        this.playerData[player] = score
     }
 
     

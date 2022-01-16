@@ -40,7 +40,6 @@ export class Game {
      */
     userSays() {
         $("#simon-text").html(usersTurn(this))
-        console.log("userSays: " + this.playersTurn);
         $("*[data-lens]").off()
         let timeOut = setTimeout(() => {
             //play buzz sound 
@@ -68,17 +67,9 @@ export class Game {
     }
 
     async userAddToSequence() {
-        console.log("userAdd " + this.playersTurn);
-        if(this.multiplayers === false) {
-            $("#simon-text").html("Add one color")
-        }else{
-            let html = "Player " + this.playersTurn + ", add one color"
-            $("#simon-text").html(html)
-        }
         if(timeToRotate(this.sequence.length, this)) {
             await delay(2100)
         }
-        
         colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
             //clearTimeout(timeOut)
@@ -109,13 +100,17 @@ export class Game {
                 }else if(this.mode === 2) {
                     $("*[data-lens]").off()
                     this.userAddToSequence()
+                    if(this.multiplayers === false) {
+                        $("#simon-text").html("Add one color")
+                    }else{
+                        let html = "Player " + this.players[this.playersTurn - 1] + ", add one color"
+                        $("#simon-text").html(html)
+                    }
                 }
             }  
         }else{
             $("*[data-lens]").off()
             $(".circle").removeClass("cursor-pointer")
-            //if mode 1 and single players and wrong sequence gameover() and display result
-            //if mode 1 and multiplayers, remove the player and keep playing
             this.wrongSequence()
             return
         }
@@ -139,22 +134,16 @@ export class Game {
         // play buzz sound
         let music = getSound("buzz", this)
         music.play()
-        //if mode 1 and single player
-        if(this.multiplayers === false) {
-            this.setupPlayersData(this.players[this.playersTurn - 1])
-            gameOver(this)
-        }else if(this.players.length > 1) {
+        this.setupPlayersData(this.players[this.playersTurn - 1])
+        if(this.players.length > 1) {
             $("#simon-text").text("Player " + this.players[this.playersTurn - 1] + " is out")
             await delay(1500)
-            this.setupPlayersData(this.players[this.playersTurn - 1])
             this.removePlayer(this.playersTurn - 1)
             this.userSequence = []
             this.userSays()
-        }else{
-            this.setupPlayersData(this.players[this.playersTurn - 1])
-            gameOver(this)
-            console.log("game over, multi player");
+            return
         }
+        gameOver(this)
     }
 
 

@@ -74,7 +74,11 @@ export class Game {
             //play buzz sound 
             console.log("BUZZZZ");
             $("*[data-lens]").off()
-            this.wrongSequence()
+            if(this.mode === 1 || this.mode === 2) {
+                this.wrongSequence()
+            }else{
+                this.wrongSequenceMode3(this.players.indexOf(this.playersColors[this.sequence[this.sequence.length - 1]]), this.sequence[this.sequence.length - 1])
+            }
         }, 5000);
         colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
@@ -140,9 +144,32 @@ export class Game {
         }else{
             $("*[data-lens]").off()
             $(".circle").removeClass("cursor-pointer")
+            if(this.mode === 3) {
+                this.wrongSequenceMode3(this.players.indexOf(this.playersColors[this.userSequence[length]]), this.userSequence[length])
+                return
+            }
             this.wrongSequence()
             return
         }
+    }
+
+    async wrongSequenceMode3(playerIndex, color) {
+        if(this.players.length <= 2) {
+            gameOver(this)
+        }
+        $("#simon-text").text("Player " + this.players[playerIndex] + ", is out!")
+        await delay(1000)
+        $("#simon-text").text("Color " + color + " is out")
+        await delay(1000)
+        this.setupPlayersData(this.players[playerIndex])
+        this.colors.splice(this.colors.indexOf(color), 1)
+        this.players.splice(playerIndex, 1)
+        delete this.playersColors[color]
+        $(`*[data-lens='${color}']`).hide()
+        this.userSequence = []
+        this.sequence = []
+        this.simonSay()
+        
     }
 
     /**

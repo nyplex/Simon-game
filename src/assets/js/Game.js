@@ -16,11 +16,16 @@ export class Game {
         this.userSequence = []
         this.playersTurn = 0
         this.playerData = {}
+        this.playersColors = {}
     }
 
     startGame() {
         //call diffrent function depending on the game's mode
-        this.simonSay()
+        if(this.mode != 3){
+            this.simonSay()
+        }else{
+            this.userChooseColor()
+        }
     }
 
     /**
@@ -31,6 +36,25 @@ export class Game {
         const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
         this.addToSequence(newColors)  
         this.#playSequence(this.sequence)
+    }
+
+    userChooseColor() {
+        if(Object.keys(this.playersColors).length === this.players.length) {
+            console.log("all colors set, start game");
+            return
+        }
+        $("#simon-text").html(usersTurn(this))
+        let playerTurn = this.players[this.playersTurn - 1]
+        $("*[data-lens]").on("click", (e) => {
+            let color = $(e.target).data("lens")
+            this.addChosenColor(color, playerTurn)
+        })
+    }
+
+    addChosenColor(color, player) {
+        this.playersColors[color] = player
+        $("*[data-lens]").off()
+        this.userChooseColor()
     }
 
     /**

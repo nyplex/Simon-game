@@ -102,6 +102,13 @@ export let usersTurn = (game) => {
             let html =  "Player " + game.players[game.playersTurn] + ", repeat the sequence"
             game.playersTurn += 1
             return html
+        }else if(game.mode === 3 && Object.keys(game.playersColors).length < game.players.length) {
+            let html =  "Player " + game.players[game.playersTurn] + ", choose a color"
+            game.playersTurn += 1
+            return html
+        }else if(game.mode === 3 && Object.keys(game.playersColors).length === game.players.length) {
+            game.playersTurn += 1
+            return "Repeat the sequence"
         }
         
     }

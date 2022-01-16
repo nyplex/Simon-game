@@ -41,6 +41,7 @@ export class Game {
     userChooseColor() {
         if(Object.keys(this.playersColors).length === this.players.length) {
             console.log("all colors set, start game");
+            this.simonSay()
             return
         }
         $("#simon-text").html(usersTurn(this))
@@ -52,6 +53,10 @@ export class Game {
     }
 
     addChosenColor(color, player) {
+        if(color in this.playersColors) {
+            $("#simon-text").html("Choose a different color")
+            return
+        }
         this.playersColors[color] = player
         $("*[data-lens]").off()
         this.userChooseColor()
@@ -114,7 +119,7 @@ export class Game {
         let length = this.userSequence.length - 1
         if(this.userSequence[length] === this.sequence[length]) {
             if(this.userSequence.length === this.sequence.length) {
-                if(this.mode === 1) {
+                if(this.mode === 1 || this.mode === 3) {
                     $("*[data-lens]").off()
                     $(".circle").removeClass("cursor-pointer")
                     this.userSequence = []

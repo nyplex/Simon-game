@@ -40,6 +40,7 @@ export class Game {
      */
     userSays() {
         $("#simon-text").html(usersTurn(this))
+        console.log("userSays: " + this.playersTurn);
         $("*[data-lens]").off()
         let timeOut = setTimeout(() => {
             //play buzz sound 
@@ -66,24 +67,26 @@ export class Game {
         this.sequence.push(color)
     }
 
-    userAddToSequence() {
+    async userAddToSequence() {
+        console.log("userAdd " + this.playersTurn);
         if(this.multiplayers === false) {
-            console.log("Add one color");
+            $("#simon-text").html("Add one color")
         }else{
-            let html = usersTurn(this)
-            html += ", add one color"
-            console.log(html);
+            let html = "Player " + this.playersTurn + ", add one color"
+            $("#simon-text").html(html)
+        }
+        if(timeToRotate(this.sequence.length, this)) {
+            await delay(2100)
         }
         
-        //$("#simon-text").html(usersTurn(this))
         colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
             //clearTimeout(timeOut)
             let color = $(e.target).data("lens")
             this.sequence.push(color)
             this.userSequence = []
+            rotateColors(this.sequence.length, this)
             this.userSays()
-            $("#simon-text").html(usersTurn(this))
         })
     }
 
@@ -105,8 +108,6 @@ export class Game {
                     return
                 }else if(this.mode === 2) {
                     $("*[data-lens]").off()
-                    console.log("mode 2");
-                    console.log(this.sequence);
                     this.userAddToSequence()
                 }
             }  

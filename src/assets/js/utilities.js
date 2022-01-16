@@ -82,14 +82,27 @@ export let countDown = (time, game) => {
 */
 export let usersTurn = (game) => {
     if(game.multiplayers === false) {
-        game.playersTurn = 1
-        return "Your Turn"
+        if(game.mode === 1) {
+            game.playersTurn = 1
+            return "Your Turn"
+        }else if (game.mode === 2) {
+            game.playersTurn = 1
+            return "Repeat the sequence"
+        }
+        
     }else{
         if(game.playersTurn >= game.players.length) {
             game.playersTurn = 0
         }
-        let html =  "Player " + game.players[game.playersTurn] + ",<br> it's your turn"
-        game.playersTurn += 1
-        return html
+        if(game.mode === 1) {
+            let html =  "Player " + game.players[game.playersTurn] + ",<br> it's your turn"
+            game.playersTurn += 1
+            return html
+        }else if(game.mode === 2) {
+            let html =  "Player " + game.players[game.playersTurn] + ", repeat the sequence"
+            game.playersTurn += 1
+            return html
+        }
+        
     }
 }

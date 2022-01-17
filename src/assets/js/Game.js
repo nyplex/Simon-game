@@ -155,7 +155,10 @@ export class Game {
 
     async wrongSequenceMode3(playerIndex, color) {
         if(this.players.length <= 2) {
+            this.setupPlayersData(this.players[0])
+            this.setupPlayersData(this.players[1])
             gameOver(this)
+            return
         }
         $("#simon-text").text("Player " + this.players[playerIndex] + ", is out!")
         await delay(1000)

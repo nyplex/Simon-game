@@ -82,7 +82,7 @@ export let lightsOff = (event, color) => {
 export let rotateColors = (sequence, game) => {
     if(timeToRotate(sequence, game)) {
         let container = $("#simon-colors-container")
-        let rotation = Math.random() * (1000 - 360) + 360;
+        let rotation = Math.random() * (0 - 45) + 45;
         $(container).css("transform", `rotate(${rotation}deg)`)
     }
     

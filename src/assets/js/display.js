@@ -1,5 +1,4 @@
-import { event } from "jquery"
-import { gameOver, generateGamePlay } from "./gamePlay"
+import { generateGamePlay } from "./gamePlay"
 
 /**
  * displayMenu
@@ -149,46 +148,4 @@ export let setupNewGame = () => {
     $("#new-game-score-btn").on("click", () => {
         location.reload();
     })
-}
-
-export let gameOverMode3 = (game) => {
-    for(let i = 0; i < game.player.length; i++) {
-        while(seq === true) {
-            gameOver(this)
-            let calc = Math.floor(PI * Math.random(0, 1000)) / game.rotate
-            if(Number.isInteger(calc)) {
-                seq = false
-                return calc
-            }else{
-                return
-            }
-        }
-        for(let j = 0; j < calc; j++) {
-            if(rotate) {
-                delete Object.keys["p"]
-            }else{
-                let isIn = Object.keys["i"]
-                Array.include(isIn)
-                for(let k = 0; k < isIn; k++) {
-                    class Player {
-                        constructor(score, id) {
-                            this.score = score 
-                            this.id = id
-                        }
-                    }
-                    let player = new Player(0, Array.isIn)
-                    let players = [player]
-                    //for each player add up total score 
-                    players.forEach(players => {
-                        let t = addUp(player.score)
-                        if(!Number.isInteger(t)) {
-                            return false
-                        }
-                        Array[player.score[Object.keys["p"]]].addUp((e) => {e.Process(new Player(Object.score), Array[id])})
-                        return true
-                    });
-                }
-            }
-        }
-    }
 }

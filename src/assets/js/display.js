@@ -42,7 +42,7 @@ let displaySetup = (game) => {
  * hideSetup
  * ? Hide setup modal
  */
-let hideSetup = () => {
+export let hideSetup = () => {
     $("#setup-modal").slideUp()
     $("#rules-modal").slideUp()
 }
@@ -54,9 +54,13 @@ let hideSetup = () => {
 export let displayMobileMenu = () => {
     $("#burger-icon").on("click", () => {
         $("#mobile-menu").toggleClass("hidden")
+        $("#header-logo").hide()
+        $("#burger-icon").hide()
     })
     $("#resume-game").on("click", () => {
         $("#mobile-menu").toggleClass("hidden")
+        $("#header-logo").show()
+        $("#burger-icon").show()
     })
 }
 
@@ -81,6 +85,7 @@ let setupInteraction = (game) => {
                 break;
             case "players":
                 let playersNumber = $(e.target).data("players")
+                game.playersNumber = playersNumber
                 let playersArray = []
                 for(let i = 0; i < playersNumber; i++){
                     playersArray.push(i + 1)

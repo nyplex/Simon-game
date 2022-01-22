@@ -91,6 +91,7 @@
     .circle {
         @apply rounded-full block h-[40%] left-[30%] leading-[100px] absolute text-center top-[30%] w-[40%];
         -webkit-tap-highlight-color: transparent;
+        box-shadow: 0 0px 6px 2px black;
     }
 }
 

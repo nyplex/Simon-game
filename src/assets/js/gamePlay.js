@@ -82,7 +82,7 @@ export let lightsOff = (event, color) => {
 export let rotateColors = (sequence, game) => {
     if(timeToRotate(sequence, game)) {
         let container = $("#simon-colors-container")
-        let rotation = Math.random() * (0 - 45) + 45;
+        let rotation = Math.random() * 120;
         $(container).css("transform", `rotate(${rotation}deg)`)
     }
     
@@ -114,14 +114,17 @@ export let timeToRotate = (sequence, game) => {
  * @returns 
  */
 export let gameOver = (game) => {
+    $("#header-logo").text("")
+    $("#desktop-nav").hide()
+    $("#burger-icon").hide()
     //restartGame()
     setupNewGame()
     if(game.multiplayers === false) {
         $("#scoreTitle").text("Game Over!")
         $("#scoreText").text("Here's how you got on...")
-        let score = (game.playerData[1] <= 1) ? "color" : "colors"
+        let score = (game.playerData[1] <= 1) ? "point" : "points"
         let html = `<div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
-                        <p class="text-gray-500 font-bold">Sequence's length</p>
+                        <p class="text-gray-500 font-bold">Your Score</p>
                         <p class="text-gray-700 font-bold text-2xl">${game.playerData[1]} ${score}</p>
                     </div>`
         $("#scoresContainer").html(html)
@@ -139,7 +142,7 @@ export let gameOver = (game) => {
         });
         sorted.reverse()
         for(let i = 0; i < sorted.length; i++) {
-            let score = (sorted[i][1] <= 1) ? "color" : "colors"
+            let score = (sorted[i][1] <= 1) ? "point" : "points"
              html += `<div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
                         <p class="text-gray-500 font-bold">Player ${sorted[i][0]}</p>
                         <p class="text-gray-700 font-bold text-2xl">${sorted[i][1]} ${score}</p>

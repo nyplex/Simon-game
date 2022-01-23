@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Simon 2.0</title>
-<script defer src="main.59a243a52b8a122fa4ac.js"></script><link href="main.5bdcdafb11f8be18b9d6.css" rel="stylesheet"></head>
+<script defer src="main.21419f66a027bba147e5.js"></script><link href="main.9af6223462fa61802fb6.css" rel="stylesheet"></head>
 
 <body class="max-h-[100vh] overflow-hidden">
 
@@ -256,6 +256,42 @@
 
 
         <button name="Back to setup" id="ready-btn" class="m-auto bg-pink-500 block mt-10 mb-6 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">I'm Ready!</h1></button>
+    </div>
+</div>
+
+     <!-- Rules Modal -->
+     <div aria-modal="true"  id="username-modal" class="hidden absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto z-20">
+
+
+    <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
+    <div class="flex justify-between items-center">
+        <h1 aria-hidden="true" class="font-OPS text-primary text-4xl">SIMON</h1>
+    </div>
+
+
+    <div class="mx-auto mt-8 font-IBM text-text">
+
+
+        <h1 id="setupTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0">Welcome</h1>
+
+        <p id="welcomeText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto" tabindex="0" aria-label="Text introduction">
+            First-time player ? Don’t remember how to play? Take a few minutes to read the rules.
+        </p>
+
+        <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
+
+        <hr aria-hidden="true" class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full bg-text">
+
+        <div id="setupUserNameContainer">
+            <input type="text" name="" id="" placeholder="player 1 name">
+            <input type="text" name="" id="" placeholder="player 1 name">
+            <input type="text" name="" id="" placeholder="player 1 name">
+            <input type="text" name="" id="" placeholder="player 1 name">
+        </div>
+
+        <button id="runMultiplayer" name="Play game" class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">PLAY SIMON</h1></button>
+
+
     </div>
 </div>
 

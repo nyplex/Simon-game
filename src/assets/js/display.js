@@ -135,12 +135,16 @@ let setupInteraction = (game) => {
         //Hide setup modal
         hideSetup()
 
-        //Display the game header (navigation)
-        $("#main-header").removeClass("hidden")
-        
-        //display the mobile's nav
-        displayMobileMenu()
-        generateGamePlay(game)
+        //this function will open the modal to get user's name , on this modal, the button play will launch the two previous functions
+        if(game.playersNumber > 1) {
+            getUsersName(game)
+        }else{
+            //Display the game header (navigation)
+            $("#main-header").removeClass("hidden")
+            //display the mobile's nav
+            displayMobileMenu()
+            generateGamePlay(game)
+        }
     })
 }
 
@@ -153,4 +157,19 @@ export let setupNewGame = () => {
     $("#new-game-score-btn").on("click", () => {
         location.reload();
     })
+}
+
+
+
+export let getUsersName = (game) => {
+    $("#username-modal").slideDown()
+    $("#runMultiplayer").on("click", () => {
+        $("#username-modal").slideUp()
+        //Display the game header (navigation)
+        $("#main-header").removeClass("hidden")
+        //display the mobile's nav
+        displayMobileMenu()
+        generateGamePlay(game)
+    })
+    console.log("get user's name")
 }

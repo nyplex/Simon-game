@@ -8,7 +8,8 @@ const files = {
     setup: fs.readFileSync('./src/comp/setup.html', { encoding: 'utf-8' }),
     rules: fs.readFileSync('./src/comp/rules.html', { encoding: 'utf-8' }),
     header: fs.readFileSync('./src/comp/header.html', { encoding: 'utf-8'}),
-    score: fs.readFileSync('./src/comp/score.html', { encoding: 'utf-8'})
+    score: fs.readFileSync('./src/comp/score.html', { encoding: 'utf-8'}),
+    username: fs.readFileSync('./src/comp/users.html', { encoding: 'utf-8'})
   };
 
 

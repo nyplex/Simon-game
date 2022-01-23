@@ -46,8 +46,6 @@ export class Game {
         $("#simon-text").html(usersTurn(this))
         $("*[data-lens]").off()
         let timeOut = setTimeout(() => {
-            //play buzz sound 
-            console.log("BUZZZZ");
             $("*[data-lens]").off()
             if(this.mode === 1 || this.mode === 2) {
                 this.wrongSequence()
@@ -141,6 +139,7 @@ export class Game {
         let music = getSound("buzz", this)
         music.play()
         this.setupPlayersData(this.players[this.playersTurn - 1])
+        console.log(this.players);
         if(this.players.length > 1) {
             $("#simon-text").text("Player " + this.players[this.playersTurn - 1] + " is out")
             await delay(1500)

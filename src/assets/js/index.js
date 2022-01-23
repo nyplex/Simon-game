@@ -36,6 +36,13 @@ if(sessionStorage.getItem("game")) {
     game.playersNumber = value.playersNumber
     if(value.playersNumber > 1) {
         game.multiplayers = true
+        game.players = []
+        for(let i = 0; i < game.usernames.length; i++) {
+            game.players.push(game.usernames[i])
+        }
+    }else{
+        game.players = []
+        game.players.push(1)
     }
     sessionStorage.clear()
     hideSetup()

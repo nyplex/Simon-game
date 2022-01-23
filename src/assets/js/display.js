@@ -160,7 +160,6 @@ export let setupNewGame = () => {
 }
 
 
-
 export let getUsersName = (game) => {
     let html = ""
     for(let i = 0; i < game.playersNumber; i++) {
@@ -182,5 +181,4 @@ export let getUsersName = (game) => {
         displayMobileMenu()
         generateGamePlay(game)
     })
-    console.log("get user's name")
 }

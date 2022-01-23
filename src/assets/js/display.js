@@ -162,8 +162,19 @@ export let setupNewGame = () => {
 
 
 export let getUsersName = (game) => {
+    let html = ""
+    for(let i = 0; i < game.playersNumber; i++) {
+        html += `<input data-username="${i+1}" type="text" name="" id="" placeholder="player ${i + 1} name" class="p-2 border-2 my-2 border-gray-900 rounded-xl placeholder:text-gray-600 text-gray-600">`
+    }
+    $("#setupUserNameContainer").html(html)
     $("#username-modal").slideDown()
     $("#runMultiplayer").on("click", () => {
+        let playersName = $("*[data-username]")
+        for(let i = 0; i < playersName.length; i++) {
+            game.players[i] = $(playersName[i]).val()
+            game.usernames.push($(playersName[i]).val())
+        }
+        console.log(game);
         $("#username-modal").slideUp()
         //Display the game header (navigation)
         $("#main-header").removeClass("hidden")

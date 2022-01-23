@@ -7,6 +7,7 @@ export class Game {
         this.theme = theme
         this.players = players
         this.playersNumber = 1
+        this.usernames = []
         this.multiplayers = false
         this.mode = mode
         this.level = level

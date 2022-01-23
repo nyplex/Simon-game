@@ -95,11 +95,11 @@ export let usersTurn = (game) => {
             game.playersTurn = 0
         }
         if(game.mode === 1) {
-            let html =  "Player " + game.players[game.playersTurn] + ",<br> it's your turn"
+            let html = game.players[game.playersTurn] + ",<br> it's your turn"
             game.playersTurn += 1
             return html
         }else if(game.mode === 2) {
-            let html =  "Player " + game.players[game.playersTurn] + ", repeat the sequence"
+            let html =  game.players[game.playersTurn] + ", repeat the sequence"
             game.playersTurn += 1
             return html
         }

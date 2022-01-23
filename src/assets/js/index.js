@@ -24,8 +24,7 @@ let listenForRestart = (game) => {
 if(sessionStorage.getItem("game")) {
 
     let value = JSON.parse(sessionStorage.getItem("game"))
-    
-    let game = new Game(value.theme, value.players, value.mode, value.level, {
+    let game = new Game(value.theme, value.usernames, value.mode, value.level, {
         blue: blueSound,
         red: redSound,
         green: greenSound,
@@ -33,14 +32,11 @@ if(sessionStorage.getItem("game")) {
         pink: pinkSound,
         buzz: buzzSound
     })
+    game.usernames = value.usernames
+    game.playersNumber = value.playersNumber
     if(value.playersNumber > 1) {
         game.multiplayers = true
-        game.players = []
-        for(let i = 0; i < value.playersNumber; i++){
-            game.players.push(i + 1)
-        }
     }
-    console.log(game)
     sessionStorage.clear()
     hideSetup()
     //Display the game header (navigation)

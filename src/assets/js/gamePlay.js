@@ -144,7 +144,7 @@ export let gameOver = (game) => {
         for(let i = 0; i < sorted.length; i++) {
             let score = (sorted[i][1] <= 1) ? "point" : "points"
              html += `<div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
-                        <p class="text-gray-500 font-bold">Player ${sorted[i][0]}</p>
+                        <p class="text-gray-500 font-bold">${sorted[i][0]}</p>
                         <p class="text-gray-700 font-bold text-2xl">${sorted[i][1]} ${score}</p>
                     </div>`
         }

@@ -5,18 +5,18 @@ import { Game } from "./Game"
 
 
 
-let loadSoundFiles = (fileName) => {
-    const src = "../src/assets/media/sounds/"
+export let loadSoundFiles = (fileName, folder) => {
+    const src = `../src/assets/media/sounds/${folder}/`
     return new Audio(src + fileName + ".wav")
 }
 
 const soundObject = {
-    blue: loadSoundFiles("blue"),
-    red: loadSoundFiles("red"),
-    green: loadSoundFiles("green"),
-    yellow: loadSoundFiles("yellow"),
-    pink: loadSoundFiles("pink"),
-    buzz: loadSoundFiles("buzz"),
+    blue: loadSoundFiles("blue", "fx1"),
+    red: loadSoundFiles("red", "fx1"),
+    green: loadSoundFiles("green", "fx1"),
+    yellow: loadSoundFiles("yellow", "fx1"),
+    pink: loadSoundFiles("pink", "fx1"),
+    buzz: loadSoundFiles("buzz", "fx1"),
 }
 
 let listenForRestart = (game) => {

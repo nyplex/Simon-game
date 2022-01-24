@@ -1,3 +1,4 @@
+import { loadSoundFiles } from "."
 import { generateGamePlay } from "./gamePlay"
 
 /**
@@ -82,6 +83,25 @@ let setupInteraction = (game) => {
                 $("*[data-theme]").removeClass("active-button")
                 $("*[data-theme]").addClass("primary-button")
                 $(e.target).addClass("active-button")
+                if($(e.target).data("theme") === 2) {
+                    game.sounds = {
+                        blue: loadSoundFiles("blue", "fx2"),
+                        red: loadSoundFiles("red", "fx2"),
+                        green: loadSoundFiles("green", "fx2"),
+                        yellow: loadSoundFiles("yellow", "fx2"),
+                        pink: loadSoundFiles("pink", "fx2"),
+                        buzz: loadSoundFiles("buzz", "fx2"),
+                    }
+                }else if($(e.target).data("theme") === 3) {
+                    game.sounds = {
+                        blue: loadSoundFiles("blue", "fx3"),
+                        red: loadSoundFiles("red", "fx3"),
+                        green: loadSoundFiles("green", "fx3"),
+                        yellow: loadSoundFiles("yellow", "fx3"),
+                        pink: loadSoundFiles("pink", "fx3"),
+                        buzz: loadSoundFiles("buzz", "fx3"),
+                    }
+                }
                 break;
             case "players":
                 let playersNumber = $(e.target).data("players")

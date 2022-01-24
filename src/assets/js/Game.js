@@ -117,7 +117,7 @@ export class Game {
         }
         this.playerData[this.players[this.playersTurn - 1]] = (this.sequence.length <= 0) ? 0 : this.sequence.length - 1
         if(this.players.length > 1) {
-            $("#simon-text").text("Player " + this.players[this.playersTurn - 1] + " is out")
+            $("#simon-text").text(this.players[this.playersTurn - 1] + " is out")
             await delay(1500)
             this.players.splice(this.playersTurn - 1, 1)
             this.playersTurn -= 1

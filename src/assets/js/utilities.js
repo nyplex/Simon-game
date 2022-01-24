@@ -66,7 +66,7 @@ export let countDown = (time, game) => {
         if(time === 0) {
             clearInterval(interval);
             $("#simon-text").text("")
-            game.startGame()
+            game.simonSay()
         }else{
             time = time - 1
             $("#simon-text").text(time)

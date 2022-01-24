@@ -117,7 +117,6 @@ export let gameOver = (game) => {
     $("#header-logo").text("")
     $("#desktop-nav").hide()
     $("#burger-icon").hide()
-    //restartGame()
     setupNewGame()
     if(game.multiplayers === false) {
         $("#scoreTitle").text("Game Over!")

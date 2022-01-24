@@ -2,12 +2,12 @@ import { colorsInteraction, gameOver, lightsOff, lightsOn, rotateColors, timeToR
 import { delay, getSound, IncreaseSpeed, usersTurn } from "./utilities"
 
 export class Game {
-    constructor(theme, players, mode, level, sounds) {
+    constructor(theme, players, mode, level, sounds, usernames, playersNumber) {
         
         this.theme = theme
         this.players = players
-        this.playersNumber = 1
-        this.usernames = []
+        this.playersNumber = playersNumber
+        this.usernames = usernames
         this.multiplayers = false
         this.mode = mode
         this.level = level
@@ -21,18 +21,13 @@ export class Game {
         this.playersColors = {}
     }
 
-    startGame() {
-        //call diffrent function depending on the game's mode
-        this.simonSay()
-    }
-
     /**
      * simonSay
      * ? This function will choose a random from this.colors array and this color the sequence and play the sequence
      */
     simonSay() {
         const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
-        this.addToSequence(newColors)  
+        this.sequence.push(newColors)
         this.#playSequence(this.sequence)
     }
 
@@ -61,22 +56,12 @@ export class Game {
         
     }
 
-    /**
-     * addToSequence
-     * ? This function add a color to this.sequence
-     * @param {string} color 
-     */
-    addToSequence(color) {
-        this.sequence.push(color)
-    }
-
     async userAddToSequence() {
         if(timeToRotate(this.sequence.length, this)) {
             await delay(2100)
         }
         colorsInteraction(this)
         $("*[data-lens]").on("click", (e) => {
-            //clearTimeout(timeOut)
             let color = $(e.target).data("lens")
             this.sequence.push(color)
             this.userSequence = []
@@ -94,20 +79,19 @@ export class Game {
         let length = this.userSequence.length - 1
         if(this.userSequence[length] === this.sequence[length]) {
             if(this.userSequence.length === this.sequence.length) {
+                $("*[data-lens]").off()
                 if(this.mode === 1) {
-                    $("*[data-lens]").off()
                     $(".circle").removeClass("cursor-pointer")
                     this.userSequence = []
                     await delay(500)
                     this.simonSay()
                     return
-                }else if(this.mode === 2) {
-                    $("*[data-lens]").off()
+                }else {
                     this.userAddToSequence()
                     if(this.multiplayers === false) {
                         $("#simon-text").html("Add one color")
                     }else{
-                        let html = "Player " + this.players[this.playersTurn - 1] + ", add one color"
+                        let html = this.players[this.playersTurn - 1] + ", add one color"
                         $("#simon-text").html(html)
                     }
                 }
@@ -120,15 +104,6 @@ export class Game {
         }
     }
 
-    /**
-     * removePlayer
-     * ? Remove a player from this.player array
-     * @param {int} index 
-     */
-    removePlayer(index) {
-        this.players.splice(index, 1)
-        this.playersTurn -= 1
-    }
 
     /**
      * wrongSequence
@@ -137,13 +112,15 @@ export class Game {
     async wrongSequence() {
         // play buzz sound
         let music = getSound("buzz", this)
-        music.play()
-        this.setupPlayersData(this.players[this.playersTurn - 1])
-        console.log(this.players);
+        if(music) {
+            music.play()
+        }
+        this.playerData[this.players[this.playersTurn - 1]] = (this.sequence.length <= 0) ? 0 : this.sequence.length - 1
         if(this.players.length > 1) {
             $("#simon-text").text("Player " + this.players[this.playersTurn - 1] + " is out")
             await delay(1500)
-            this.removePlayer(this.playersTurn - 1)
+            this.players.splice(this.playersTurn - 1, 1)
+            this.playersTurn -= 1
             this.userSequence = []
             this.userSays()
             return
@@ -151,19 +128,6 @@ export class Game {
         gameOver(this)
     }
 
-
-    /**
-     * setupPlayersData
-     * ? add the score of the player to the array this.playersData
-     * @param {id} player 
-     */
-    setupPlayersData(player) {
-        let score = this.sequence.length - 1
-        if(this.sequence.length <= 0) {
-            score = 0
-        }
-        this.playerData[player] = score
-    }
 
     
     /**

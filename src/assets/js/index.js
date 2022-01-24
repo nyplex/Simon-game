@@ -4,14 +4,20 @@ import { generateGamePlay } from "./gamePlay"
 import { Game } from "./Game"
 
 
-const blueSound = new Audio("../src/assets/media/sounds/blue.wav")
-const redSound = new Audio("../src/assets/media/sounds/red.wav")
-const greenSound = new Audio("../src/assets/media/sounds/green.wav")
-const yellowSound = new Audio("../src/assets/media/sounds/yellow.wav")
-const pinkSound = new Audio("../src/assets/media/sounds/pink.wav")
-const buzzSound = new Audio("../src/assets/media/sounds/buzz.wav")
 
+let loadSoundFiles = (fileName) => {
+    const src = "../src/assets/media/sounds/"
+    return new Audio(src + fileName + ".wav")
+}
 
+const soundObject = {
+    blue: loadSoundFiles("blue"),
+    red: loadSoundFiles("red"),
+    green: loadSoundFiles("green"),
+    yellow: loadSoundFiles("yellow"),
+    pink: loadSoundFiles("pink"),
+    buzz: loadSoundFiles("buzz"),
+}
 
 let listenForRestart = (game) => {
     $("*[data-restart]").on("click", () => {
@@ -24,16 +30,7 @@ let listenForRestart = (game) => {
 if(sessionStorage.getItem("game")) {
 
     let value = JSON.parse(sessionStorage.getItem("game"))
-    let game = new Game(value.theme, value.usernames, value.mode, value.level, {
-        blue: blueSound,
-        red: redSound,
-        green: greenSound,
-        yellow: yellowSound,
-        pink: pinkSound,
-        buzz: buzzSound
-    })
-    game.usernames = value.usernames
-    game.playersNumber = value.playersNumber
+    let game = new Game(value.theme, value.usernames, value.mode, value.level, soundObject, value.usernames, value.playersNumber)
     if(value.playersNumber > 1) {
         game.multiplayers = true
         game.players = []
@@ -41,8 +38,7 @@ if(sessionStorage.getItem("game")) {
             game.players.push(game.usernames[i])
         }
     }else{
-        game.players = []
-        game.players.push(1)
+        game.players = [1]
     }
     sessionStorage.clear()
     hideSetup()
@@ -54,14 +50,7 @@ if(sessionStorage.getItem("game")) {
     listenForRestart(game)
     
 }else{
-    const game = new Game(1, [1], 1, 1, {
-        blue: blueSound,
-        red: redSound,
-        green: greenSound,
-        yellow: yellowSound,
-        pink: pinkSound,
-        buzz: buzzSound
-    })
+    const game = new Game(1, [1], 1, 1, soundObject, [], 1)
     displayMenu(game)
     listenForRestart(game)
 }

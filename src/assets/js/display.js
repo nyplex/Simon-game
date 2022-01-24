@@ -134,7 +134,6 @@ let setupInteraction = (game) => {
     $("#playButton").on("click", () => {
         //Hide setup modal
         hideSetup()
-
         //this function will open the modal to get user's name , on this modal, the button play will launch the two previous functions
         if(game.playersNumber > 1) {
             getUsersName(game)
@@ -173,7 +172,6 @@ export let getUsersName = (game) => {
             game.players[i] = $(playersName[i]).val()
             game.usernames.push($(playersName[i]).val())
         }
-        console.log(game);
         $("#username-modal").slideUp()
         //Display the game header (navigation)
         $("#main-header").removeClass("hidden")

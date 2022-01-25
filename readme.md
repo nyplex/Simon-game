@@ -1,5 +1,5 @@
 
-<h1 align="center">FOCUS WEBSITE</h1>
+<h1 align="center">SIMON GAME</h1>
 
 *This is the README file for SIMON game web application. You will find here a bunch of information regarding the Design, the technologies used and some informations regarding the gameplay.*
 

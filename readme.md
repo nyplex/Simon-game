@@ -77,7 +77,7 @@ I have used 2 fonts on this appliation, the main one is "IBM Plex Sans" and seco
 There is only 2 illustrations on this website, the rest have been done using CSS. 
 The first illustration is main background, I have used this "website" to generate the svg background. The other illustrtion is the logo that I have created myself using figma. 
 
-In the project, I have used arround 15 differents sounds FX. Those sounds have been created and designed by Raphael Texeira and I have all the rights to use them.
+In the project, I have used arround 15 differents sounds FX. Those sounds have been created and designed by Raphael Teixera and I have all the rights to use them.
 
 <h1 align="center">Technologies</h1>
 
@@ -93,7 +93,11 @@ In the project, I have used arround 15 differents sounds FX. Those sounds have b
 
 <h1 align="center">Features</h1>
 
-In terms of features, the website uses bootstrap. The navbar stays stick on the top of the pages. Also when the user click on the contact icon/links a contact modal window opens. The last feature is on the portfolio page, when the user scroll down, the content appear using a fade transition (this feature has been written by someone else, see credits section).
+In terms of features, the website uses tailswindCSS. This CSS framework, gives me the opurtinity to write less CSS code and a better organisations of the differents classes. With tailwindCSS, I also used PostCSS which I use for auto prefixer functionality. 
+
+Regarding JavsScript, I have used jQuery and I wrote my code using javaScript ES6. In order to use ES6, I have installed webpack. 
+Webpack will then buddle all my different JS files + jQuery into a main index.js file.
+
 
 <h1 align="center">Testing</h1>
 

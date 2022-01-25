@@ -182,15 +182,25 @@ export let setupNewGame = () => {
 export let getUsersName = (game) => {
     let html = ""
     for(let i = 0; i < game.playersNumber; i++) {
-        html += `<input data-username="${i+1}" type="text" name="" id="" placeholder="player ${i + 1} name" class="p-2 border-2 my-2 border-gray-900 rounded-xl placeholder:text-gray-600 text-gray-600">`
+        html += `<input data-username="${i+1}" type="text" name="" id="" placeholder="player ${i + 1} name" class="p-2 border-2 mb-1 mt-2 border-gray-900 rounded-xl placeholder:text-gray-600 text-gray-600"><span data-username="${i+1}" class="text-red-700 mb-2 font-semibold ml-1"></span>`
     }
     $("#setupUserNameContainer").html(html)
     $("#username-modal").slideDown()
     $("#runMultiplayer").on("click", () => {
-        let playersName = $("*[data-username]")
+        let playersName = $("input*[data-username]")
         for(let i = 0; i < playersName.length; i++) {
-            game.players[i] = $(playersName[i]).val()
-            game.usernames.push($(playersName[i]).val())
+            let value = $(playersName[i]).val()
+            value = value.replace(/\s+/g,'')
+            console.log(value);
+            if(value == "" || value.length <= 1 || value.length > 10) {
+                $(`span*[data-username="${i+1}"]`).text("You must enter a name between 2 and 10 characters")
+                return
+            }else{
+                $(`span*[data-username="${i+1}"]`).text("")
+                game.players[i] = value
+                game.usernames.push(value)
+            }
+            
         }
         $("#username-modal").slideUp()
         //Display the game header (navigation)

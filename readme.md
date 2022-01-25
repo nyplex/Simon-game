@@ -3,15 +3,16 @@
 
 *This is the README file for SIMON game web application. You will find here a bunch of information regarding the Design, the technologies used and some informations regarding the gameplay.*
 
-Focus is a creative digital company. They product video and photo content for digital platform. They create some marketing digital strategy for their clients and finally they can take care of the media diffusion and social media management. 
+Simon is a memory game invented by Ralph H. Baer and Howard J. Morrison. The game creates a series of tones and lights and requres a user to repeat the sequence. If the user succeeds, the series becomes longer and more complex. Once the user fails or the time limit runs our, the game is over. 
 
-Focus Website is an application that gives the users a good understanding of what Focus is all about. 
-The user will have the opportunity to see their work through a portfolio and some images/videos galleries displayed on the website.  
-The users must understand what Focus is about in the first few seconds after they arrived on the website.
+Simon 2.0, is a web based application game that I have created. I took the concept of the original game and translate it into the web environment. 
 
-The main goal during the user’s visit is for they to contact the company. TO reach this goal the website is implatemented with some contact links, contant form, call-to-action buton etc.
+In Simon 2.0, the user has the possibility to choose a theme, a game mode, a level of difficulty. The game can ben played with up to 4 people. 
 
-The website have all the information the users need with a minimal design, easy to understand and easy to navigate.
+The main goal during the user's visit is fun and entertainment. I want the user to enjoy theirt time on the app and I want them to come back.
+
+For the first-time player, I have written a set of rules that explain how to the game work.
+
 
 [Check out the webste here.](https://nyplex.github.io/focus/index.html)
 

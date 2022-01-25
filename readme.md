@@ -101,39 +101,39 @@ Webpack will then buddle all my different JS files + jQuery into a main index.js
 
 <h1 align="center">Testing</h1>
 
-When the users arrive on the home page, they are welcomed by a video header follwed by a quick presentation of the company. The next section is a spotlight of the mains services of Focus. Finally the users can see the current clients of the company. At the bottom of the page, the users are invited to contact the company.
+When the users arrive on the website's main page, they are welcomed by a modal window where they can configure the game. The users can choose the game's theme, the numbers of payers, the level of difficulties and the mode they want to play. They also have the possiblity to read the rules. 
 
-On the services pages ("production", "strategy", "diffusion"), the users can learn more about what Focus can offer. They will learn more about each products and services. 
+When the user launch the game, if more than 1 player, a new modal will open for the users to enter the name of each players. If single player, the game will launch. 
 
-Finally, on the portfolio page, the users can check the company's work. The portfolio page page uses a timeline display from the most recent work to oldest ones. 
+During the game, if the players loose, the game over modal will open displaying the results. On this modal, the user can either restart the game with the same configuration or setup a new game.
 
-On each pages of the website the users have the possibility to easily to get in touch with company using a static contact icon and a contact link on the navbar. 
-
-The website is fully responsive (mobile, tablet, laptop and desktop). All external links will open in a new tab. The website has been tested on different brwoser. 
+At any time during the game, the users car restart or setup the game using the button in the header. 
+ 
 
 <h1 align="center">Deployment</h1>
 
-Focus website has been deployed using GitHub Pages from the master branch. To check the live website [click here.](https://nyplex.github.io/focus/index.html).
-You can clone the project usit "git clone" command in your terminal and pasting https://github.com/nyplex/focus.git
+Simon game has been deployed on ... click here to check the live application.
+You can close the project using the "git clone" command in your terminal and pasting ... http..//
 
-The styling on this project has been done using the preprocessor SASS. You download SASS [here.](https://sass-lang.com/install)
+This project use different technologies (webpack, tailwindCSS, jQuery etc..), in order to a working version of the project on your local machine, please follow these steps using your terminal:
+
+- clone the git repo on your local machine (git clone htp:// ...)
+- cd into the project folder 
+- run "npm intall" , in order to install all the dependencies. 
+- run "npm run build" in order to bundle all the files.
+- those command will create a node_modules folder and update the dist folder which contains the main files (js, css, html)
+- you can open the index.html in the dist folder using your local server 
+
 
 <h1 align="center">Credits</h1>
 
 
 - MEDIA
 
-    The video header has been downloaded on Vimeo.
-    All the SVG illustrations are from  [Undraw.](https://undraw.co/illustrations)
-    All the icons are from [Font Awesome.](https://fontawesome.com/)
-    All the client's logo are from Google Images.
-    All the videos on the portfolio page are from Youtube.
+    The sounds in the game have been created by Raphael Teixeira. 
 
 - CODE 
 
-    All the HTML/CSS code has been written by me using bootstrap mainly for the responsivity of the website with the exception of two features:
-
-    * The portfolio animation (JavaScript & CSS) has been written by [George Soukos.](https://georgemartsoukos.com/) and modified by me to fit the overall design of the website.
-    * To make the CSS hover animation on the buttons I have used this [Exemple](https://codepen.io/giana/pen/xdXpJB) and modified the code to fit my needs  
+    All the HTML/CSS/JS code has been written by my using tailwinCSS for the style. jQuery&ES6 for javaScript.
   
     

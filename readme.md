@@ -5,13 +5,11 @@
 
 Simon is a memory game invented by Ralph H. Baer and Howard J. Morrison. The game creates a series of tones and lights and requres a user to repeat the sequence. If the user succeeds, the series becomes longer and more complex. Once the user fails or the time limit runs our, the game is over. 
 
-Simon 2.0, is a web based application game that I have created. I took the concept of the original game and translate it into the web environment. 
-
-In Simon 2.0, the user has the possibility to choose a theme, a game mode, a level of difficulty. The game can ben played with up to 4 people. 
+Simon 2.0, is a web based application game that I have created. I took the concept of the original game and translate it into a web application. In the new version of the game, the user has the possibility to choose a theme, a game mode, a level of difficulty. The game can ben played with up to 4 people. 
 
 The main goal during the user's visit is fun and entertainment. I want the user to enjoy theirt time on the app and I want them to come back.
 
-For the first-time player, I have written a set of rules that explain how to the game work.
+For the first-time player, I have written a set of rules that explain how to the game works.
 
 
 [Check out the webste here.](https://nyplex.github.io/focus/index.html)
@@ -23,10 +21,11 @@ For the first-time player, I have written a set of rules that explain how to the
 
 
 ## User's needs
-        
-The users want to see the company's work. They also want to understand rapidly what they are doing and how they are doing it. 
 
-Users want to have as much information as possible regarding the products they want to buy and finally they want to be able to contact the company easily.
+For this kind of application, the user's needs are really straightforward. The user's want to understand how the game works rapidily without spending too much time reading the rules. 
+
+The second need is to make sure the user enjoy the time he spend on the app. Finally, specificly for this game, the speed of execution is really important as the game's speed will increase while the player plays. 
+        
 
 ## Website requirements
         
@@ -41,45 +40,44 @@ Users want to have as much information as possible regarding the products they w
         
 - First Time Users
 
-    When the users land on the website for the first page, their eyes are catched by a good design with a strong branding. The users understand what is Focus in the first few seconds. During their first visit, the users will be able to navigate easily on the application. 
-    On the home page, the users will find information abour the company's services. Each section has a call-to-action button in order for them to get more information or to contact Focus.
+    When the users land on the website for the first time, they will be have the choice to read the rules of the game. The user's must understand what the game is about and how it works and that wihout speding more than 5 minutes reading the rules. DUring their first visit, the user must understand easily how to configure the game and how play. 
 
 - Returning Users
   
-    The users that are coming back already know what Focus is and what Focus is doing. The main goals for the returning users is to answer all the questions they might have. The users are able to navigate on the website to collect all the information they need regarding the comapany's products/services.
+    The users that are coming back already know what Simon 2.0 is. The main goals for the returning users is to give them as much fun as possible and also giving them more complex challenge (level 3, 4, 5).
 
 
 <h1 align="center">Design</h1>
 
 ## Wireframes
 
-I used Balsmamic to make the wireframe. 
-  - Home page
-  - Services
-  - Portfolio
-  - Production
-  - Diffusion
-  - Strategy
+I used Figma to make the wireframe. 
+  - Colors palette
+  - Setup page
+  - Main page
+  - Mobile main page
 
 ## Colors
 
 The mains colors used on the website are dark blue, light blue and pink. The text is dark gray. 
 This are the mains colors used on the website:
 
-  - Yellow #fdad00
-  - Dark Grey #0e0e0e
-  - Dark Blue #191729
-  - Purple #5249ff8e
-  - Light Purple #6c63ff
+  - light: "#F1FAEE",
+  - secondary: "#A8DADC",
+  - primary: "#1D3557",
+  - text: "#323232",
+  - Second variant: "#457B9D",
 
 ## Typography
 
-The font used for all the paragraph is Ubuntu. For all the headings I used Poppins. For any special text I used Tajawal. Those 3 fonts are imported using google fonts.
+I have used 2 fonts on this appliation, the main one is "IBM Plex Sans" and second one is "Black Ops One".
 
 ## Illustrations/Media
 
-The video header on the home page has been downloaded on Vimeo. All the svg illustrations have been downloaded on [Undraw.](https://undraw.co/illustrations).
-The clients logo have been dowloaded on google images. All the icons are from Fontawesome. Finally all the video on the Portfolio page have been downloaded on Vimeo.
+There is only 2 illustrations on this website, the rest have been done using CSS. 
+The first illustration is main background, I have used this "website" to generate the svg background. The other illustrtion is the logo that I have created myself using figma. 
+
+In the project, I have used arround 15 differents sounds FX. Those sounds have been created and designed by Raphael Texeira and I have all the rights to use them.
 
 <h1 align="center">Technologies</h1>
 

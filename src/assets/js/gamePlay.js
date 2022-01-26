@@ -119,7 +119,7 @@ export let gameOver = (game, user, simon) => {
     setupNewGame()
     if(game.multiplayers === false) {
         let userLast = user[user.length - 1]
-        let simonLast = simon[simon.length - 1]
+        let simonLast = simon[user.length - 1]
         $("#scoreTitle").text("Game Over!")
         $("#scoreText").text("Here's how you got on...")
         let score = (game.playerData[1] <= 1) ? "point" : "points"
@@ -127,8 +127,8 @@ export let gameOver = (game, user, simon) => {
                         <p class="text-gray-500 font-bold">Your Score</p>
                         <p class="text-gray-700 font-bold text-2xl">${game.playerData[1]} ${score}</p>
                     </div>
-                    <div>
-                        <p>You pressed: ${userLast} instead of ${simonLast}</p>
+                    <div class="w-full">
+                        <p class="text-center mb-4 font-bold font-IBM">You pressed ${userLast.toUpperCase()} instead of ${simonLast.toUpperCase()}</p>
                     </div>`
         $("#scoresContainer").html(html)
         $("#score-modal").removeClass("hidden")

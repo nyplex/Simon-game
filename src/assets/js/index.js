@@ -4,7 +4,14 @@ import { generateGamePlay } from "./gamePlay"
 import { Game } from "./Game"
 
 
-
+/**
+ * loadSoundFiles
+ * ? this function will load the files once the user has configured the game
+ * 
+ * @param {string} fileName 
+ * @param {string} folder 
+ * @returns {Object} Audio
+ */
 export let loadSoundFiles = (fileName, folder) => {
     const src = `../src/assets/media/sounds/${folder}/`
     return new Audio(src + fileName + ".wav")
@@ -19,6 +26,11 @@ const soundObject = {
     buzz: loadSoundFiles("buzz", "fx1"),
 }
 
+/**
+ * listenForRestart
+ * ? This function store the game object in the storage session and then reload the page
+ * @param {Object} game 
+ */
 let listenForRestart = (game) => {
     $("*[data-restart]").on("click", () => {
         sessionStorage.setItem("game", JSON.stringify(game))

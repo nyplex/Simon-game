@@ -179,6 +179,11 @@ export let setupNewGame = () => {
 }
 
 
+/**
+ * getUsersName
+ * ? this function only if more than 1 player with take the name of each players and set them in the game object
+ * @param {Object} game 
+ */
 export let getUsersName = (game) => {
     let html = ""
     for(let i = 0; i < game.playersNumber; i++) {

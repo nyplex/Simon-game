@@ -130,7 +130,7 @@ This project use different technologies (webpack, tailwindCSS, jQuery etc..), in
 
 - MEDIA
 
-    The sounds in the game have been created by Raphael Teixeira. 
+    The sounds in the game have been created by Raphael Teixeira.
 
 - CODE 
 

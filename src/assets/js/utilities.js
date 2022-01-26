@@ -63,7 +63,7 @@ export let getColors = (game) => {
  */
 export let countDown = (time, game) => {
     let interval = setInterval(() => {
-        if(time === 0) {
+        if(time === 1) {
             clearInterval(interval);
             $("#simon-text").text("")
             game.simonSay()
@@ -71,7 +71,7 @@ export let countDown = (time, game) => {
             time = time - 1
             $("#simon-text").text(time)
         }
-    }, 100);
+    }, 1000);
 }
 
 

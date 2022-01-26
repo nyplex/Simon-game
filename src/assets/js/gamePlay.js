@@ -82,8 +82,7 @@ export let lightsOff = (event, color) => {
 export let rotateColors = (sequence, game) => {
     if(timeToRotate(sequence, game)) {
         let container = $("#simon-colors-container")
-        let rotation = Math.random() * 120;
-        $(container).css("transform", `rotate(${rotation}deg)`)
+        $(container).css("transform", `rotate(45deg)`)
     }
     
 }
@@ -113,18 +112,23 @@ export let timeToRotate = (sequence, game) => {
  * @param {Object} game 
  * @returns 
  */
-export let gameOver = (game) => {
+export let gameOver = (game, user, simon) => {
     $("#header-logo").text("")
     $("#desktop-nav").hide()
     $("#burger-icon").hide()
     setupNewGame()
     if(game.multiplayers === false) {
+        let userLast = user[user.length - 1]
+        let simonLast = simon[simon.length - 1]
         $("#scoreTitle").text("Game Over!")
         $("#scoreText").text("Here's how you got on...")
         let score = (game.playerData[1] <= 1) ? "point" : "points"
         let html = `<div class="flex justify-between p-4 bg-gray-200 w-[90%] mx-auto rounded-lg font-IBM font-xl items-center my-4">
                         <p class="text-gray-500 font-bold">Your Score</p>
                         <p class="text-gray-700 font-bold text-2xl">${game.playerData[1]} ${score}</p>
+                    </div>
+                    <div>
+                        <p>You pressed: ${userLast} instead of ${simonLast}</p>
                     </div>`
         $("#scoresContainer").html(html)
         $("#score-modal").removeClass("hidden")

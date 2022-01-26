@@ -99,7 +99,7 @@ export class Game {
         }else{
             $("*[data-lens]").off()
             $(".circle").removeClass("cursor-pointer")
-            this.wrongSequence()
+            this.wrongSequence(this.userSequence, this.sequence)
             return
         }
     }
@@ -109,7 +109,7 @@ export class Game {
      * wrongSequence
      * ? Play a buzz sound and will call some function depending on the multiplayers being true or false 
      */
-    async wrongSequence() {
+    async wrongSequence(user, simon) {
         // play buzz sound
         let music = getSound("buzz", this)
         if(music) {
@@ -125,7 +125,7 @@ export class Game {
             this.userSays()
             return
         }
-        gameOver(this)
+        gameOver(this, user, simon)
     }
 
 

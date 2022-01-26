@@ -132,8 +132,5 @@ This project use different technologies (webpack, tailwindCSS, jQuery etc..), in
 
     The sounds in the game have been created by Raphael Teixeira.
 
-- CODE 
-
-    All the HTML/CSS/JS code has been written by my using tailwinCSS for the style. jQuery&ES6 for javaScript.
   
     

@@ -108,6 +108,8 @@ When the user launch the game, if more than 1 player, a new modal will open for 
 During the game, if the players loose, the game over modal will open displaying the results. On this modal, the user can either restart the game with the same configuration or setup a new game.
 
 At any time during the game, the users car restart or setup the game using the button in the header. 
+
+No bug have been found in the application. 
  
 
 <h1 align="center">Deployment</h1>

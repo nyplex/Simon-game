@@ -42,12 +42,10 @@ export let colorsInteraction = (game) => {
             music.currentTime = 0;
             music.play()
         }
-        
+        $(window).on("mouseup, pointerup", () => {
+            lightsOff(e.target, $(e.target).data("lens"))
+        })
     })
-    $("*[data-lens]").on("mouseup, pointerup", (e) => {
-        const data = $(e.target).data("lens")
-        lightsOff(e.target, data)
-    })  
 }
 
 /**

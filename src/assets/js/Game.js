@@ -38,22 +38,26 @@ export class Game {
      * ? this function listen for an user's input and add the input to the user's sequence.
      */
     userSays() {
+        console.log("test");
         $("#simon-text").html(usersTurn(this))
         $("*[data-lens]").off()
+        $(window).off()
         let timeOut = setTimeout(() => {
+            $(window).off()
             $("*[data-lens]").off()
             if(this.mode === 1 || this.mode === 2) {
                 this.wrongSequence()
             }
         }, 5000);
         colorsInteraction(this)
-        $("*[data-lens]").on("click", (e) => {
+        $("*[data-lens]").on("mousedown, pointerdown", (e) => {
             clearTimeout(timeOut)
             let color = $(e.target).data("lens")
             this.userSequence.push(color)
+        })
+        $(window).on("mouseup, pointerup", () => {
             this.checkSequence()
         })
-        
     }
 
     async userAddToSequence() {

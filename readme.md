@@ -3,13 +3,13 @@
 
 *This is the README file for SIMON game web application. You will find here a bunch of information regarding the Design, the technologies used and some informations regarding the gameplay.*
 
-Simon is a memory game invented by Ralph H. Baer and Howard J. Morrison. The game creates a series of tones and lights and requres a user to repeat the sequence. If the user succeeds, the series becomes longer and more complex. Once the user fails or the time limit runs our, the game is over. 
+Simon is a memory game invented by Ralph H. Baer and Howard J. Morrison. The game creates a series of tones and lights and requres a user to repeat the sequence. If the user succeeds, the series becomes longer and more complex. Once the user fails or the time limit runs out, the game is over. 
 
-Simon 2.0, is a web based application game that I have created. I took the concept of the original game and translate it into a web application. In the new version of the game, the user has the possibility to choose a theme, a game mode, a level of difficulty. The game can ben played with up to 4 people. 
+Simon 2.0, is a web-based application game that I have created. I took the concept of the original game and turned it into a web application. In this new version of the game, the user has the possibility to choose a theme, a game mode, a level of difficulty. The game can be played with up to 4 people. 
 
-The main goal during the user's visit is fun and entertainment. I want the user to enjoy theirt time on the app and I want them to come back.
+The main goal of this game is fun and entertainment. I want the user to enjoy their time on the app and I want them to come back.
 
-For the first-time player, I have written a set of rules that explain how to the game works.
+For a first-time player, I have written a set of rules that explain how to the game works.
 
 
 [Check out the webste here.](https://nyplex.github.io/focus/index.html)
@@ -22,9 +22,9 @@ For the first-time player, I have written a set of rules that explain how to the
 
 ## User's needs
 
-For this kind of application, the user's needs are really straightforward. The user's want to understand how the game works rapidily without spending too much time reading the rules. 
+For this kind of application, the user's needs are really straightforward. First, the user want to understand how the game works quickly, without spending too much time reading the rules. 
 
-The second need is to make sure the user enjoy the time he spend on the app. Finally, specificly for this game, the speed of execution is really important as the game's speed will increase while the player plays. 
+The second need is to make sure the user enjoys the time they spend on the app. Finally, specifically for this game, the speed of execution is really important as the game speed will increase as the player is playing. 
         
 
 ## Website requirements
@@ -38,13 +38,13 @@ The second need is to make sure the user enjoy the time he spend on the app. Fin
 
 ## Usage Scenario
         
-- First Time Users
+- First-time Users
 
-    When the users land on the website for the first time, they will be have the choice to read the rules of the game. The user's must understand what the game is about and how it works and that wihout speding more than 5 minutes reading the rules. DUring their first visit, the user must understand easily how to configure the game and how play. 
+    When the user lands on the website for the first time, they will have the choice to read the rules of the game. The user must understand what the game is about and how it works and that without spneding more than 5 minutes reading the rules. During their first visit, the user must understand easily how to configure the game and how to play. 
 
 - Returning Users
   
-    The users that are coming back already know what Simon 2.0 is. The main goals for the returning users is to give them as much fun as possible and also giving them more complex challenge (level 3, 4, 5).
+    The users that are coming back already know what Simon 2.0 is. The main goals for the returning users is to give them as much fun as possible and also giving them more complex challenges (level 3, 4, 5).
 
 
 <h1 align="center">Design</h1>
@@ -52,7 +52,7 @@ The second need is to make sure the user enjoy the time he spend on the app. Fin
 ## Wireframes
 
 I used Figma to make the wireframe. 
-  - Colors palette
+  - Color palette
   - Setup page
   - Main page
   - Mobile main page
@@ -60,7 +60,7 @@ I used Figma to make the wireframe.
 ## Colors
 
 The mains colors used on the website are dark blue, light blue and pink. The text is dark gray. 
-This are the mains colors used on the website:
+These are the mains colors used on the website:
 
   - light: "#F1FAEE",
   - secondary: "#A8DADC",
@@ -74,10 +74,10 @@ I have used 2 fonts on this appliation, the main one is "IBM Plex Sans" and seco
 
 ## Illustrations/Media
 
-There is only 2 illustrations on this website, the rest have been done using CSS. 
-The first illustration is main background, I have used this "website" to generate the svg background. The other illustrtion is the logo that I have created myself using figma. 
+There are only 2 illustrations on this website, the rest has been done using CSS. 
+The first illustration is the main background, I have used this "website" to generate the svg background. The other illustration is the logo that I have created myself using Figma. 
 
-In the project, I have used arround 15 differents sounds FX. Those sounds have been created and designed by Raphael Teixera and I have all the rights to use them.
+In the project, I have used around 15 different sounds FX. These sounds have been created and designed by Raphael Teixeira and I have all the rights to use them.
 
 <h1 align="center">Technologies</h1>
 
@@ -93,7 +93,7 @@ In the project, I have used arround 15 differents sounds FX. Those sounds have b
 
 <h1 align="center">Features</h1>
 
-In terms of features, the website uses tailswindCSS. This CSS framework, gives me the opurtinity to write less CSS code and a better organisations of the differents classes. With tailwindCSS, I also used PostCSS which I use for auto prefixer functionality. 
+In terms of features, the website uses tailswindCSS. This CSS framework, gives me the opportunity to write less CSS code and a better organisation of the differents classes. With tailwindCSS, I also used PostCSS which I use for the auto prefixer functionality. 
 
 Regarding JavsScript, I have used jQuery and I wrote my code using javaScript ES6. In order to use ES6, I have installed webpack. 
 Webpack will then buddle all my different JS files + jQuery into a main index.js file.
@@ -101,15 +101,15 @@ Webpack will then buddle all my different JS files + jQuery into a main index.js
 
 <h1 align="center">Testing</h1>
 
-When the users arrive on the website's main page, they are welcomed by a modal window where they can configure the game. The users can choose the game's theme, the numbers of payers, the level of difficulties and the mode they want to play. They also have the possiblity to read the rules. 
+When the user arrives on the website's main page, they are welcomed by a modal window where they can configure the game. The users can choose the game's theme, the numbers of players, the level of difficulty and the mode they want to play in. They also have the possiblity to read the rules. 
 
-When the user launch the game, if more than 1 player, a new modal will open for the users to enter the name of each players. If single player, the game will launch. 
+When the user launches the game, if there are more than 1 player, a new modal will open for the users to enter the name of each player. If there is only a single player, the game will launch. 
 
-During the game, if the players loose, the game over modal will open displaying the results. On this modal, the user can either restart the game with the same configuration or setup a new game.
+During the game, if the players loose, the 'game over' modal will open displaying the results. On this modal, the user can either restart the game with the same configuration or set up a new game.
 
-At any time during the game, the users car restart or setup the game using the button in the header. 
+At any time during the game, the users car restart or set up the game using the button in the header. 
 
-No bug have been found in the application. 
+No bugs have been found in the application. 
  
 
 <h1 align="center">Deployment</h1>
@@ -117,13 +117,13 @@ No bug have been found in the application.
 Simon game has been deployed on ... click here to check the live application.
 You can close the project using the "git clone" command in your terminal and pasting ... http..//
 
-This project use different technologies (webpack, tailwindCSS, jQuery etc..), in order to a working version of the project on your local machine, please follow these steps using your terminal:
+This project use different technologies (webpack, tailwindCSS, jQuery etc..), in order to have a working version of the project on your local machine, please follow these steps using your terminal:
 
 - clone the git repo on your local machine (git clone htp:// ...)
 - cd into the project folder 
 - run "npm intall" , in order to install all the dependencies. 
 - run "npm run build" in order to bundle all the files.
-- those command will create a node_modules folder and update the dist folder which contains the main files (js, css, html)
+- those commands will create a node_modules folder and update the dist folder which contains the main files (js, css, html)
 - you can open the index.html in the dist folder using your local server 
 
 

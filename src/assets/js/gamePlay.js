@@ -1,4 +1,4 @@
-import { countDown, delay, getColors, getSound } from "./utilities"
+import { countDown, getSound } from "./utilities"
 
 
 /**
@@ -7,13 +7,20 @@ import { countDown, delay, getColors, getSound } from "./utilities"
  * @param {Object} game 
  */
 export let generateGamePlay = (game) => {
-    getColors(game)
+    game.colors = (game.level === 1 || game.level === 2) ? ["red", "blue", "yellow", "green"] : ["red", "blue", "yellow", "pink", "green"]
     $("#main-game-container").removeClass("hidden")
     let html = ""
-    let colorNumber = (game.level === 1 || game.level === 2) ? 4 : 5
-    for(let i = 0; i < colorNumber; i++) {
-        let color = game.colors[i][0].toUpperCase() + game.colors[i].substring(1);
-        html+= `<div data-lens="${game.colors[i]}" class="circle simonRed bg-simon${color} simon-${i+1}-${colorNumber}"></div>`
+    if(game.level === 3 || game.level === 4 || game.level === 5) {
+        html += `<div data-lens="red" class="circle simonRed bg-simonRed simon-1-5"></div> 
+                <div data-lens="blue" class="circle simonBlue bg-simonBlue simon-2-5"></div> 
+                <div data-lens="yellow" class="circle simonYellow bg-simonYellow simon-3-5"></div> 
+                <div data-lens="pink" class="circle simonPink bg-simonPink simon-4-5"> </div> 
+                <div data-lens="green" class="circle simonGreen bg-simonGreen simon-5-5"></div>`
+    }else {
+        html += `<div data-lens="red" class="circle simonRed bg-simonRed simon-1-4"></div> 
+                <div data-lens="blue" class="circle simonBlue bg-simonBlue simon-2-4"></div> 
+                <div data-lens="yellow" class="circle simonYellow bg-simonYellow simon-3-4"></div>  
+                <div data-lens="green" class="circle simonGreen bg-simonGreen simon-4-4"></div>`
     }
     $("#simon-colors-container").html(html)
     countDown(5, game)

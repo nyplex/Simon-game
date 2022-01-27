@@ -47,7 +47,7 @@ export class Game {
             if(this.mode === 1 || this.mode === 2) {
                 this.wrongSequence()
             }
-        }, 5000);
+        }, 7000);
         colorsInteraction(this)
         $("*[data-lens]").on("mousedown, pointerdown", (e) => {
             clearTimeout(timeOut)
@@ -60,14 +60,16 @@ export class Game {
     }
 
     async userAddToSequence() {
-        if(timeToRotate(this.sequence.length, this)) {
+        /*if(timeToRotate(this.sequence.length, this)) {
             await delay(2100)
-        }
+        }*/
         colorsInteraction(this)
-        $("*[data-lens]").on("click", (e) => {
+        $("*[data-lens]").on("mousedown, pointerdown", (e) => {
             let color = $(e.target).data("lens")
             this.sequence.push(color)
             this.userSequence = []
+        })
+        $(window).on("mouseup, pointerup", () => {
             rotateColors(this.sequence.length, this)
             this.userSays()
         })
@@ -92,6 +94,7 @@ export class Game {
                 }else {
                     this.userAddToSequence()
                     if(this.multiplayers === false) {
+                        console.log("i am here");
                         $("#simon-text").html("Add one color")
                     }else{
                         let html = this.players[this.playersTurn - 1] + ", add one color"

@@ -27,9 +27,8 @@ export let generateGamePlay = (game) => {
 export let colorsInteraction = (game) => {
     $(".circle").addClass("cursor-pointer")
     $("*[data-lens]").on("mousedown, pointerdown", (e) => {
-        const data = $(e.target).data("lens")
-        let music = getSound(data, game)
-        lightsOn(e.target, data)
+        let music = getSound($(e.target).data("lens"), game)
+        lightsOn(e.target, $(e.target).data("lens"))
         if(music != false) {
             music.currentTime = 0;
             music.play()
@@ -70,29 +69,15 @@ export let lightsOff = (event, color) => {
  * @param {Object} game 
  */
 export let rotateColors = (sequence, game) => {
-    if(timeToRotate(sequence, game)) {
-        let container = $("#simon-colors-container")
-        $(container).css("transform", `rotate(45deg)`)
-    }
-    
-}
-
-/**
- * timeToRotate
- * ? will determine if it is time to rotate the colors
- * @param {int} sequence 
- * @param {Object} game 
- * @returns {boolean}
- */
-export let timeToRotate = (sequence, game) => {
-    let result = (sequence - 1) / 4
-    if(game.level === 1 || game.level === 3) {
+    if(game.level !== 1 || game.level !== 3) {
+        if(Number.isInteger((sequence - 1) / 4) && (sequence - 1) / 4 >= 1) {
+            let container = $("#simon-colors-container")
+            $(container).css("transform", `rotate(45deg)`)
+            return true
+        }
+    }else{
         return false
-    } 
-    if(Number.isInteger(result) && result >= 1) {
-        return true
     }
-    return false
 }
 
 

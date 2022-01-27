@@ -154,8 +154,8 @@ export class Game {
             lightsOff(target[0], sequence[i])
             await delay(this.speed)
         }
-        rotateColors(sequence.length, this)
-        if(timeToRotate(sequence.length, this)) {
+        let rotation = rotateColors(sequence.length, this)
+        if(rotation == true) {
             await delay(2100)
         }
         this.userSays()

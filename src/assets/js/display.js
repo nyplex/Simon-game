@@ -44,8 +44,7 @@ let displaySetup = (game) => {
  * ? Hide setup modal
  */
 export let hideSetup = () => {
-    $("#setup-modal").slideUp()
-    $("#rules-modal").slideUp()
+    $("#setup-modal, #rules-modal").slideUp()
 }
 
 /**
@@ -55,13 +54,11 @@ export let hideSetup = () => {
 export let displayMobileMenu = () => {
     $("#burger-icon").on("click", () => {
         $("#mobile-menu").toggleClass("hidden")
-        $("#header-logo").hide()
-        $("#burger-icon").hide()
+        $("#header-logo, #burger-icon").hide()
     })
     $("#resume-game").on("click", () => {
         $("#mobile-menu").toggleClass("hidden")
-        $("#header-logo").show()
-        $("#burger-icon").show()
+        $("#header-logo, #burger-icon").show()
     })
 }
 

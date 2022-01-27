@@ -112,8 +112,7 @@ export let timeToRotate = (sequence, game) => {
  */
 export let gameOver = (game, user, simon) => {
     $("#header-logo").text("")
-    $("#desktop-nav").hide()
-    $("#burger-icon").hide()
+    $("#desktop-nav, #burger-icon").hide()
     setupNewGame()
     if(game.multiplayers === false) {
         let htmlLastPressed = ""

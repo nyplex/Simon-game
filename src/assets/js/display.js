@@ -7,51 +7,17 @@ import { generateGamePlay } from "./gamePlay"
  * @param {Object} game - Game's object
  */
 export let displayMenu = (game) => {
-    displayRules()
-    displaySetup(game)
-}
-
-/**
- * displayRules
- * ? Called from displeyMenu() && Hide setup modal and display rule's modal 
- */
-let displayRules = () => {
-    $("#rules-btn").on("click", () => {
+    setupInteraction(game)
+    $("#rules-btn, #ready-btn").on("click", () => {
         $("#setup-modal").slideUp(() => {
-            $("#rules-modal").slideDown()
-            $("#rules-modal").scrollTop(0)
+            $("#rules-modal").slideDown().scrollTop(0)
         })
     })
-}
-
-/**
- * displaySetup
- * ? call from displayMenu() && hide rule's modal and display setup modal
- * ? callback setupInteraction
- * @param {object} game - Game's object
- */
-let displaySetup = (game) => {
-    setupInteraction(game)
     $("#ready-btn").on("click", () => {
         $("#rules-modal").slideUp(() => {
             $("#setup-modal").slideDown()
         })
     })
-}
-
-/**
- * hideSetup
- * ? Hide setup modal
- */
-export let hideSetup = () => {
-    $("#setup-modal, #rules-modal").slideUp()
-}
-
-/**
- * displayMobileMenu
- * ? Display and hide the mobile menu when user clicks on burger icon
- */
-export let displayMobileMenu = () => {
     $("#burger-icon").on("click", () => {
         $("#mobile-menu").toggleClass("hidden")
         $("#header-logo, #burger-icon").hide()
@@ -61,6 +27,7 @@ export let displayMobileMenu = () => {
         $("#header-logo, #burger-icon").show()
     })
 }
+
 
 /**
  * setupInteraction
@@ -77,50 +44,27 @@ let setupInteraction = (game) => {
         switch(dataKeys) {
             case "theme":
                 game.theme = $(e.target).data("theme")
-                $("*[data-theme]").removeClass("active-button")
-                $("*[data-theme]").addClass("primary-button")
+                $("*[data-theme]").removeClass("active-button").addClass("primary-button")
                 $(e.target).addClass("active-button")
                 if($(e.target).data("theme") === 2) {
-                    game.sounds = {
-                        blue: loadSoundFiles("blue", "fx2"),
-                        red: loadSoundFiles("red", "fx2"),
-                        green: loadSoundFiles("green", "fx2"),
-                        yellow: loadSoundFiles("yellow", "fx2"),
-                        pink: loadSoundFiles("pink", "fx2"),
-                        buzz: loadSoundFiles("buzz", "fx2"),
-                    }
+                    game.sounds = loadSoundFiles("fx2")
                 }else if($(e.target).data("theme") === 3) {
-                    game.sounds = {
-                        blue: loadSoundFiles("blue", "fx3"),
-                        red: loadSoundFiles("red", "fx3"),
-                        green: loadSoundFiles("green", "fx3"),
-                        yellow: loadSoundFiles("yellow", "fx3"),
-                        pink: loadSoundFiles("pink", "fx3"),
-                        buzz: loadSoundFiles("buzz", "fx3"),
-                    }
+                    game.sounds = loadSoundFiles("fx3")
                 }
                 break;
             case "players":
-                let playersNumber = $(e.target).data("players")
-                game.playersNumber = playersNumber
-                let playersArray = []
-                for(let i = 0; i < playersNumber; i++){
-                    playersArray.push(i + 1)
+                game.playersNumber = $(e.target).data("players")
+                game.players = []
+                for(let i = 0; i < game.playersNumber; i++){
+                    game.players.push(i + 1)
                 }
-                game.players = playersArray
-                if(playersNumber > 1) {
-                    game.multiplayers = true
-                }else{
-                    game.multiplayers = false
-                }
-                $("*[data-players]").removeClass("active-button")
-                $("*[data-players]").addClass("primary-button")
+                game.multiplayers = (game.playersNumber > 1) ? true : false
+                $("*[data-players]").removeClass("active-button").addClass("primary-button")
                 $(e.target).addClass("active-button")
                 break;
             case "mode":
                 game.mode = $(e.target).data("mode")
-                $("*[data-mode]").removeClass("active-button")
-                $("*[data-mode]").addClass("primary-button")
+                $("*[data-mode]").removeClass("active-button").addClass("primary-button")
                 $(e.target).addClass("active-button")
                 break;
             case "level": 
@@ -128,52 +72,20 @@ let setupInteraction = (game) => {
                 $("*[data-level]").removeClass()
                 let levels = $("*[data-level]")
                 for(let i = 0; i < levels.length; i++) {
-                    switch($(levels[i]).data("level")) {
-                        case 1:
-                            $(levels[i]).addClass("level1")
-                            break;
-                        case 2: 
-                            $(levels[i]).addClass("level2")
-                            break;
-                        case 3: 
-                            $(levels[i]).addClass("level3")
-                            break;
-                        case 4: 
-                            $(levels[i]).addClass("level4")
-                            break;
-                        case 5: 
-                            $(levels[i]).addClass("level5")
-                            break;
-                    }
+                    $(levels[i]).addClass("level" + $(levels[i]).data("level"))
                 }
                 $(e.target).addClass("active-level")
         }
     })
 
     $("#playButton").on("click", () => {
-        //Hide setup modal
-        hideSetup()
-        //this function will open the modal to get user's name , on this modal, the button play will launch the two previous functions
+        $("#setup-modal, #rules-modal").slideUp()
         if(game.playersNumber > 1) {
             getUsersName(game)
         }else{
-            //Display the game header (navigation)
             $("#main-header").removeClass("hidden")
-            //display the mobile's nav
-            displayMobileMenu()
             generateGamePlay(game)
         }
-    })
-}
-
-
-/**
- * setupNewGame
- * ? When user click on "Setup new game" button.
- */
-export let setupNewGame = () => {
-    $("#new-game-score-btn").on("click", () => {
-        location.reload();
     })
 }
 
@@ -206,10 +118,7 @@ export let getUsersName = (game) => {
             
         }
         $("#username-modal").slideUp()
-        //Display the game header (navigation)
         $("#main-header").removeClass("hidden")
-        //display the mobile's nav
-        displayMobileMenu()
         generateGamePlay(game)
     })
 }

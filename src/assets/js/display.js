@@ -113,6 +113,8 @@ let setupInteraction = (game) => {
                 game.players = playersArray
                 if(playersNumber > 1) {
                     game.multiplayers = true
+                }else{
+                    game.multiplayers = false
                 }
                 $("*[data-players]").removeClass("active-button")
                 $("*[data-players]").addClass("primary-button")
@@ -196,7 +198,6 @@ export let getUsersName = (game) => {
         for(let i = 0; i < playersName.length; i++) {
             let value = $(playersName[i]).val()
             value = value.replace(/\s+/g,'')
-            console.log(value);
             if(value == "" || value.length <= 1 || value.length > 10) {
                 $(`span*[data-username="${i+1}"]`).text("You must enter a name between 2 and 10 characters")
                 return

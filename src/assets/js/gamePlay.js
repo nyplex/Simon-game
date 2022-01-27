@@ -116,8 +116,13 @@ export let gameOver = (game, user, simon) => {
     $("#burger-icon").hide()
     setupNewGame()
     if(game.multiplayers === false) {
-        let userLast = user[user.length - 1]
-        let simonLast = simon[user.length - 1]
+        let htmlLastPressed = ""
+        if(user != undefined) {
+            let userLast = user[user.length - 1]
+            let simonLast = simon[user.length - 1]
+            htmlLastPressed = `<p class="text-center mb-4 font-bold font-IBM">You pressed ${userLast.toUpperCase()} instead of ${simonLast.toUpperCase()}</p>`
+        }
+        
         $("#scoreTitle").text("Game Over!")
         $("#scoreText").text("Here's how you got on...")
         let score = (game.playerData[1] <= 1) ? "point" : "points"
@@ -126,7 +131,7 @@ export let gameOver = (game, user, simon) => {
                         <p class="text-gray-700 font-bold text-2xl">${game.playerData[1]} ${score}</p>
                     </div>
                     <div class="w-full">
-                        <p class="text-center mb-4 font-bold font-IBM">You pressed ${userLast.toUpperCase()} instead of ${simonLast.toUpperCase()}</p>
+                        ${htmlLastPressed}
                     </div>`
         $("#scoresContainer").html(html)
         $("#score-modal").removeClass("hidden")

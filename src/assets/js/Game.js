@@ -38,7 +38,6 @@ export class Game {
      * ? this function listen for an user's input and add the input to the user's sequence.
      */
     userSays() {
-        console.log("test");
         $("#simon-text").html(usersTurn(this))
         $("*[data-lens]").off()
         $(window).off()

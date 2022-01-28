@@ -36,9 +36,7 @@ export let usersTurn = (game) => {
         game.playersTurn = 1
         return (game.mode == 1) ? "Your Turn" : "Repeat the sequence"
     }else{
-        if(game.playersTurn >= game.players.length) {
-            game.playersTurn = 0
-        }
+        if(game.playersTurn >= game.players.length) game.playersTurn = 0
         let html = game.players[game.playersTurn]
         game.playersTurn += 1
         return html += (game.mode == 1) ? ",<br> it's your turn" : ", repeat the sequence"

@@ -19,6 +19,7 @@ export class Game {
         this.playersTurn = 0
         this.playerData = {}
         this.playersColors = {}
+        this.rotation = 0
     }
 
     /**
@@ -54,15 +55,21 @@ export class Game {
             let color = $(e.target).data("lens")
             this.userSequence.push(color)
         })
-        $(window).on("mouseup, pointerup", () => {
-            this.checkSequence()
-        })
+        try {
+            $(window).on("mouseup, pointerup", () => {
+                this.checkSequence()
+            })
+        } catch (error) {
+            alert("Don't move your mouse while clicking on the color")
+        }
+        
     }
 
+    /**
+     * userAddToSequence
+     * ? This function is called only in mode 2, it will add the user's color to the sequence of color
+     */
     async userAddToSequence() {
-        /*if(timeToRotate(this.sequence.length, this)) {
-            await delay(2100)
-        }*/
         colorsInteraction(this)
         $("*[data-lens]").on("mousedown, pointerdown", (e) => {
             let color = $(e.target).data("lens")
@@ -94,7 +101,6 @@ export class Game {
                 }else {
                     this.userAddToSequence()
                     if(this.multiplayers === false) {
-                        console.log("i am here");
                         $("#simon-text").html("Add one color")
                     }else{
                         let html = this.players[this.playersTurn - 1] + ", add one color"

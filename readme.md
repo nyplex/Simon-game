@@ -3,7 +3,7 @@
 
 *This is the README file for SIMON game web application. You will find here a bunch of information regarding the Design, the technologies used and some informations regarding the gameplay.*
 
-Simon is a memory game invented by Ralph H. Baer and Howard J. Morrison. The game creates a series of tones and lights and requres a user to repeat the sequence. If the user succeeds, the series becomes longer and more complex. Once the user fails or the time limit runs out, the game is over. 
+Simon is a memory game invented by Ralph H. Baer and Howard J. Morrison. The game creates a series of tones and lights and requires a user to repeat the sequence. If the user succeeds, the series becomes longer and more complex. Once the user fails or the time limit runs out, the game is over. 
 
 Simon 2.0, is a web-based application game that I have created. I took the concept of the original game and turned it into a web application. In this new version of the game, the user has the possibility to choose a theme, a game mode, a level of difficulty. The game can be played with up to 4 people. 
 

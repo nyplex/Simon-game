@@ -42,9 +42,14 @@ export let colorsInteraction = (game) => {
             music.currentTime = 0;
             music.play()
         }
-        $(window).on("mouseup, pointerup", () => {
-            lightsOff(e.target, $(e.target).data("lens"))
-        })
+        try {
+            $(window).on("mouseup, pointerup", () => {
+                lightsOff(e.target, $(e.target).data("lens"))
+            })
+        } catch (error) {
+            alert("Don't move your mouse while clicking on the color")
+        }
+        
     })
 }
 
@@ -81,7 +86,8 @@ export let rotateColors = (sequence, game) => {
     if(game.level !== 1 || game.level !== 3) {
         if(Number.isInteger((sequence - 1) / 4) && (sequence - 1) / 4 >= 1) {
             let container = $("#simon-colors-container")
-            $(container).css("transform", `rotate(45deg)`)
+            game.rotation += 45
+            $(container).css("transform", `rotate(${game.rotation}deg)`)
             return true
         }
     }else{

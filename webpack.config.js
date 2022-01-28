@@ -16,13 +16,13 @@ const files = {
 
 module.exports = {
     entry: "./src/assets/js/index.js",
-    mode: "development",
+    mode: "production",
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
-    devtool: 'inline-source-map',
+    //devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -80,6 +80,6 @@ module.exports = {
         }),
     ],
     optimization: {
-      usedExports: false, // <- no remove unused function
+      usedExports: true, // <- no remove unused function
   }
 }

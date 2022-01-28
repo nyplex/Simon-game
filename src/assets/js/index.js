@@ -50,9 +50,7 @@ if(sessionStorage.getItem("game")) {
     }
     sessionStorage.clear()
     $("#setup-modal, #rules-modal").slideUp()
-    //Display the game header (navigation)
     $("#main-header").removeClass("hidden")
-
     generateGamePlay(game)
     listenForRestart(game)
     

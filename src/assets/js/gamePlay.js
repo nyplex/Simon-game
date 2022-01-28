@@ -1,6 +1,3 @@
-import { countDown, getSound } from "./utilities"
-
-
 /**
  * generateGamePlay
  * ? Generate the Simon's colors depending on the game's level
@@ -10,20 +7,25 @@ export let generateGamePlay = (game) => {
     game.colors = (game.level === 1 || game.level === 2) ? ["red", "blue", "yellow", "green"] : ["red", "blue", "yellow", "pink", "green"]
     $("#main-game-container").removeClass("hidden")
     let html = ""
-    if(game.level === 3 || game.level === 4 || game.level === 5) {
-        html += `<div data-lens="red" class="circle simonRed bg-simonRed simon-1-5"></div> 
-                <div data-lens="blue" class="circle simonBlue bg-simonBlue simon-2-5"></div> 
-                <div data-lens="yellow" class="circle simonYellow bg-simonYellow simon-3-5"></div> 
-                <div data-lens="pink" class="circle simonPink bg-simonPink simon-4-5"> </div> 
-                <div data-lens="green" class="circle simonGreen bg-simonGreen simon-5-5"></div>`
-    }else {
-        html += `<div data-lens="red" class="circle simonRed bg-simonRed simon-1-4"></div> 
-                <div data-lens="blue" class="circle simonBlue bg-simonBlue simon-2-4"></div> 
-                <div data-lens="yellow" class="circle simonYellow bg-simonYellow simon-3-4"></div>  
-                <div data-lens="green" class="circle simonGreen bg-simonGreen simon-4-4"></div>`
+    let circleToDisplay = (game.level === 1 || game.level === 2) ? 4 : 5
+    for(let i = 0; i < circleToDisplay; i++) {
+        let color = game.colors[i]
+        let upperColor = color[0].toUpperCase() + color.slice(1)
+        let num = i + 1
+        html += `<div data-lens="${color}" class="circle simon${upperColor} bg-simon${upperColor} simon-${num}-${circleToDisplay}"></div>`
     }
     $("#simon-colors-container").html(html)
-    countDown(5, game)
+    let time = 5
+    let interval = setInterval(() => {
+        if(time === 1) {
+            clearInterval(interval);
+            $("#simon-text").text("")
+            game.simonSay()
+        }else{
+            time -= 1
+            $("#simon-text").text(time)
+        }
+    }, 1000);
 }
 
 /**
@@ -34,7 +36,7 @@ export let generateGamePlay = (game) => {
 export let colorsInteraction = (game) => {
     $(".circle").addClass("cursor-pointer")
     $("*[data-lens]").on("mousedown, pointerdown", (e) => {
-        let music = getSound($(e.target).data("lens"), game)
+        let music = (game.theme == 4) ? false : game.sounds[$(e.target).data("lens")]
         lightsOn(e.target, $(e.target).data("lens"))
         if(music != false) {
             music.currentTime = 0;

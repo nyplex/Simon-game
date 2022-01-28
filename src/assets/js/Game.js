@@ -1,5 +1,5 @@
 import { colorsInteraction, gameOver, lightsOff, lightsOn, rotateColors, timeToRotate } from "./gamePlay"
-import { delay, getSound, IncreaseSpeed, usersTurn } from "./utilities"
+import { delay, IncreaseSpeed, usersTurn } from "./utilities"
 
 export class Game {
     constructor(theme, players, mode, level, sounds, usernames, playersNumber) {
@@ -117,7 +117,7 @@ export class Game {
      */
     async wrongSequence(user, simon) {
         // play buzz sound
-        let music = getSound("buzz", this)
+        let music = (this.theme == 4) ? false : this.sounds["buzz"]
         if(music) {
             music.play()
         }
@@ -147,7 +147,7 @@ export class Game {
         IncreaseSpeed(sequence.length, this)
         for(let i = 0; i < sequence.length; i ++) {
             let target = $(`*[data-lens="${sequence[i]}"]`)
-            let music = getSound(sequence[i], this)
+            let music = (this.theme == 4) ? false : this.sounds[sequence[i]]
             if(music != false) {
                 music.currentTime = 0;
                 music.play()

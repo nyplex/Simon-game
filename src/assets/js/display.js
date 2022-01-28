@@ -67,28 +67,28 @@ let setupInteraction = (game) => {
                 $("*[data-mode]").removeClass("active-button").addClass("primary-button")
                 $(e.target).addClass("active-button")
                 break;
-                case "level": 
-                game.level = $(e.target).data("level")
-                $("*[data-level]").removeClass()
-                let levels = $("*[data-level]")
-                for(let i = 0; i < levels.length; i++) {
-                    switch($(levels[i]).data("level")) {
-                        case 1:
-                            $(levels[i]).addClass("level1")
-                            break;
-                        case 2: 
-                            $(levels[i]).addClass("level2")
-                            break;
-                        case 3: 
-                            $(levels[i]).addClass("level3")
-                            break;
-                        case 4: 
-                            $(levels[i]).addClass("level4")
-                            break;
-                        case 5: 
-                            $(levels[i]).addClass("level5")
-                            break;
-                    }
+            case "level": 
+            game.level = $(e.target).data("level")
+            $("*[data-level]").removeClass()
+            let levels = $("*[data-level]")
+            for(let i = 0; i < levels.length; i++) {
+                switch($(levels[i]).data("level")) {
+                    case 1:
+                        $(levels[i]).addClass("level1")
+                        break;
+                    case 2: 
+                        $(levels[i]).addClass("level2")
+                        break;
+                    case 3: 
+                        $(levels[i]).addClass("level3")
+                        break;
+                    case 4: 
+                        $(levels[i]).addClass("level4")
+                        break;
+                    case 5: 
+                        $(levels[i]).addClass("level5")
+                        break;
+                }
                 }
                 $(e.target).addClass("active-level")
         }

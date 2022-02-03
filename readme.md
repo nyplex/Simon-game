@@ -12,9 +12,9 @@ The main goal of this game is fun and entertainment. I want the user to enjoy th
 For a first-time player, I have written a set of rules that explain how to the game works.
 
 
-[Check out the webste here.](https://nyplex.github.io/focus/index.html)
+[Check out the webste here.](https://travelling-potatoes.fr/dist)
 
-![alt text](focus.png)
+![alt text](responsiveSimon.png)
 
 
 <h1 align="center">Design</h1>
@@ -119,8 +119,8 @@ You can close the project using the "git clone" command in your terminal and pas
 
 This project use different technologies (webpack, tailwindCSS, jQuery etc..), in order to have a working version of the project on your local machine, please follow these steps using your terminal:
 
-- clone the git repo on your local machine (git clone htp:// ...)
-- cd into the project folder 
+- clone the git repo on your local machine (git clone https://github.com/nyplex/Simon-game.git)
+- cd into the project folder
 - run "npm intall" , in order to install all the dependencies. 
 - run "npm run build" in order to bundle all the files.
 - those commands will create a node_modules folder and update the dist folder which contains the main files (js, css, html)

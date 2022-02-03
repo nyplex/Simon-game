@@ -114,8 +114,7 @@ No bugs have been found in the application.
 
 <h1 align="center">Deployment</h1>
 
-Simon game has been deployed on ... click here to check the live application.
-You can close the project using the "git clone" command in your terminal and pasting ... http..//
+Simon game has been deployed on ... click [here.](https://travelling-potatoes.fr/dist) to check the live application.
 
 This project use different technologies (webpack, tailwindCSS, jQuery etc..), in order to have a working version of the project on your local machine, please follow these steps using your terminal:
 

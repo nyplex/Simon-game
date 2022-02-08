@@ -1,4 +1,4 @@
-    <div aria-modal="true"  id="setup-modal" class="absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto z-20">
+    <div aria-modal="true" role="dialog" id="setup-modal" class="absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto z-20">
 
 
         <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
@@ -12,11 +12,11 @@
 
             <h1 id="setupTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0">Welcome</h1>
 
-            <p id="welcomeText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto" tabindex="0" aria-label="Text introduction">
+            <p id="welcomeText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto" tabindex="0">
                 First-time player ? Don’t remember how to play? Take a few minutes to read the rules.
             </p>
 
-            <button name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
+            <button name="Show rules" role="button" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
 
             <hr aria-hidden="true" class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full bg-text">
 
@@ -24,9 +24,9 @@
                 <div class="setup-section-container" aria-describedby="Users choose theme">
                     <h2 id="themeText" class="setup-text" tabindex="0">Select Theme:</h2>
                     <div class="btn-container">
-                        <button data-theme="1" class="active-button"><i class="fas fa-volume-down mr-2" tabindex="0" aria-roledescription="Play sound 1" name="Play theme 1"></i>FX1</button>
-                        <button data-theme="2" class="primary-button"><i class="fas fa-volume-down mr-2" tabindex="0" aria-roledescription="Play sound 2" name="Play theme 2"></i>FX2</button>
-                        <button data-theme="3" class="primary-button"><i class="fas fa-volume-down mr-2" tabindex="0" aria-roledescription="Play sound 3" name="Play theme 3"></i>FX3</button>
+                        <button data-theme="1" class="active-button"><i class="fas fa-volume-down mr-2" aria-roledescription="Play sound 1"></i>FX1</button>
+                        <button data-theme="2" class="primary-button"><i class="fas fa-volume-down mr-2" aria-roledescription="Play sound 2"></i>FX2</button>
+                        <button data-theme="3" class="primary-button"><i class="fas fa-volume-down mr-2" aria-roledescription="Play sound 3"></i>FX3</button>
                         <button data-theme="4" class="primary-button"></i>MUTE</button>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <button id="playButton" name="Play game" class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><h1 class="rotate-[-3deg]">PLAY SIMON</h1></button>
+            <button id="playButton" name="Play game" class="m-auto bg-pink-500 block mt-10 px-2 py-2 rounded-lg font-OPS text-white text-2xl hover:bg-pink-700 shadow-sm shadow-pink-700"><span class="rotate-[-3deg]">PLAY SIMON</span></button>
 
 
         </div>

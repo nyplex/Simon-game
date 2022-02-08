@@ -46,6 +46,15 @@ The second need is to make sure the user enjoys the time they spend on the app. 
   
     The users that are coming back already know what Simon 2.0 is. The main goals for the returning users is to give them as much fun as possible and also giving them more complex challenges (level 3, 4, 5).
 
+- User's Journey
+
+    When the user arrives on the website's main page, they are welcomed by a modal window where they can configure the game. The users can choose the game's theme, the numbers of players, the level of difficulty and the mode they want to play in. They also have the possiblity to read the rules. 
+
+    When the user launches the game, if there are more than 1 player, a new modal will open for the users to enter the name of each player. If there is only a single player, the game will launch. 
+
+    During the game, if the players loose, the 'game over' modal will open displaying the results. On this modal, the user can either restart the game with the same configuration or set up a new game.
+
+    At any time during the game, the users car restart or set up the game using the button in the header. 
 
 <h1 align="center">Design</h1>
 
@@ -101,20 +110,21 @@ Webpack will then buddle all my different JS files + jQuery into a main index.js
 
 <h1 align="center">Testing</h1>
 
-When the user arrives on the website's main page, they are welcomed by a modal window where they can configure the game. The users can choose the game's theme, the numbers of players, the level of difficulty and the mode they want to play in. They also have the possiblity to read the rules. 
+Testing has been a very important part of this project. I was constently testing all the new features I was adding to the application. In result, since I have deployed this project, I haven't found any bugs or issue. 
 
-When the user launches the game, if there are more than 1 player, a new modal will open for the users to enter the name of each player. If there is only a single player, the game will launch. 
+My testing method was very simple but very efficiant. Every new function or features implemented in the app was tested. 
+The testing procedures constits of 2 mains aspects: 
 
-During the game, if the players loose, the 'game over' modal will open displaying the results. On this modal, the user can either restart the game with the same configuration or set up a new game.
+  - User's test: Test the app as a user and try to identify any bug
+  - Dev's test: For each function, test the input and ouput value to make they match my need. 
 
-At any time during the game, the users car restart or set up the game using the button in the header. 
 
 No bugs have been found in the application. 
  
 
 <h1 align="center">Deployment</h1>
 
-Simon game has been deployed on ... click [here.](https://travelling-potatoes.fr/dist) to check the live application.
+Simon game has been deployed on GitHub Pages click [here.](https://travelling-potatoes.fr/dist) to check the live application.
 
 This project use different technologies (webpack, tailwindCSS, jQuery etc..), in order to have a working version of the project on your local machine, please follow these steps using your terminal:
 

@@ -83,7 +83,7 @@ export let lightsOff = (event, color) => {
  * @param {Object} game 
  */
 export let rotateColors = (sequence, game) => {
-    if(game.level !== 1 || game.level !== 3) {
+    if(game.level == 2 || game.level == 4 || game.level == 5) {
         if(Number.isInteger((sequence - 1) / 4) && (sequence - 1) / 4 >= 1) {
             let container = $("#simon-colors-container")
             game.rotation += 45

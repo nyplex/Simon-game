@@ -27,6 +27,7 @@ export class Game {
      * ? This function will choose a random from this.colors array and this color the sequence and play the sequence
      */
     simonSay() {
+        console.log(this.level);
         const newColors = this.colors[Math.floor(Math.random()*this.colors.length)];
         this.sequence.push(newColors)
         this.#playSequence(this.sequence)

@@ -29,6 +29,7 @@ export let displayMenu = (game) => {
 }
 
 
+
 /**
  * setupInteraction
  * ? On the setup modal, when user click on the buttons change BG color and add the value to Game object.
@@ -46,10 +47,19 @@ let setupInteraction = (game) => {
                 game.theme = $(e.target).data("theme")
                 $("*[data-theme]").removeClass("active-button").addClass("primary-button")
                 $(e.target).addClass("active-button")
-                if($(e.target).data("theme") === 2) {
+                if($(e.target).data("theme") === 1) {
+                    game.sounds = loadSoundFiles("fx1")
+                    let music = game.sounds["green"]
+                    music.play()
+                }else if($(e.target).data("theme") === 2) {
                     game.sounds = loadSoundFiles("fx2")
-                }else if($(e.target).data("theme") === 3) {
+                    let music = game.sounds["blue"]
+                    music.play()
+                }
+                else if($(e.target).data("theme") === 3) {
                     game.sounds = loadSoundFiles("fx3")
+                    let music = game.sounds["buzz"]
+                    music.play()
                 }
                 break;
             case "players":

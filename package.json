@@ -4,13 +4,13 @@
   "description": "simon's game, personnal project for uni",
   "main": "index.js",
   "scripts": {
-    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
-    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;",
-    "build": "webpack --mode production"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nyplex/Simon-game.git"
+    "url": "git+https://github.com/nyplex/Simon-game.git",
+    "heroku-prebuild": "npm install --dev"
   },
   "author": "Alexandre Nypels",
   "license": "ISC",

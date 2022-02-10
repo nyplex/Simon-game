@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch"
+    "start": "webpack --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nyplex/Simon-game.git",
-    "heroku-prebuild": "npm install --dev"
+    "url": "git+https://github.com/nyplex/Simon-game.git"
   },
   "author": "Alexandre Nypels",
   "license": "ISC",

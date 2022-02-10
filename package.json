@@ -4,7 +4,7 @@
   "description": "simon's game, personnal project for uni",
   "main": "index.js",
   "scripts": {
-    "heroku-prebuild": "npm install",
+    "heroku-prebuild": "npm install webpack",
     "build": "webpack"
   },
   "repository": {

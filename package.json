@@ -4,8 +4,8 @@
   "description": "simon's game, personnal project for uni",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack --watch"
+    "start": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",

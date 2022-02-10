@@ -17,7 +17,7 @@ export let loadSoundFiles = (folder) => {
     const obj = {}
     const sounds = ["blue", "red", "green", "yellow", "pink", "buzz"]
     for(let i = 0; i < sounds.length; i++) {
-        obj[sounds[i]] = new Audio(src + sounds[i] + ".mp3")
+        obj[sounds[i]] = new Audio(src + sounds[i] + ".wav")
     }
     return obj
 }

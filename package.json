@@ -4,6 +4,7 @@
   "description": "simon's game, personnal project for uni",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "npm install",
     "build": "webpack",
     "watch": "webpack --watch"
   },

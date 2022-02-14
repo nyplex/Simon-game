@@ -49,12 +49,12 @@ let setupInteraction = (game) => {
                 $(e.target).addClass("active-button")
                 if($(e.target).data("theme") === 1) {
                     game.sounds = loadSoundFiles("fx1")
-                    let music = game.sounds["green"]
-                    music.play()
+                    let sample = new Audio("../src/assets/media/sounds/fx1/sample.wav")
+                    sample.play()
                 }else if($(e.target).data("theme") === 2) {
                     game.sounds = loadSoundFiles("fx2")
-                    let music = game.sounds["blue"]
-                    music.play()
+                    let sample = new Audio("../src/assets/media/sounds/fx2/sample.wav")
+                    sample.play()
                 }
                 else if($(e.target).data("theme") === 3) {
                     game.sounds = loadSoundFiles("fx3")

@@ -81,5 +81,5 @@ module.exports = {
     ],
     optimization: {
       usedExports: true, // <- no remove unused function
-  }
+    }
 }

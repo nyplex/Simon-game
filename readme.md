@@ -119,7 +119,8 @@ I did the sane for my CSS code using https://jigsaw.w3.org/css-validator/, no er
 Finally I have used https://jshint.com/ to check my JS code, only some warnings were given as I used ES6 but no errors were found.
 
 
-No bugs have been found in the application. 
+The only identified bug in this application is: 
+  when the user select the game's theme (before to play), while changing theme, the previous sound is playing in the same time of the current theme. 
  
 
 <h1 align="center">Deployment</h1>

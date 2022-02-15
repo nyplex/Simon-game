@@ -113,10 +113,10 @@ Webpack will then buddle all my different JS files + jQuery into a main index.js
 Testing has been a very important part of this project. I was constently testing all the new features I was adding to the application. In result, since I have deployed this project, I haven't found any bugs or issue. 
 
 My testing method was very simple but very efficiant. Every new function or features implemented in the app was tested. 
-The testing procedures constits of 2 mains aspects: 
 
-  - User's test: Test the app as a user and try to identify any bug
-  - Dev's test: For each function, test the input and ouput value to make they match my need. 
+I also used the HTML validator from https://validator.w3.org/nu/#textarea , no errors were found. 
+I did the sane for my CSS code using https://jigsaw.w3.org/css-validator/, no errors were found. 
+Finally I have used https://jshint.com/ to check my JS code, only some warnings were given as I used ES6 but no errors were found.
 
 
 No bugs have been found in the application. 

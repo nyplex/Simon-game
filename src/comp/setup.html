@@ -16,12 +16,13 @@
                 First-time player ? Don’t remember how to play? Take a few minutes to read the rules.
             </p>
 
-            <button name="Show rules" role="button" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
+            <button name="Show rules" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 block mx-auto mt-4 mb-6 font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><i class="fas fa-gavel mr-2"></i><span id="rulesBtnText">RULES</span></button>
 
             <hr aria-hidden="true" class="mobile:w-[50%] mb-10 mx-auto border-2 border-text rounded-full bg-text">
 
+            <!-- Theme Section -->
             <div id="setupDataContainer">
-                <div class="setup-section-container" aria-describedby="Users choose theme">
+                <div class="setup-section-container">
                     <h2 id="themeText" class="setup-text" tabindex="0">Select Theme:</h2>
                     <div class="btn-container">
                         <button data-theme="1" class="active-button"><i class="fas fa-volume-down mr-2" aria-roledescription="Play sound 1"></i>FX1</button>
@@ -31,7 +32,8 @@
                     </div>
                 </div>
 
-                <div class="setup-section-container" aria-describedby="Users choose number of players">
+                <!-- Players Number Section -->
+                <div class="setup-section-container">
                     <h2 id="playersText" class="setup-text" tabindex="0">Select Players:</h2>
                     <div class="btn-container">
                         <button data-players="1" class="active-button" tabindex="0" aria-roledescription="1 player" name="Single player"><i class="fas fa-user mr-2"></i>1 Player</button>
@@ -41,8 +43,8 @@
                     </div>
                 </div>
 
-
-                <div class="setup-section-container" aria-describedby="User choose game mode">
+                <!-- Mode Section -->
+                <div class="setup-section-container">
                     <h2 id="modeText" class="setup-text" tabindex="0">Select Mode:</h2>
                     <div class="btn-container">
                         <button data-mode="1" class="active-button" tabindex="0" aria-roledescription="Mode 1" name="Mode 1">Mode 1</button>
@@ -50,8 +52,8 @@
                     </div>
                 </div>
 
-
-                <div class="setup-section-container" aria-describedby="User choose game level">
+                <!-- Level Section -->
+                <div class="setup-section-container">
                     <h2 id="levelText" class="setup-text" tabindex="0">Select Level:</h2>
                     <div class="btn-container">
                         <button data-level="1" class="hover:bg-green-500 bg-green-600 level-button" tabindex="0" aria-roledescription="Level 1" name="Level 1">1</button>

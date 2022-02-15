@@ -1,4 +1,4 @@
-<div aria-modal="true"  id="score-modal" class="hidden absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-20 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto">
+<div aria-modal="true"  id="score-modal" class="hidden absolute-align w-full sm:w-[90%] sm:max-w-screen-sm p-4 sm:py-1 sm:px-8 bg-white sm:rounded-lg  sm:shadow-sm sm:shadow-white z-20 h-[100%] sm:max-h-[99%] sm:h-auto overflow-auto" role="dialog">
 
     <img class="w-[30%] absolute top-0 left-0" src="../src/assets/media/images/logo.svg" alt="Simon Logo">
     <div class="flex justify-between items-center">
@@ -7,12 +7,12 @@
 
     <div class="mx-auto mt-8 font-IBM text-text">
         <h1 id="scoreTitle" class="text-4xl font-extrabold text-center  mb-4" tabindex="0"></h1>
-        <p id="scoreText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto text-gray-400" tabindex="0" aria-label="Text introduction">
+        <p id="scoreText" class="text-center text-xl font-semibold mobile:max-w-[85%] mx-auto text-gray-400" tabindex="0">
         </p>
         <div id="scoresContainer"></div>
         <div class="flex justify-between">
-            <button data-restart="restart" name="Show rules" role="dialog" aria-label="Display the game's rules" id="restart-score-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="rulesBtnText">RESTART</span></button> 
-            <button onClick="window.location.reload();" name="Show rules" role="dialog" aria-label="Display the game's rules" id="rules-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="new-game-score-btn">SETUP NEW GAME</span></button>
+            <button data-restart="restart" name="Show rules" aria-label="Display the game's rules" id="restart-score-btn" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span>RESTART</span></button> 
+            <button onClick="window.location.reload();" name="Show rules" aria-label="Display the game's rules" class="bg-secondaryVariant p-2 mx-auto mt-4 mb-6 w-[40%] font-IBM font-bold text-lg text-white rounded-lg hover:bg-secondary hover:text-text"><span id="new-game-score-btn">SETUP NEW GAME</span></button>
         </div>    
     </div>
 </div>

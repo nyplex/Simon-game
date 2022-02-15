@@ -44,6 +44,7 @@ let setupInteraction = (game) => {
         const dataKeys = Object.keys(dataObject)[0]
         switch(dataKeys) {
             case "theme":
+                // Setup theme into game object
                 game.theme = $(e.target).data("theme")
                 $("*[data-theme]").removeClass("active-button").addClass("primary-button")
                 $(e.target).addClass("active-button")
@@ -58,11 +59,12 @@ let setupInteraction = (game) => {
                 }
                 else if($(e.target).data("theme") === 3) {
                     game.sounds = loadSoundFiles("fx3")
-                    let music = game.sounds["buzz"]
-                    music.play()
+                    let sample = new Audio("../src/assets/media/sounds/fx3/sample.wav")
+                    sample.play()
                 }
                 break;
             case "players":
+                // Setup player number into game object
                 game.playersNumber = $(e.target).data("players")
                 game.players = []
                 for(let i = 0; i < game.playersNumber; i++){
@@ -73,11 +75,13 @@ let setupInteraction = (game) => {
                 $(e.target).addClass("active-button")
                 break;
             case "mode":
+                // Setup mode into game object
                 game.mode = $(e.target).data("mode")
                 $("*[data-mode]").removeClass("active-button").addClass("primary-button")
                 $(e.target).addClass("active-button")
                 break;
             case "level": 
+            // Setup level into game object
             game.level = $(e.target).data("level")
             $("*[data-level]").removeClass()
             let levels = $("*[data-level]")
@@ -106,9 +110,11 @@ let setupInteraction = (game) => {
 
     $("#playButton").on("click", () => {
         $("#setup-modal, #rules-modal").slideUp()
+        //If more than 1 player, when user launch the game, open the multiplayer modal
         if(game.playersNumber > 1) {
             getUsersName(game)
         }else{
+            //launch the game 
             $("#main-header").removeClass("hidden")
             generateGamePlay(game)
         }

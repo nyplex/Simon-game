@@ -12,7 +12,7 @@ The main goal of this game is fun and entertainment. I want the user to enjoy th
 For a first-time player, I have written a set of rules that explain how to the game works.
 
 
-[Check out the webste here.](https://travelling-potatoes.fr/dist)
+[Check out the webste here.](https://nyplex.github.io/simon-live/)
 
 ![alt text](responsiveSimon.png)
 
@@ -125,7 +125,7 @@ The only identified bug in this application is:
 
 <h1 align="center">Deployment</h1>
 
-Simon game has been deployed on GitHub Pages click [here.](https://travelling-potatoes.fr/dist) to check the live application.
+Simon game has been deployed on GitHub Pages click [here.](https://nyplex.github.io/simon-live/) to check the live application.
 
 This project use different technologies (webpack, tailwindCSS, jQuery etc..), in order to have a working version of the project on your local machine, please follow these steps using your terminal:
 

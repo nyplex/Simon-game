@@ -66,6 +66,8 @@ I used Figma to make the wireframe.
   - Setup page
   - Main page
   - Mobile main page
+
+You can find the figma in the root project. The file's name is 'Material Design.fig'
  
 ## Colors
  
